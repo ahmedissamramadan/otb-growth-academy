@@ -1,4 +1,11 @@
-/* ==========================================================================
+import os
+import shutil
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+# Upgrade style.css with Apple Design principles
+apple_css = """/* ==========================================================================
    OTB TEAM AI HUB — APPLE DESIGN SYSTEM TRANSLATION
    Fluid Physics, Translucent Materials, Optical Typography & Zero Latency
    ========================================================================== */
@@ -570,3 +577,15 @@ body::after {
     backdrop-filter: none !important;
   }
 }
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(apple_css)
+
+print("Applied Apple Design System to style.css!")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")
