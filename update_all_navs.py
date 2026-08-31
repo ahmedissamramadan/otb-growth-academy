@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+import os
+import shutil
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+from build_entire_enterprise_system import get_header, get_footer
+
+# Update index.html hero and quick cards to include Mindmap and 19 Courses
+p_index = f"""<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -10,49 +19,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-  <header class="navbar">
-    <a href="index.html" class="brand-wrapper">
-      <span class="brand-crown">👑</span>
-      <div class="brand-text">
-        <h1>OTB GROWTH ACADEMY</h1>
-        <p>THE CITY KINGS · FULL-SPECTRUM ENTERPRISE LMS 2026</p>
-      </div>
-    </a>
-    <ul class="nav-menu">
-      <li class="nav-link-item"><a href="index.html" class="active">🏠 الرئيسية</a></li>
-<li class="nav-link-item"><a href="mindmap.html">🗺️ الخريطة الذهنية</a></li>
-<li class="nav-link-item"><a href="courses.html">📚 المقررات الـ 19</a></li>
-<li class="nav-link-item"><a href="sprint.html">⚡ المعسكر السريع</a></li>
-<li class="nav-link-item"><a href="masterclass.html">🎓 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-link-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
-<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs</a></li>
-<li class="nav-link-item"><a href="downloads.html">📥 التحميلات</a></li>
-
-    </ul>
-    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
-      <span>✨ مشروع NotebookLM الرسمي</span>
-    </a>
-  </header>
-
-  <div class="podcast-strip">
-    <div class="podcast-info">
-      <div class="live-badge">
-        <div class="pulse-dot"></div>
-        <span>استوديو التدريب الصوتي المعتمد</span>
-      </div>
-      <span style="color: var(--gold-200); font-size: 0.86rem; font-weight: 700;">🎙️ OTB Growth Engineering & AI Masterclass (Deep Dive Podcast)</span>
-    </div>
-    <div class="audio-controls-wrap">
-      <audio controls>
-        <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
-        متصفحك لا يدعم مشغل الصوت المباشر.
-      </audio>
-    </div>
-  </div>
-
+  {get_header("index.html")}
 
   <main class="container">
     
@@ -178,27 +145,12 @@
     </div>
 
   </main>
-  
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span style="font-size: 2.2rem;">👑</span>
-        <div>
-          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <div>📍 القاهرة، مصر</div>
-        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
-        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
-    </div>
-  </footer>
-  <script src="shared_ui.js"></script>
-
+  {get_footer()}
 </body>
 </html>
+"""
+
+with open(os.path.join(BASE_DIR, "index.html"), "w", encoding="utf-8") as f:
+    f.write(p_index)
+
+print("Updated index.html with 10-page master architecture!")
