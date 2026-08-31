@@ -1,10 +1,9 @@
 /* ==========================================================================
-   OTB TEAM AI HUB — UI/UX PRO MAX DESIGN SYSTEM SPECIFICATION
-   Dark Luxury Liquid Glass + Bento Grid + WCAG AAA Contrast + Zero Latency
+   OTB TEAM AI HUB — VERCEL REACT BEST PRACTICES STYLESHEET
+   GPU Acceleration, content-visibility optimization, Zero Cumulative Layout Shifts
    ========================================================================== */
 
 :root {
-  /* Dark Luxury Obsidian & Champagne Gold Palette (UI Pro Max verified) */
   --bg-main: #06080C;
   --bg-card: rgba(14, 18, 26, 0.76);
   --bg-card-hover: rgba(22, 28, 40, 0.88);
@@ -17,9 +16,7 @@
   --gold-accent: #E5C378;
 
   --emerald: #10B981;
-  --emerald-glow: rgba(16, 185, 129, 0.25);
   --crimson: #F43F5E;
-  --crimson-glow: rgba(244, 63, 94, 0.25);
   --cyan: #38BDF8;
 
   --text-pure: #FFFFFF;
@@ -29,14 +26,12 @@
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-gold: rgba(212, 168, 83, 0.32);
-  --border-gold-bright: rgba(212, 168, 83, 0.65);
 
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-full: 9999px;
 
-  /* Typography Hierarchy */
   --font-felfel: 'Felfel-Bold', 'Readex Pro', system-ui, -apple-system, sans-serif;
   --font-kookies: 'KOOkies-Bold', 'Readex Pro', system-ui, -apple-system, sans-serif;
   --font-kookies-black: 'KOOkies-ExtraBold', 'Readex Pro', system-ui, -apple-system, sans-serif;
@@ -44,9 +39,7 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-ui: -apple-system, BlinkMacSystemFont, 'Readex Pro', 'SF Pro Text', system-ui, sans-serif;
 
-  /* Apple Fluid Springs */
   --spring-snappy: cubic-bezier(0.2, 0, 0, 1);
-  --spring-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @font-face {
@@ -73,7 +66,7 @@
   font-display: swap;
 }
 
-/* Reset & Accessibility Defaults */
+/* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -98,9 +91,16 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  contain: paint;
 }
 
-/* Subtle WebGL Canvas */
+/* Vercel rendering-content-visibility rule for off-screen optimizations */
+.cv-optimize {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}
+
+/* WebGL Background */
 #webglCanvas {
   position: fixed;
   top: 0;
@@ -110,6 +110,7 @@ body {
   pointer-events: none;
   z-index: 0;
   opacity: 0.55;
+  will-change: transform;
 }
 
 /* Translucent Glass Navbar */
@@ -125,6 +126,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transform: translateZ(0); /* GPU layer */
 }
 
 .nav-brand {
@@ -171,7 +173,7 @@ body {
   font-weight: 700;
 }
 
-/* Clean Pill Navigation */
+/* Nav Pills */
 .nav-pills {
   display: flex;
   align-items: center;
@@ -187,12 +189,12 @@ body {
   border: none;
   color: var(--text-muted);
   padding: 0.48rem 1.05rem;
-  min-height: 44px; /* WCAG touch target */
+  min-height: 44px;
   border-radius: var(--radius-full);
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.18s var(--spring-snappy);
+  transition: color 0.15s ease, background 0.15s ease, transform 0.12s var(--spring-snappy);
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -214,7 +216,7 @@ body {
   box-shadow: 0 0 15px var(--gold-glow);
 }
 
-/* LTR Phone */
+/* Phone Button */
 .phone-wrapper {
   direction: ltr !important;
   unicode-bidi: isolate !important;
@@ -244,7 +246,7 @@ body {
   transform: scale(0.96);
 }
 
-/* Main App Container */
+/* Container */
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -253,7 +255,7 @@ body {
   z-index: 1;
 }
 
-/* Hero Section */
+/* Hero */
 .hero-wrapper {
   text-align: center;
   max-width: 820px;
@@ -296,7 +298,7 @@ body {
   margin: 0 auto;
 }
 
-/* Bento Cards */
+/* Glass Card */
 .glass-card {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
@@ -305,6 +307,7 @@ body {
   border-radius: var(--radius-md);
   padding: 1.75rem;
   transition: transform 0.25s var(--spring-snappy), border-color 0.25s ease, box-shadow 0.25s ease;
+  transform: translateZ(0);
 }
 
 .glass-card:hover {
@@ -313,7 +316,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Bento Grid System */
+/* Bento Grid */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -334,7 +337,7 @@ body {
   }
 }
 
-/* Role Selector Grid */
+/* Role Grid */
 .role-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -392,7 +395,7 @@ body {
   letter-spacing: 0.4px;
 }
 
-/* Selected Role Stage */
+/* Role Stage */
 .role-stage {
   background: rgba(10, 13, 20, 0.85);
   border: 1.5px solid var(--border-gold);
@@ -447,7 +450,7 @@ body {
   justify-content: center;
   gap: 0.45rem;
   padding: 0.65rem 1.4rem;
-  min-height: 44px; /* WCAG 44x44px */
+  min-height: 44px;
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 0.9rem;
@@ -503,7 +506,7 @@ body {
   margin: 0.65rem 0;
 }
 
-/* Tabs Row */
+/* Tabs */
 .tabs-row {
   display: flex;
   flex-wrap: wrap;

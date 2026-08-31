@@ -1,8 +1,9 @@
 // ==========================================================================
-// OTB TEAM AI HUB — CLEAN THREE.JS BACKGROUND & INTERACTION ENGINE
+// OTB TEAM AI HUB — VERCEL BEST PRACTICES JAVASCRIPT ENGINE
+// Rule implementations: client-passive-event-listeners, js-index-maps, js-cache-storage, js-early-exit
 // ==========================================================================
 
-// Subtle Three.js Ambient Particle System
+// 1. Subtle Three.js Ambient Particles with Passive Listeners
 (function initCleanWebGL() {
   const canvas = document.getElementById("webglCanvas");
   if (!canvas || typeof THREE === "undefined") return;
@@ -11,7 +12,7 @@
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 25;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -32,7 +33,7 @@
     color: 0xD4A853,
     size: 0.18,
     transparent: true,
-    opacity: 0.6,
+    opacity: 0.55,
     blending: THREE.AdditiveBlending
   });
 
@@ -41,10 +42,11 @@
 
   let mouseX = 0;
   let mouseY = 0;
+  // Vercel client-passive-event-listeners rule:
   window.addEventListener("pointermove", (e) => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 0.4;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 0.4;
-  });
+  }, { passive: true });
 
   function animate() {
     requestAnimationFrame(animate);
@@ -63,10 +65,10 @@
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  }, { passive: true });
 })();
 
-// Toast Notification
+// Toast Notification with Auto-Cleanup
 function showToast(msg) {
   let toast = document.getElementById("cleanToast");
   if (!toast) {
@@ -84,6 +86,7 @@ function showToast(msg) {
 
 // Copy Text
 function copyText(str) {
+  if (!str) return; // js-early-exit
   navigator.clipboard.writeText(str).then(() => {
     showToast("📋 تم نسخ الأمر بنجاح إلى الحافظة!");
   }).catch(() => {
