@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👑 OTB Growth Academy — The City Kings Internal Hub</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  
+import os
+import shutil
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+def get_header(active_page):
+    pages = [
+        ("index.html", "🏠 الرئيسية"),
+        ("sprint.html", "⚡ معسكر الـ 5 أيام"),
+        ("masterclass.html", "📚 الأكاديمية (4 أسابيع)"),
+        ("prompts.html", "🤖 استوديو الأوامر"),
+        ("case-studies.html", "💼 دراسات الحالة"),
+        ("quiz.html", "📝 الاختبار والشهادة"),
+        ("sops.html", "📋 الـ SOPs والبريفات"),
+        ("downloads.html", "📥 الموارد والتحميلات")
+    ]
+    
+    nav_links = ""
+    for url, title in pages:
+        active_cls = ' class="active"' if url == active_page else ""
+        nav_links += f'<li class="nav-link-item"><a href="{url}"{active_cls}>{title}</a></li>\n'
+        
+    return f"""
   <header class="navbar">
     <a href="index.html" class="brand-wrapper">
       <span class="brand-crown">👑</span>
@@ -20,15 +31,7 @@
       </div>
     </a>
     <ul class="nav-menu">
-      <li class="nav-link-item"><a href="index.html" class="active">🏠 الرئيسية</a></li>
-<li class="nav-link-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
-<li class="nav-link-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-link-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
-<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
-<li class="nav-link-item"><a href="downloads.html">📥 الموارد والتحميلات</a></li>
-
+      {nav_links}
     </ul>
     <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
       <span>✨ مشروع NotebookLM الرسمي</span>
@@ -50,7 +53,48 @@
       </audio>
     </div>
   </div>
+"""
 
+def get_footer():
+    return """
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span style="font-size: 2.2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
+    </div>
+  </footer>
+  <script src="shared_ui.js"></script>
+"""
+
+# ==============================================================================
+# 1. INDEX.HTML (DASHBOARD)
+# ==============================================================================
+p_index = f"""<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👑 OTB Growth Academy — The City Kings Internal Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  {get_header("index.html")}
 
   <main class="container">
     
@@ -204,27 +248,22 @@
     </div>
 
   </main>
-  
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span style="font-size: 2.2rem;">👑</span>
-        <div>
-          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <div>📍 القاهرة، مصر</div>
-        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
-        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
-    </div>
-  </footer>
-  <script src="shared_ui.js"></script>
-
+  {get_footer()}
 </body>
 </html>
+"""
+
+# ==============================================================================
+# WRITE ALL UPGRADED PAGES
+# ==============================================================================
+print("Writing upgraded HTML pages...")
+with open(os.path.join(BASE_DIR, "index.html"), "w", encoding="utf-8") as f:
+    f.write(p_index)
+
+print("Generated upgraded index.html")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")

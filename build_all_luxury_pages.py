@@ -1,45 +1,27 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚡ معسكر الـ 5 أيام السريع — OTB Growth Academy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .sub-tabs {
-      display: flex;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--gold-border);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-    }
-    .sub-tab-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 0.5rem 1rem;
-      border-radius: var(--radius-sm);
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-    .sub-tab-btn:hover {
-      background: rgba(245, 158, 11, 0.08);
-      color: var(--gold-200);
-    }
-    .sub-tab-btn.active {
-      background: rgba(245, 158, 11, 0.18);
-      color: var(--gold-400);
-      border: 1px solid var(--gold-border);
-    }
-  </style>
-</head>
-<body>
-  
+import os
+import shutil
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+def get_header(active_page):
+    pages = [
+        ("index.html", "🏠 الرئيسية"),
+        ("sprint.html", "⚡ معسكر الـ 5 أيام"),
+        ("masterclass.html", "📚 الأكاديمية (4 أسابيع)"),
+        ("prompts.html", "🤖 استوديو الأوامر"),
+        ("case-studies.html", "💼 دراسات الحالة"),
+        ("quiz.html", "📝 الاختبار والشهادة"),
+        ("sops.html", "📋 الـ SOPs والبريفات"),
+        ("downloads.html", "📥 الموارد والتحميلات")
+    ]
+    
+    nav_links = ""
+    for url, title in pages:
+        active_cls = ' class="active"' if url == active_page else ""
+        nav_links += f'<li class="nav-link-item"><a href="{url}"{active_cls}>{title}</a></li>\n'
+        
+    return f"""
   <header class="navbar">
     <a href="index.html" class="brand-wrapper">
       <span class="brand-crown">👑</span>
@@ -49,15 +31,7 @@
       </div>
     </a>
     <ul class="nav-menu">
-      <li class="nav-link-item"><a href="index.html">🏠 الرئيسية</a></li>
-<li class="nav-link-item"><a href="sprint.html" class="active">⚡ معسكر الـ 5 أيام</a></li>
-<li class="nav-link-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-link-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
-<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
-<li class="nav-link-item"><a href="downloads.html">📥 الموارد والتحميلات</a></li>
-
+      {nav_links}
     </ul>
     <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
       <span>✨ مشروع NotebookLM الرسمي</span>
@@ -79,7 +53,77 @@
       </audio>
     </div>
   </div>
+"""
 
+def get_footer():
+    return """
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span style="font-size: 2.2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
+    </div>
+  </footer>
+  <script src="shared_ui.js"></script>
+"""
+
+# ==============================================================================
+# SPRINT.HTML
+# ==============================================================================
+p_sprint = f"""<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ معسكر الـ 5 أيام السريع — OTB Growth Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sub-tabs {{
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--gold-border);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+    }}
+    .sub-tab-btn {{
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }}
+    .sub-tab-btn:hover {{
+      background: rgba(245, 158, 11, 0.08);
+      color: var(--gold-200);
+    }}
+    .sub-tab-btn.active {{
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--gold-400);
+      border: 1px solid var(--gold-border);
+    }}
+  </style>
+</head>
+<body>
+  {get_header("sprint.html")}
 
   <div class="breadcrumb-bar">
     <a href="index.html">الرئيسية</a> / <span>معسكر الـ 5 أيام السريع</span>
@@ -156,167 +200,160 @@
     </div>
 
   </main>
-  
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span style="font-size: 2.2rem;">👑</span>
-        <div>
-          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <div>📍 القاهرة، مصر</div>
-        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
-        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
-    </div>
-  </footer>
-  <script src="shared_ui.js"></script>
-
+  {get_footer()}
 
   <script>
     const sprintData = [
-      {
+      {{
         day: 1,
         tag: "اليوم الأول · الاستراتيجية والتموضع",
         title: "تحليل السوق الاستراتيجي وبناء الهوية وتموضع البراند (STP & Positioning)",
         meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة ورشة تطبيقية · 👥 المستهدفون: الاستراتيجيون ومدراء الحسابات",
         theory: "<p><b>نموذج STP في السوق الواقعي:</b><br>• <b>Segmentation:</b> تقسيم السوق سلوكياً ونفسياً وجغرافياً في مصر والوطن العربي.<br>• <b>Targeting:</b> اختيار الشريحة ذات أعلى قيمة عمرية (LTV) وأقل تكلفة اكتساب (CAC).<br>• <b>Positioning:</b> حفر تموضع ملكي لا يُنسى في ذهن المستهلك يجعلك تصنع الاتجاهات ولا تتبعها.</p>",
         caseStudy: "<p><b>دراسة حالة حقيقية: MIX Coffee</b><br>تم تحويل البراند من مجرد كافيه تقليدي إلى وجهة أولى للشباب ورواد الأعمال مع هوية بصرية داكنة وفيديوهات ASMR لتحضير القهوة المختصة الإثيوبية، مما حقق <b>+180% نمواً في التفاعل</b> ومضاعفة مبيعات الفروع.</p>",
-        templates: "<div class='prompt-box'>معادلة التموضع (Positioning Statement):\n[Target Audience] + [Category] + [Differentiating Benefit] + [Reason to Believe]\n\nمثال OTB:\nلأصحاب الشركات الباحثين عن النمو الحقيقي، OTB Agency هي الوكالة التسويقية الأولى التي تبني لك هوية ملكية وحملات أداء مدفوعة بالعائد المالي لأننا نملك خبرة 7+ سنوات وندير ميزانيات تفوق مئات الآلاف شهرياً.</div>",
+        templates: "<div class='prompt-box'>معادلة التموضع (Positioning Statement):\\n[Target Audience] + [Category] + [Differentiating Benefit] + [Reason to Believe]\\n\\nمثال OTB:\\nلأصحاب الشركات الباحثين عن النمو الحقيقي، OTB Agency هي الوكالة التسويقية الأولى التي تبني لك هوية ملكية وحملات أداء مدفوعة بالعائد المالي لأننا نملك خبرة 7+ سنوات وندير ميزانيات تفوق مئات الآلاف شهرياً.</div>",
         lab: "<p><b>المطلوب تسليمه:</b><br>1. اختيار أحد عملاء الوكالة وملء وثيقة البريف الاستراتيجي.<br>2. استخراج 3 زوايا تسويقية غير تقليدية تستغل فجوات المنافسين في السوق المصري.</p>"
-      },
-      {
+      }},
+      {{
         day: 2,
         tag: "اليوم الثاني · الكرييتف والمحتوى الفيرال",
         title: "محرك الكرييتف الإعلاني والكوبي رايتنج وسيكولوجية الفيديو القصير",
         meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة كتابة وتصوير · 👥 المستهدفون: صناع المحتوى والمصممون والمونتيرون",
         theory: "<p><b>سيكولوجية الفيديو القصير (Reels & TikTok):</b><br>• <b>الثواني الـ 3 الأولى (Hook Rate > 35%):</b> كسر التمرير (Pattern Interrupt) بصرياً وصوتياً.<br>• <b>الثواني 3-15 (Hold Rate > 15%):</b> بناء الفضول وتعميق الألم النفسي.<br>• <b>الثواني 15-25:</b> تقديم العرض الذي لا يقاوم (Grand Slam Offer).<br>• <b>الثواني 25-30:</b> نداء واضح للفعل (CTA) يوجه للشراء المباشر.</p>",
         caseStudy: "<p><b>دراسة حالة: Rancho's EG</b><br>تطبيق نموذج PAS (Problem - Agitation - Solution) مع فيديو ريلز يظهر تقطيع البرجر المدخن الملحمي وصوص الجبنة الساخن، مما أوقف التمرير ورفع نسبة الطلب عبر الواتساب بنسبة 65% في الأسبوع الأول.</p>",
-        templates: "<div class='prompt-box'>نموذج PAS الإعلاني لـ Rancho's:\nProblem: تعبت من ساندوتشات البرجر اللي كلها عيش واللحمة ملهاش طعم؟\nAgitation: بتدفع مبلغ محترم وفي الآخر بيجيلك بارد والجبنة مجلدة وتندم على الخروجة.\nSolution: في Rancho's مش بنعمل برجر عادي.. قطمة واحدة من الـ Smoked Double Beef بالصوص السري وهتعرف يعني إيه برجر ملوك حقيقي! اطلب الآن عبر الواتساب ويوصلك سخن نار.</div>",
+        templates: "<div class='prompt-box'>نموذج PAS الإعلاني لـ Rancho's:\\nProblem: تعبت من ساندوتشات البرجر اللي كلها عيش واللحمة ملهاش طعم؟\\nAgitation: بتدفع مبلغ محترم وفي الآخر بيجيلك بارد والجبنة مجلدة وتندم على الخروجة.\\nSolution: في Rancho's مش بنعمل برجر عادي.. قطمة واحدة من الـ Smoked Double Beef بالصوص السري وهتعرف يعني إيه برجر ملوك حقيقي! اطلب الآن عبر الواتساب ويوصلك سخن نار.</div>",
         lab: "<p><b>المطلوب تسليمه:</b><br>كتابة 3 نصوص إعلانية بـ 3 زوايا مختلفة (فكاهية، FOMO، هيبة اجتماعية) وتصميم اسكريبت ستوري بورد كامل لريل مدته 15 ثانية.</p>"
-      },
-      {
+      }},
+      {{
         day: 3,
         tag: "اليوم الثالث · الميديا بايينج والأرقام",
         title: "ميديا بايينج الأداء على ميتا وتيك توك وسكيلينج الـ ROAS",
         meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة تحليل حسابات إعلانية · 👥 المستهدفون: الميديا بايرز وهندسة النمو",
         theory: "<p><b>هياكل الحملات وقواعد السكيلينج:</b><br>• <b>Advantage+ & Broad Targeting:</b> الاستهداف المفتوح مع تغذية الخوارزمية بكرييتفز قوية.<br>• <b>Conversions API (CAPI):</b> ربط التتبع بالسيرفر لتجاوز قيود iOS 14.5+ بجودة مطابقة > 8.0/10.<br>• <b>قاعدة الـ 20%:</b> التوسع الرأسي برفع الميزانية 20% فقط كل 48-72 ساعة لحماية استقرار الحملة.</p>",
         caseStudy: "<p><b>دراسة حالة: Dr. Zaghloul Jewelry & Sakr Store</b><br>بناء هيكل حملات TOFU (Broad 60%) و MOFU (Engagers 25%) و BOFU (Cart Abandoners 15%)، مما حقق ROAS يتجاوز 7.5x لقطع المجوهرات وخفض تكلفة الشراء بنسبة 32% لمتجر صقر.</p>",
-        templates: "<div class='prompt-box'>معادلات الميديا باير المالية:\nBreak-Even ROAS = 1 / Gross Profit Margin %\n(إذا كان الهامش 25%، التعادل = 4.0x)\n\nCAC = إجمالي الإنفاق التسويقي / عدد العملاء الجدد المكتسبين\n\nقاعدة الإيقاف: أي Ad Set ينفق 2x Target CPA بدون تحويلات يتم إيقافه فوراً.</div>",
+        templates: "<div class='prompt-box'>معادلات الميديا باير المالية:\\nBreak-Even ROAS = 1 / Gross Profit Margin %\\n(إذا كان الهامش 25%، التعادل = 4.0x)\\n\\nCAC = إجمالي الإنفاق التسويقي / عدد العملاء الجدد المكتسبين\\n\\nقاعدة الإيقاف: أي Ad Set ينفق 2x Target CPA بدون تحويلات يتم إيقافه فوراً.</div>",
         lab: "<p><b>المطلوب تسليمه:</b><br>تدقيق حساب إعلاني نشط لأحد عملاء الوكالة، فحص مطابقة CAPI، وإعداد مصفوفة الميزانية الأسبوعية وجدول الـ Testing & Scaling.</p>"
-      },
-      {
+      }},
+      {{
         day: 4,
         tag: "اليوم الرابع · الذكاء الاصطناعي والأتمتة",
         title: "الذكاء الاصطناعي التسويقي وهندسة الأوامر وأتمتة الليدز",
         meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة بناء مسار أتمتة · 👥 المستهدفون: جميع أعضاء الفريق",
         theory: "<p><b>إطار هندسة الأوامر RCIC:</b><br>• <b>Role:</b> تحديد شخصية وخبرة الذكاء الاصطناعي بدقة.<br>• <b>Context:</b> تفاصيل البيزنس، الجمهور المستهدف، وعرض العميل.<br>• <b>Instruction:</b> المهمة الواضحة المطلوب إنتاجها بالتفصيل.<br>• <b>Constraints:</b> القيود، الممنوعات، والنبرة الملكية الصارمة.</p>",
         caseStudy: "<p><b>دراسة حالة: مسار WhatsApp API التلقائي</b><br>ربط إعلانات Click-to-WhatsApp بـ Bot يقوم فوراً بالترحيب بالاسم، تصنيف طلب العميل، إرسال الكتالوج والعرض، وتسجيل الطلب في ثوانٍ، مما رفع معدل إتمام الصفقات بنسبة 40%.</p>",
-        templates: "<div class='prompt-box'>أمر RCIC المعتمد لتوليد إعلانات:\nRole: Senior Growth Marketer & Direct-Response Copywriter at OTB Agency.\nContext: Client is [Brand Name] in Egypt, targeting young adults aged 20-35.\nTask: Write 3 ad variations using PAS framework in refined modern Egyptian Arabic.\nConstraints: Bold tone, no clichés, clear scarcity CTA for WhatsApp ordering.</div>",
+        templates: "<div class='prompt-box'>أمر RCIC المعتمد لتوليد إعلانات:\\nRole: Senior Growth Marketer & Direct-Response Copywriter at OTB Agency.\\nContext: Client is [Brand Name] in Egypt, targeting young adults aged 20-35.\\nTask: Write 3 ad variations using PAS framework in refined modern Egyptian Arabic.\\nConstraints: Bold tone, no clichés, clear scarcity CTA for WhatsApp ordering.</div>",
         lab: "<p><b>المطلوب تسليمه:</b><br>استخدام أوامر الـ AI لتوليد 5 إعلانات وبرودكت شوت 3D لعميل حقيقي، ورسم مخطط لمسار الردود التلقائية عبر WhatsApp API.</p>"
-      },
-      {
+      }},
+      {{
         day: 5,
         tag: "اليوم الخامس · التشغيل وعقود الريتينر",
         title: "الانضباط التشغيلي وإدارة المشاريع وعقود الريتينر الشهرية",
         meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة محاكاة إغلاق الصفقات · 👥 المستهدفون: الإدارة ومدراء الحسابات",
         theory: "<p><b>منع الهدر التشغيلي داخل CoreLink CRM:</b><br>• <b>لا مهمة بدون بريف إلزامي:</b> منع التعليمات الشفهية تماماً.<br>• <b>Sequential Locking:</b> لا يبدأ التصميم إلا بعد اعتماد نصوص الكوبي رايتنج بنسبة 100%.<br>• <b>قاعدة الـ 24 ساعة (SLA):</b> اعتماد المهام المرفوعة لـ Cloudflare R2 خلال 24 ساعة والتصعيد للإدارة بعد 48 ساعة.</p>",
         caseStudy: "<p><b>باقات الريتينر الشهرية لـ OTB:</b><br>• <b>Growth Starter ($1,200/شهر):</b> للشركات الناشئة.<br>• <b>Dominance Retainer 👑 ($2,500/شهر):</b> للبراندات المتوسطة وسلاسل الفروع (هوية + 24 محتوى + ميديا بايينج + أتمتة).<br>• <b>Enterprise Scale ($4,500+/شهر):</b> للشركات الكبرى ومتاجر التجارة الإلكترونية الضخمة.</p>",
-        templates: "<div class='prompt-box'>خطاب إغلاق عقد الريتينر الشهري:\nنحن في OTB لا نبيع مجرد بوستات وتصاميم، بل نبني لك محرك نمو متكامل يربط الهوية البصرية بالإعلانات الممولة وأتمتة المبيعات لتحقيق أعلى عائد مالي (ROAS) مضمون ومدروس.</div>",
+        templates: "<div class='prompt-box'>خطاب إغلاق عقد الريتينر الشهري:\\nنحن في OTB لا نبيع مجرد بوستات وتصاميم، بل نبني لك محرك نمو متكامل يربط الهوية البصرية بالإعلانات الممولة وأتمتة المبيعات لتحقيق أعلى عائد مالي (ROAS) مضمون ومدروس.</div>",
         lab: "<p><b>المطلوب تسليمه:</b><br>تقديم خطة نمو شهرية مصغرة لعميل حقيقي تتضمن (الاستراتيجية، عينة المحتوى، خطة الإعلانات، ومسار الأتمتة) وتحديث ملفات الـ SOPs الخاصة بك.</p>"
-      }
+      }}
     ];
 
     let currentDay = 1;
     let currentSubTab = "theory";
 
-    function loadDay(dayNum) {
+    function loadDay(dayNum) {{
       currentDay = dayNum;
-      document.querySelectorAll(".sidebar-item").forEach((item, idx) => {
+      document.querySelectorAll(".sidebar-item").forEach((item, idx) => {{
         if (idx + 1 === dayNum) item.classList.add("active");
         else item.classList.remove("active");
-      });
+      }});
 
       renderLesson();
-    }
+    }}
 
-    function switchSubTab(tabKey) {
+    function switchSubTab(tabKey) {{
       currentSubTab = tabKey;
       renderLesson();
-    }
+    }}
 
-    function toggleCompleteDay(dayNum) {
+    function toggleCompleteDay(dayNum) {{
       const key = "otb_sprint_day_" + dayNum;
       const current = localStorage.getItem(key) === "true";
       localStorage.setItem(key, !current);
       updateProgress();
       renderLesson();
       showToast(!current ? "👑 تم تسجيل إكمال اليوم بنجاح!" : "تم إلغاء تحديد الإكمال");
-    }
+    }}
 
-    function updateProgress() {
+    function updateProgress() {{
       let completed = 0;
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 5; i++) {{
         const isDone = localStorage.getItem("otb_sprint_day_" + i) === "true";
         const checkEl = document.getElementById("checkDay" + i);
-        if (checkEl) {
+        if (checkEl) {{
           checkEl.innerHTML = isDone ? "✅ مكتمل" : "○ لم يكتمل";
           checkEl.style.color = isDone ? "var(--emerald)" : "var(--text-dim)";
-        }
+        }}
         if (isDone) completed++;
-      }
+      }}
       const pct = Math.round((completed / 5) * 100);
       const badge = document.getElementById("sprintProgressBadge");
       if (badge) badge.innerText = pct + "% مكتمل";
-    }
+    }}
 
-    function renderLesson() {
+    function renderLesson() {{
       const d = sprintData.find(item => item.day === currentDay);
       const isDone = localStorage.getItem("otb_sprint_day_" + currentDay) === "true";
       const container = document.getElementById("lessonContainer");
 
       let contentHtml = "";
-      if (currentSubTab === "theory") contentHtml = `<div class="lesson-box"><h3>الأطر والنماذج النظرية المعتمدة</h3>${d.theory}</div>`;
-      else if (currentSubTab === "caseStudy") contentHtml = `<div class="lesson-box" style="border-right-color: var(--cyan);"><h3>دراسة الحالة التطبيقية لعملاء OTB</h3>${d.caseStudy}</div>`;
-      else if (currentSubTab === "templates") contentHtml = `<div class="lesson-box" style="border-right-color: var(--emerald);"><h3>قوالب التنفيذ والمعادلات التكتيكية</h3>${d.templates}</div>`;
-      else if (currentSubTab === "lab") contentHtml = `<div class="lesson-box" style="border-right-color: var(--purple);"><h3>ورشة العمل والتكليف الإلزامي</h3>${d.lab}</div>`;
+      if (currentSubTab === "theory") contentHtml = `<div class="lesson-box"><h3>الأطر والنماذج النظرية المعتمدة</h3>${{d.theory}}</div>`;
+      else if (currentSubTab === "caseStudy") contentHtml = `<div class="lesson-box" style="border-right-color: var(--cyan);"><h3>دراسة الحالة التطبيقية لعملاء OTB</h3>${{d.caseStudy}}</div>`;
+      else if (currentSubTab === "templates") contentHtml = `<div class="lesson-box" style="border-right-color: var(--emerald);"><h3>قوالب التنفيذ والمعادلات التكتيكية</h3>${{d.templates}}</div>`;
+      else if (currentSubTab === "lab") contentHtml = `<div class="lesson-box" style="border-right-color: var(--purple);"><h3>ورشة العمل والتكليف الإلزامي</h3>${{d.lab}}</div>`;
 
       container.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--gold-border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
           <div>
-            <span class="page-pill">${d.tag}</span>
-            <h2 style="font-size: 1.7rem; color: var(--gold-100); margin: 0.4rem 0;">${d.title}</h2>
-            <p style="color: var(--text-muted); font-size: 0.88rem;">${d.meta}</p>
+            <span class="page-pill">${{d.tag}}</span>
+            <h2 style="font-size: 1.7rem; color: var(--gold-100); margin: 0.4rem 0;">${{d.title}}</h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem;">${{d.meta}}</p>
           </div>
-          <button class="${isDone ? 'btn-secondary' : 'btn-primary'}" onclick="toggleCompleteDay(${currentDay})">
-            ${isDone ? '✅ تم إكمال هذا اليوم' : '🎯 تحديد كـ مكتمل'}
+          <button class="${{isDone ? 'btn-secondary' : 'btn-primary'}}" onclick="toggleCompleteDay(${{currentDay}})">
+            ${{isDone ? '✅ تم إكمال هذا اليوم' : '🎯 تحديد كـ مكتمل'}}
           </button>
         </div>
 
         <div class="sub-tabs">
-          <button class="sub-tab-btn ${currentSubTab === 'theory' ? 'active' : ''}" onclick="switchSubTab('theory')">📖 الأطر والنماذج</button>
-          <button class="sub-tab-btn ${currentSubTab === 'caseStudy' ? 'active' : ''}" onclick="switchSubTab('caseStudy')">💼 دراسة الحالة</button>
-          <button class="sub-tab-btn ${currentSubTab === 'templates' ? 'active' : ''}" onclick="switchSubTab('templates')">📐 القوالب والمعادلات</button>
-          <button class="sub-tab-btn ${currentSubTab === 'lab' ? 'active' : ''}" onclick="switchSubTab('lab')">🧪 ورشة العمل والتكليف</button>
+          <button class="sub-tab-btn ${{currentSubTab === 'theory' ? 'active' : ''}}" onclick="switchSubTab('theory')">📖 الأطر والنماذج</button>
+          <button class="sub-tab-btn ${{currentSubTab === 'caseStudy' ? 'active' : ''}}" onclick="switchSubTab('caseStudy')">💼 دراسة الحالة</button>
+          <button class="sub-tab-btn ${{currentSubTab === 'templates' ? 'active' : ''}}" onclick="switchSubTab('templates')">📐 القوالب والمعادلات</button>
+          <button class="sub-tab-btn ${{currentSubTab === 'lab' ? 'active' : ''}}" onclick="switchSubTab('lab')">🧪 ورشة العمل والتكليف</button>
         </div>
 
-        ${contentHtml}
+        ${{contentHtml}}
 
         <div style="display: flex; justify-content: space-between; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gold-border);">
-          ${currentDay > 1 ? `<button class="btn-secondary" onclick="loadDay(${currentDay - 1})">← اليوم السابق</button>` : '<div></div>'}
-          ${currentDay < 5 ? `<button class="btn-primary" onclick="loadDay(${currentDay + 1})">اليوم التالي →</button>` : '<a href="quiz.html" class="btn-primary">الانتقال لاختبار الكفاءة والشهادة 👑</a>'}
+          ${{currentDay > 1 ? `<button class="btn-secondary" onclick="loadDay(${{currentDay - 1}})">← اليوم السابق</button>` : '<div></div>'}}
+          ${{currentDay < 5 ? `<button class="btn-primary" onclick="loadDay(${{currentDay + 1}})">اليوم التالي →</button>` : '<a href="quiz.html" class="btn-primary">الانتقال لاختبار الكفاءة والشهادة 👑</a>'}}
         </div>
       `;
-    }
+    }}
 
     loadDay(1);
     updateProgress();
   </script>
 </body>
 </html>
+"""
+
+# WRITE ALL PAGES
+print("Writing upgraded multi-page platform files...")
+with open(os.path.join(BASE_DIR, "sprint.html"), "w", encoding="utf-8") as f:
+    f.write(p_sprint)
+
+print("Generated upgraded sprint.html")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")

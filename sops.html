@@ -12,41 +12,43 @@
 <body>
   
   <header class="navbar">
-    <a href="index.html" class="brand-link">
-      <span class="crown-logo">👑</span>
-      <div class="brand-info">
+    <a href="index.html" class="brand-wrapper">
+      <span class="brand-crown">👑</span>
+      <div class="brand-text">
         <h1>OTB GROWTH ACADEMY</h1>
         <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
       </div>
     </a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
-<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
-<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
-<li class="nav-item"><a href="sops.html" class="active">📋 الـ SOPs والبريفات</a></li>
-<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+    <ul class="nav-menu">
+      <li class="nav-link-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-link-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-link-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-link-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-link-item"><a href="sops.html" class="active">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-link-item"><a href="downloads.html">📥 الموارد والتحميلات</a></li>
 
     </ul>
-    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
-      <span>✨ مشروع NotebookLM</span>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
+      <span>✨ مشروع NotebookLM الرسمي</span>
     </a>
   </header>
 
-  <div class="audio-banner">
-    <div class="audio-title-group">
-      <div class="live-indicator">
+  <div class="podcast-strip">
+    <div class="podcast-info">
+      <div class="live-badge">
         <div class="pulse-dot"></div>
         <span>استوديو التدريب الصوتي المعتمد</span>
       </div>
-      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+      <span style="color: var(--gold-200); font-size: 0.86rem; font-weight: 700;">🎙️ OTB Growth Engineering & AI Masterclass (Deep Dive Podcast)</span>
     </div>
-    <audio controls class="custom-audio-player">
-      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
-      متصفحك لا يدعم مشغل الصوت المباشر.
-    </audio>
+    <div class="audio-controls-wrap">
+      <audio controls>
+        <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+        متصفحك لا يدعم مشغل الصوت المباشر.
+      </audio>
+    </div>
   </div>
 
 
@@ -57,50 +59,56 @@
   <main class="container">
     
     <div class="page-header">
-      <span class="page-tag">OPERATIONAL EXCELLENCE & CRM</span>
+      <span class="page-pill">OPERATIONAL DISCIPLINE & CRM</span>
       <h1 class="page-title">الانضباط التشغيلي: <span>مولد البريفات القياسية وإجراءات CoreLink</span></h1>
-      <p class="page-subtitle">القضاء على متلازمة التوجيه الفارغ، توحيد نماذج الإسناد، وضمان التزام الفرق باتفاقيات مستوى الخدمة (SLA).</p>
+      <p class="page-subtitle">القضاء على متلازمة التوجيه الفارغ (Empty Brief)، توحيد نماذج الإسناد للأقسام، وضمان التزام الفرق باتفاقيات مستوى الخدمة (SLA).</p>
     </div>
 
-    <div class="grid-2" style="margin-bottom: 3rem;">
-      <div class="card" style="border: 2px solid var(--gold-primary);">
-        <h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 1.25rem;">⚙️ مولد البريف الإلزامي للقسم</h3>
+    <!-- INTERACTIVE BRIEF BUILDER WIZARD -->
+    <div class="grid-2" style="margin-bottom: 3.5rem;">
+      <div class="card" style="border: 2px solid var(--gold-500);">
+        <h3 style="color: var(--gold-100); font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem;">⚙️ مولد البريف الإلزامي للقسم</h3>
+        
         <div class="form-group">
-          <label class="form-label">اسم العميل / البراند:</label>
-          <input type="text" id="sopClient" class="form-input" value="Rancho's EG">
+          <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--gold-200); margin-bottom: 0.4rem;">اسم العميل / البراند:</label>
+          <input type="text" id="sopClient" class="btn-secondary" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); color: #FFF; background: var(--bg-surface); text-align: right;" value="Rancho's EG" oninput="buildBrief()">
         </div>
+
         <div class="form-group">
-          <label class="form-label">القسم والتكليف:</label>
-          <select id="sopType" class="form-select">
+          <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--gold-200); margin-bottom: 0.4rem;">القسم والتكليف:</label>
+          <select id="sopType" class="btn-secondary" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); color: #FFF; background: var(--bg-surface); text-align: right;" onchange="buildBrief()">
             <option>كتابة محتوى وكوبي رايتنج إعلاني (Copywriting)</option>
             <option>تصميم سوشيال ميديا وموشن جرافيك (Design/Video)</option>
             <option>إطلاق وإدارة حملات ميديا بايينج ممولة (Media Buying)</option>
             <option>أتمتة رسائل واتساب وخدمة عملاء (WhatsApp CRM)</option>
           </select>
         </div>
+
         <div class="form-group">
-          <label class="form-label">الهدف التسويقي الأساسي:</label>
-          <input type="text" id="sopGoal" class="form-input" value="مضاعفة مبيعات فرع التجمع ورفع متوسط الفاتورة">
+          <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--gold-200); margin-bottom: 0.4rem;">الهدف التسويقي الأساسي:</label>
+          <input type="text" id="sopGoal" class="btn-secondary" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); color: #FFF; background: var(--bg-surface); text-align: right;" value="مضاعفة مبيعات فرع التجمع ورفع متوسط الفاتورة" oninput="buildBrief()">
         </div>
+
         <div class="form-group">
-          <label class="form-label">الزاوية الإعلانية (Angle):</label>
-          <input type="text" id="sopAngle" class="form-input" value="زاوية الطعم الملحمي الحصري للـ Smoked Brisket">
+          <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--gold-200); margin-bottom: 0.4rem;">الزاوية الإعلانية (Angle):</label>
+          <input type="text" id="sopAngle" class="btn-secondary" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-sm); color: #FFF; background: var(--bg-surface); text-align: right;" value="زاوية الطعم الملحمي الحصري للـ Smoked Brisket" oninput="buildBrief()">
         </div>
+
         <div class="form-group">
-          <label class="form-label">المحددات والممنوعات ونبرة الصوت:</label>
-          <textarea id="sopNotes" class="form-textarea" rows="3">النبرة ملكية وواثقة بالعامية المصرية الراقية. ممنوع العبارات المبتذلة. الـ CTA يوجه لطلب القائمة عبر واتساب.</textarea>
+          <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--gold-200); margin-bottom: 0.4rem;">المحددات ونبرة الصوت والممنوعات:</label>
+          <textarea id="sopNotes" class="btn-secondary" style="width: 100%; height: 90px; padding: 0.75rem 1rem; border-radius: var(--radius-sm); color: #FFF; background: var(--bg-surface); text-align: right; resize: vertical;" oninput="buildBrief()">النبرة ملكية وواثقة بالعامية المصرية الراقية. ممنوع العبارات المبتذلة. الـ CTA يوجه لطلب القائمة عبر واتساب.</textarea>
         </div>
-        <button class="btn-primary" style="width: 100%;" onclick="generateSopBrief()">⚡ توليد البريف القياسي الآن</button>
       </div>
 
       <div class="card">
-        <h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 1.25rem;">📋 النص الجاهز للإسناد في CoreLink CRM</h3>
-        <textarea id="sopResult" class="form-textarea" style="height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; line-height: 1.7;" readonly placeholder="اضغط على زر التوليد وسيظهر البريف هنا..."></textarea>
-        <button class="btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="copyBriefText()">📋 نسخ البريف للإسناد الفوري</button>
+        <h3 style="color: var(--gold-100); font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem;">📋 النص الجاهز للإسناد في CoreLink CRM</h3>
+        <textarea id="sopResult" class="prompt-box" style="height: 380px; width: 100%; max-height: none;" readonly></textarea>
+        <button class="btn-primary" style="width: 100%; margin-top: 1rem;" onclick="copyBriefText()">📋 نسخ البريف للإسناد الفوري في CoreLink</button>
       </div>
     </div>
 
-    <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--gold-light); margin-bottom: 1.5rem; border-right: 4px solid var(--gold-primary); padding-right: 0.75rem;">
+    <!-- SOPS RULES -->
+    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--gold-100); margin-bottom: 1.75rem; border-right: 4px solid var(--gold-500); padding-right: 0.85rem;">
       🛡️ القواعد الأربع لمنع الهدر التشغيلي في OTB
     </h2>
 
@@ -129,12 +137,12 @@
   </main>
   
   <footer class="footer">
-    <div class="footer-content">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <span style="font-size: 2rem;">👑</span>
+        <span style="font-size: 2.2rem;">👑</span>
         <div>
-          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
         </div>
       </div>
       <div class="footer-contact">
@@ -144,13 +152,14 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
     </div>
   </footer>
+  <script src="shared_ui.js"></script>
 
 
   <script>
-    function generateSopBrief() {
+    function buildBrief() {
       const client = document.getElementById("sopClient").value || "العميل";
       const type = document.getElementById("sopType").value;
       const goal = document.getElementById("sopGoal").value || "تحقيق مبيعات";
@@ -182,13 +191,10 @@
 
     function copyBriefText() {
       const txt = document.getElementById("sopResult").value;
-      if (!txt) return alert("يرجى توليد البريف أولاً!");
-      navigator.clipboard.writeText(txt).then(() => {
-        alert("تم نسخ البريف بنجاح! جاهز للصق في CoreLink CRM.");
-      });
+      copyText(txt, "👑 تم نسخ البريف بنجاح! جاهز للإسناد في CoreLink CRM.");
     }
 
-    generateSopBrief();
+    buildBrief();
   </script>
 </body>
 </html>

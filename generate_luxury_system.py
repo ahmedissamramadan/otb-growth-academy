@@ -1,4 +1,13 @@
+import os
+import shutil
 
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+# ==========================================
+# 1. LUXURY CSS (style.css)
+# ==========================================
+luxury_css = """
 :root {
   --bg-main: #06080D;
   --bg-sub: #0B0F19;
@@ -523,3 +532,9 @@ body {
   font-size: 0.8rem;
   color: var(--text-dim);
 }
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(luxury_css)
+
+print("Luxury style.css generated successfully!")

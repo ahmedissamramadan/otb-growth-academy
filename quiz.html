@@ -9,59 +9,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .quiz-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-      transition: var(--transition-smooth);
-    }
     .quiz-option {
       display: block;
-      padding: 1rem 1.25rem;
+      padding: 1.1rem 1.35rem;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-sm);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
       cursor: pointer;
-      font-size: 0.95rem;
-      transition: var(--transition-smooth);
+      font-size: 0.96rem;
+      transition: var(--transition-fast);
     }
     .quiz-option:hover {
       background: rgba(245, 158, 11, 0.08);
-      border-color: var(--gold-primary);
+      border-color: var(--gold-500);
+      transform: translateX(-3px);
     }
     .quiz-option.selected {
-      background: rgba(245, 158, 11, 0.2);
-      border-color: var(--gold-primary);
-      color: var(--gold-light);
-      font-weight: 700;
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--gold-500);
+      color: var(--gold-100);
+      font-weight: 800;
     }
     .quiz-option.correct {
-      background: rgba(16, 185, 129, 0.25) !important;
+      background: rgba(16, 185, 129, 0.28) !important;
       border-color: var(--emerald) !important;
       color: #FFF !important;
     }
     .quiz-option.wrong {
-      background: rgba(225, 29, 72, 0.25) !important;
+      background: rgba(225, 29, 72, 0.28) !important;
       border-color: var(--crimson) !important;
     }
     .certificate-box {
-      background: #000;
-      border: 4px solid var(--gold-primary);
-      border-radius: 16px;
-      padding: 3rem 2rem;
+      background: #020305;
+      border: 6px solid var(--gold-500);
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
       text-align: center;
       position: relative;
-      box-shadow: 0 0 50px rgba(245, 158, 11, 0.3);
-      margin-top: 2rem;
+      box-shadow: 0 0 60px rgba(245, 158, 11, 0.35);
+      margin-top: 2.5rem;
     }
     .cert-title {
       font-family: 'Cinzel', serif;
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 900;
-      color: var(--gold-primary);
+      color: var(--gold-400);
       letter-spacing: 2px;
       margin: 1rem 0;
     }
@@ -70,41 +63,43 @@
 <body>
   
   <header class="navbar">
-    <a href="index.html" class="brand-link">
-      <span class="crown-logo">👑</span>
-      <div class="brand-info">
+    <a href="index.html" class="brand-wrapper">
+      <span class="brand-crown">👑</span>
+      <div class="brand-text">
         <h1>OTB GROWTH ACADEMY</h1>
         <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
       </div>
     </a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
-<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
-<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-item"><a href="quiz.html" class="active">📝 الاختبار والشهادة</a></li>
-<li class="nav-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
-<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+    <ul class="nav-menu">
+      <li class="nav-link-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-link-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-link-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-link-item"><a href="quiz.html" class="active">📝 الاختبار والشهادة</a></li>
+<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-link-item"><a href="downloads.html">📥 الموارد والتحميلات</a></li>
 
     </ul>
-    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
-      <span>✨ مشروع NotebookLM</span>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
+      <span>✨ مشروع NotebookLM الرسمي</span>
     </a>
   </header>
 
-  <div class="audio-banner">
-    <div class="audio-title-group">
-      <div class="live-indicator">
+  <div class="podcast-strip">
+    <div class="podcast-info">
+      <div class="live-badge">
         <div class="pulse-dot"></div>
         <span>استوديو التدريب الصوتي المعتمد</span>
       </div>
-      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+      <span style="color: var(--gold-200); font-size: 0.86rem; font-weight: 700;">🎙️ OTB Growth Engineering & AI Masterclass (Deep Dive Podcast)</span>
     </div>
-    <audio controls class="custom-audio-player">
-      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
-      متصفحك لا يدعم مشغل الصوت المباشر.
-    </audio>
+    <div class="audio-controls-wrap">
+      <audio controls>
+        <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+        متصفحك لا يدعم مشغل الصوت المباشر.
+      </audio>
+    </div>
   </div>
 
 
@@ -112,25 +107,25 @@
     <a href="index.html">الرئيسية</a> / <span>اختبار الكفاءة والشهادة</span>
   </div>
 
-  <main class="container" style="max-width: 900px;">
+  <main class="container" style="max-width: 960px;">
     
     <div class="page-header" style="text-align: center;">
-      <span class="page-tag">EXAMINATION & CERTIFICATION</span>
+      <span class="page-pill">EXAMINATION & OFFICIAL CERTIFICATION</span>
       <h1 class="page-title">اختبار الكفاءة التسويقية: <span>شهادة ملوك المدينة</span></h1>
-      <p class="page-subtitle" style="margin: 0 auto;">أجب عن الأسئلة الـ 10 المعيارية التالية لإثبات استيعابك للمنهج والحصول على شهادة الاعتماد الرسمية باسمك.</p>
+      <p class="page-subtitle" style="margin: 0 auto;">أجب عن الأسئلة الـ 10 المعيارية التالية لإثبات استيعابك لمنظومة النمو وإصدار شهادة الاعتماد الملكية الرسمية باسمك.</p>
     </div>
 
     <div class="card" style="margin-bottom: 2rem;">
-      <div class="form-group" style="margin: 0;">
-        <label class="form-label">الاسم بالكامل (ليظهر على الشهادة المعتمدة):</label>
-        <input type="text" id="traineeName" class="form-input" placeholder="اكتب اسمك الثلاثي هنا..." value="أحمد عصام رمضان">
-      </div>
+      <label style="display: block; font-size: 0.95rem; font-weight: 800; color: var(--gold-200); margin-bottom: 0.6rem;">
+        👑 الاسم بالكامل (ليظهر بشكل رسمي على الشهادة المعتمدة):
+      </label>
+      <input type="text" id="traineeName" class="btn-secondary" style="width: 100%; padding: 0.9rem 1.25rem; font-size: 1.05rem; font-weight: 700; color: #FFF; background: var(--bg-surface); text-align: right;" placeholder="اكتب اسمك الثلاثي هنا..." value="أحمد عصام رمضان">
     </div>
 
     <div id="quizContainer"></div>
 
-    <div style="text-align: center; margin-top: 2.5rem;">
-      <button class="btn-primary" style="padding: 1rem 3rem; font-size: 1.15rem;" onclick="submitExam()">
+    <div style="text-align: center; margin-top: 3rem;">
+      <button class="btn-primary" style="padding: 1.1rem 3.5rem; font-size: 1.2rem;" onclick="submitExam()">
         👑 تسليم الإجابات وإصدار الشهادة
       </button>
     </div>
@@ -140,12 +135,12 @@
   </main>
   
   <footer class="footer">
-    <div class="footer-content">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <span style="font-size: 2rem;">👑</span>
+        <span style="font-size: 2.2rem;">👑</span>
         <div>
-          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
         </div>
       </div>
       <div class="footer-contact">
@@ -155,9 +150,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
     </div>
   </footer>
+  <script src="shared_ui.js"></script>
 
 
   <script>
@@ -289,10 +285,13 @@
           `;
         });
         html += `
-          <div class="quiz-card">
-            <h3 style="color: var(--gold-light); font-size: 1.15rem; margin-bottom: 1rem;">سؤال ${qIdx + 1}: ${q.q}</h3>
+          <div class="card" style="margin-bottom: 1.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <span class="page-pill" style="font-size: 0.75rem; margin: 0;">سؤال ${qIdx + 1} من 10</span>
+            </div>
+            <h3 style="color: var(--gold-100); font-size: 1.2rem; font-weight: 800; margin-bottom: 1.25rem;">${q.q}</h3>
             <div>${optsHtml}</div>
-            <div id="expl_${qIdx}" style="display:none; margin-top:1rem; padding:0.75rem; background:rgba(245,158,11,0.1); border-radius:8px; font-size:0.85rem; border-right:3px solid var(--gold-primary);"></div>
+            <div id="expl_${qIdx}" style="display:none; margin-top:1rem; padding:1rem; background:rgba(245,158,11,0.1); border-radius:var(--radius-sm); font-size:0.9rem; border-right:4px solid var(--gold-500); color:#FFF;"></div>
           </div>
         `;
       });
@@ -334,34 +333,35 @@
 
       resContainer.innerHTML = `
         <div class="certificate-box">
-          <div style="font-size: 3rem;">👑</div>
-          <div style="font-size: 0.9rem; letter-spacing: 3px; color: var(--gold-light); text-transform: uppercase;">OTB Marketing Studio · City Kings</div>
+          <div style="font-size: 3.5rem;">👑</div>
+          <div style="font-size: 0.95rem; letter-spacing: 3px; color: var(--gold-200); text-transform: uppercase; font-weight: 800;">OTB Marketing Studio · City Kings</div>
           <div class="cert-title">CERTIFICATE OF GROWTH MASTERY</div>
-          <p style="color: var(--text-muted); font-size: 1rem;">تشهد أكاديمية وكالة OTB للتسويق وهندسة النمو بأن</p>
-          <h2 style="font-size: 2.2rem; color: #FFF; margin: 1rem 0; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${name}</h2>
-          <p style="color: #E2E8F0; max-width: 650px; margin: 0 auto; line-height: 1.8;">
+          <p style="color: var(--text-muted); font-size: 1.05rem;">تشهد أكاديمية وكالة OTB للتسويق وهندسة النمو بأن</p>
+          <h2 style="font-size: 2.4rem; color: #FFF; margin: 1.25rem 0; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${name}</h2>
+          <p style="color: #E2E8F0; max-width: 680px; margin: 0 auto; line-height: 1.85; font-size: 1.05rem;">
             قد اجتاز بنجاح كافة متطلبات معسكر وأكاديمية <b>النمو والتسويق الرقمي المتقدم والذكاء الاصطناعي (Full-Stack Growth Engineering)</b> بدرجة <b>${percentage}%</b>، وأصبح مؤهلاً لتطبيق استراتيجيات وإعلانات ملوك المدينة.
           </p>
-          <div style="display: flex; justify-content: space-around; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(245, 158, 11, 0.3);">
+          <div style="display: flex; justify-content: space-around; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(245, 158, 11, 0.3);">
             <div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);">رقم الاعتماد الرقمي</div>
-              <div style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--gold-primary);">${certId}</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">رقم الاعتماد الرقمي</div>
+              <div style="font-family: 'JetBrains Mono'; font-weight: 800; color: var(--gold-400); font-size: 1.1rem;">${certId}</div>
             </div>
             <div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);">تاريخ المنح</div>
-              <div style="font-weight: 700; color: #FFF;">${dateStr}</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">تاريخ المنح</div>
+              <div style="font-weight: 800; color: #FFF;">${dateStr}</div>
             </div>
             <div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);">الاعتماد الرسمي</div>
-              <div style="font-weight: 800; color: var(--gold-light);">OTB Agency 👑</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">الاعتماد الرسمي</div>
+              <div style="font-weight: 900; color: var(--gold-200); font-size: 1.1rem;">OTB Agency 👑</div>
             </div>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 1.5rem;">
-          <button class="btn-secondary" onclick="window.print()">🖨️ طباعة أو حفظ الشهادة كـ PDF</button>
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="btn-primary" style="padding: 0.9rem 2.5rem;" onclick="window.print()">🖨️ طباعة أو حفظ الشهادة كـ PDF</button>
         </div>
       `;
 
+      showToast("👑 تهانينا! تم إصدار شهادة الاعتماد بنجاح!");
       resContainer.scrollIntoView({ behavior: "smooth" });
     }
 

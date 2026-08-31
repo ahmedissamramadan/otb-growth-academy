@@ -12,41 +12,43 @@
 <body>
   
   <header class="navbar">
-    <a href="index.html" class="brand-link">
-      <span class="crown-logo">👑</span>
-      <div class="brand-info">
+    <a href="index.html" class="brand-wrapper">
+      <span class="brand-crown">👑</span>
+      <div class="brand-text">
         <h1>OTB GROWTH ACADEMY</h1>
         <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
       </div>
     </a>
-    <ul class="nav-links">
-      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
-<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
-<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
-<li class="nav-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
-<li class="nav-item"><a href="downloads.html" class="active">📥 التحميلات والموارد</a></li>
+    <ul class="nav-menu">
+      <li class="nav-link-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-link-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-link-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-link-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-link-item"><a href="downloads.html" class="active">📥 الموارد والتحميلات</a></li>
 
     </ul>
-    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
-      <span>✨ مشروع NotebookLM</span>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
+      <span>✨ مشروع NotebookLM الرسمي</span>
     </a>
   </header>
 
-  <div class="audio-banner">
-    <div class="audio-title-group">
-      <div class="live-indicator">
+  <div class="podcast-strip">
+    <div class="podcast-info">
+      <div class="live-badge">
         <div class="pulse-dot"></div>
         <span>استوديو التدريب الصوتي المعتمد</span>
       </div>
-      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+      <span style="color: var(--gold-200); font-size: 0.86rem; font-weight: 700;">🎙️ OTB Growth Engineering & AI Masterclass (Deep Dive Podcast)</span>
     </div>
-    <audio controls class="custom-audio-player">
-      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
-      متصفحك لا يدعم مشغل الصوت المباشر.
-    </audio>
+    <div class="audio-controls-wrap">
+      <audio controls>
+        <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+        متصفحك لا يدعم مشغل الصوت المباشر.
+      </audio>
+    </div>
   </div>
 
 
@@ -57,61 +59,79 @@
   <main class="container">
     
     <div class="page-header">
-      <span class="page-tag">STUDIO ASSETS & RESOURCE HUB</span>
+      <span class="page-pill">STUDIO ASSETS & RESOURCE HUB</span>
       <h1 class="page-title">مركز الموارد والتحميلات: <span>أصول الوكالة وملفات التدريب</span></h1>
       <p class="page-subtitle">جميع الأدلة التكتيكية، ملفات المنهج الأكاديمي، مخرجات Gemini Studio، والبودكاست الصوتي المعتمد متاحة للتحميل المباشر.</p>
     </div>
 
-    <div class="grid-3" style="margin-bottom: 3rem;">
+    <div class="grid-3">
       <div class="card">
-        <span class="item-badge">Podcast & Audio</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">Podcast & Audio</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">34 MB MP4</span>
+        </div>
         <h3 class="card-title">🎙️ البودكاست الاستراتيجي المعتمد</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           حلقة صوتية معمقة تم توليدها عبر Gemini Studio تناقش هندسة النمو ومحرك الذكاء الاصطناعي لوكالة OTB.
         </p>
-        <a href="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" download class="btn-primary" style="width: 100%;">📥 تحميل ملف الصوت (34 MB)</a>
+        <a href="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" download class="btn-primary" style="width: 100%;">📥 تحميل ملف الصوت المعتمد</a>
       </div>
 
       <div class="card">
-        <span class="item-badge">Briefing Doc</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">Briefing Doc</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">Markdown</span>
+        </div>
         <h3 class="card-title">📑 التقرير الاستراتيجي الشامل</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           وثيقة التوجيه الاستراتيجي الصادرة من الاستوديو تلخص الهيكل التنظيمي ومؤشرات الأداء لوكالة OTB.
         </p>
-        <a href="track_b_4week_masterclass/studio_artifacts/OTB_Executive_Strategic_Briefing.md" download class="btn-secondary" style="width: 100%;">📥 تحميل المستند (Markdown)</a>
+        <a href="track_b_4week_masterclass/studio_artifacts/OTB_Executive_Strategic_Briefing.md" download class="btn-secondary" style="width: 100%;">📥 تحميل المستند التنفيذي</a>
       </div>
 
       <div class="card">
-        <span class="item-badge">AI Bible</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">AI Bible</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">50+ Prompts</span>
+        </div>
         <h3 class="card-title">📖 موسوعة الأوامر التكتيكية (Bible)</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           أكثر من 50 برومبت معتمد ومفصل لجميع أقسام الوكالة الـ 16 دوراً وظيفياً بصيغة Markdown.
         </p>
         <a href="track_a_fast_track_sprint/cheatsheets/OTB_Prompt_Engineering_Bible.md" download class="btn-secondary" style="width: 100%;">📥 تحميل موسوعة الأوامر</a>
       </div>
 
       <div class="card">
-        <span class="item-badge">Media Buying</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">Media Buying</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">Checklist</span>
+        </div>
         <h3 class="card-title">✈️ دليل تدقيق الإعلانات الممولة</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           قائمة الفحص الفني قبل إطلاق الحملات (Pre-Flight Checklist) وقواعد السكيلينج الرأسي والأفقي.
         </p>
         <a href="track_a_fast_track_sprint/cheatsheets/OTB_Media_Buying_Checklist.md" download class="btn-secondary" style="width: 100%;">📥 تحميل قائمة الفحص</a>
       </div>
 
       <div class="card">
-        <span class="item-badge">CRM SOPs</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">CRM SOPs</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">Templates</span>
+        </div>
         <h3 class="card-title">📋 نماذج البريفات وإجراءات العمل</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           نماذج التوجيه الإلزامي للأقسام وقواعد الـ SLA المعتمدة داخل CoreLink CRM.
         </p>
         <a href="track_a_fast_track_sprint/cheatsheets/OTB_SOP_Briefing_Templates.md" download class="btn-secondary" style="width: 100%;">📥 تحميل نماذج الـ SOPs</a>
       </div>
 
       <div class="card">
-        <span class="item-badge">Capstone Brief</span>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span class="item-badge">Capstone Brief</span>
+          <span class="page-pill" style="font-size: 0.72rem; margin: 0;">Evaluation</span>
+        </div>
         <h3 class="card-title">🎓 دليل مشروع التخرج الشامل 360°</h3>
-        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.25rem;">
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;">
           المواصفات والمعايير التفصيلية لتسليم مشروع تخرج الأكاديمية (360° Capstone Growth Engine).
         </p>
         <a href="track_b_4week_masterclass/assessments/OTB_360_Capstone_Brief_&_Evaluation.md" download class="btn-secondary" style="width: 100%;">📥 تحميل دليل المشروع</a>
@@ -121,12 +141,12 @@
   </main>
   
   <footer class="footer">
-    <div class="footer-content">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <span style="font-size: 2rem;">👑</span>
+        <span style="font-size: 2.2rem;">👑</span>
         <div>
-          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
         </div>
       </div>
       <div class="footer-contact">
@@ -136,9 +156,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
     </div>
   </footer>
+  <script src="shared_ui.js"></script>
 
 </body>
 </html>
