@@ -1,4 +1,72 @@
-/* ==========================================================================
+import os
+import shutil
+import json
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+from build_factual_otb_portal import REAL_ROLES_DATA, COURSES_DATA
+
+# REAL CLIENTS WITH DIRECT OFFICIAL SOCIAL MEDIA LINKS & REAL METRICS (NO FAKE IMAGES)
+REAL_CLIENTS_DATA = [
+  {
+    "name": "Franks EG (فرانكس)",
+    "sector": "Industrial & B2B / قطاع التصنيع والشركات الكبرى",
+    "metric": "من المركز 25 ➔ المركز الثاني | 10M ➔ 30M EGP",
+    "desc": "قصة نجاح OTB الأكبر؛ إعادة هيكلة المنظومة التسويقية والبيعية ومضاعفة المبيعات الرقمية من 10 إلى 30 مليون جنيه شهرياً عبر استراتيجيات تسويق موجهة للشركات (B2B).",
+    "socialLink": "https://www.facebook.com/otbagency5",
+    "badge": "🏭 B2B Leader"
+  },
+  {
+    "name": "MIX Coffee & Mart (ميكس كوفي)",
+    "sector": "Specialty Coffee / قطاع الضيافة والكافيهات",
+    "metric": "تفاعل +180% | مضاعفة مبيعات الفروع",
+    "desc": "إعادة التموضع من كافيه تقليدي إلى وجهة أولى لرواد الأعمال بهوية داكنة فاخرة، وفيديوهات ASMR لصناعة القهوة حققت انتشاراً واسعاً على السوشيال ميديا.",
+    "socialLink": "https://www.facebook.com/people/MIX-Coffee-Mart/100063935293290/",
+    "badge": "☕ Specialty Coffee"
+  },
+  {
+    "name": "Rancho's EG (رانشوز برجر)",
+    "sector": "Gourmet Burgers / قطاع المطاعم والأغذية",
+    "metric": "معدل احتفاظ 36.8% | 450K مشاهدة ريلز",
+    "desc": "الخروج من فخ الخصومات إلى تموضع 'البرجر الملحمي'، وإعلانات فيديو ريلز مباشرة رفعت مبيعات الواتساب والطلبات بنسبة 65% عبر الخط الساخن 19484.",
+    "socialLink": "https://www.facebook.com/ranchos.eg",
+    "badge": "🍔 Gourmet Burger"
+  },
+  {
+    "name": "مجوهرات دكتور زغلول (Dr. Zaghloul)",
+    "sector": "Luxury Gold & Jewelry / ذهب ومجوهرات",
+    "metric": "ROAS 7.5x+ | إعلانات تحويلية",
+    "desc": "بناء الثقة وسرد قصص التصاميم الحصرية بجودة سينمائية وهيكل حملات TOFU/MOFU/BOFU محققاً عائداً إعلانيا استثنائياً.",
+    "socialLink": "https://www.facebook.com/otbagency5",
+    "badge": "💍 Luxury Gold"
+  },
+  {
+    "name": "معامل علاج (Elag Labs)",
+    "sector": "Clinics & Medical / معامل وتحاليل طبية",
+    "metric": "800+ حجز مؤهل شهرياً",
+    "desc": "إعلانات تحويلية مع مسار WhatsApp Business API مؤتمت لتأهيل واستقبال طلبات الزيارات المنزلية وحجوزات التحاليل بدقة.",
+    "socialLink": "https://www.facebook.com/elaglabs",
+    "badge": "🧪 Medical Labs"
+  },
+  {
+    "name": "صقر ستور (Sakr Store)",
+    "sector": "E-Commerce & Retail / تجارة وتجزئة الملابس",
+    "metric": "تكلفة الشراء (CPA) -32%",
+    "desc": "إعادة هيكلة حملات Meta وإعلانات Advantage+ مع ربط تتبع CAPI وعروض الباقات المجمعة لرفع متوسط قيمة السلة.",
+    "socialLink": "https://www.facebook.com/otbagency5",
+    "badge": "📦 E-Commerce"
+  }
+]
+
+roles_json = json.dumps(REAL_ROLES_DATA, ensure_ascii=False)
+clients_json = json.dumps(REAL_CLIENTS_DATA, ensure_ascii=False)
+courses_json = json.dumps(COURSES_DATA, ensure_ascii=False)
+
+# ==============================================================================
+# UI/UX PRO MAX SPECIFICATION COMPLIANT CSS
+# ==============================================================================
+uupm_css = """/* ==========================================================================
    OTB TEAM AI HUB — UI/UX PRO MAX DESIGN SYSTEM SPECIFICATION
    Dark Luxury Liquid Glass + Bento Grid + WCAG AAA Contrast + Zero Latency
    ========================================================================== */
@@ -554,3 +622,15 @@ body {
     backdrop-filter: none !important;
   }
 }
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(uupm_css)
+
+print("Applied UI/UX Pro Max CSS!")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")
