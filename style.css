@@ -1,7 +1,7 @@
 
 /* ==========================================================================
-   OTB GROWTH ACADEMY — ULTIMATE ENTERPRISE KNOWLEDGE MASTERPIECE
-   Official Luxury Brand System: Obsidian Noir (#050608), Charcoal (#0B0E17), Imperial Gold (#C5A059 / #DFBA73)
+   OTB TEAM AI HUB — LUXURY BRAND & ROLE EMPOWERMENT ENGINE
+   Colors: Obsidian Noir (#050609), Charcoal (#0B0E16), Imperial Gold (#C5A059 / #DFBA73)
    Fonts: Felfel (Arabic Display), KOOkies (English Typography), Cinzel (Royal Serif), Readex Pro (Body)
    ========================================================================== */
 
@@ -29,14 +29,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Guesswhat';
-  src: url('assets/fonts/Guesswhat-Exceptional.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --bg-app: #050609;
   --bg-sidebar: #080A0F;
@@ -53,7 +45,6 @@
   --gold: #D4A853;
   --gold-metallic: #C5A059;
   --gold-light: #DFBA73;
-  --gold-ivory: #FDFBF7;
   --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9E7D3B 100%);
   --gold-dim: rgba(212, 168, 83, 0.08);
   --gold-glow: 0 0 35px rgba(197, 160, 89, 0.22);
@@ -108,7 +99,7 @@ html, body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 /* SCROLLBAR */
@@ -140,8 +131,8 @@ html, body {
 
 .brand-logo-wrap {
   position: relative;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   padding: 2px;
   background: var(--gold-gradient);
@@ -229,7 +220,7 @@ html, body {
 
 /* SIDEBAR */
 .sidebar {
-  width: 330px;
+  width: 320px;
   background: var(--bg-sidebar);
   border-left: 1px solid var(--border);
   overflow-y: auto;
@@ -325,27 +316,6 @@ html, body {
   border-radius: 4px;
   width: 0%;
   transition: width 0.4s ease;
-}
-
-/* AUDIO STRIP */
-.audio-player-box {
-  background: var(--bg-input);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  box-shadow: var(--gold-glow);
-}
-
-.audio-player-box audio {
-  height: 32px;
-  direction: ltr !important;
-  max-width: 340px;
-  outline: none;
 }
 
 /* CARDS */
@@ -512,50 +482,38 @@ html, body {
   opacity: 1;
 }
 
-/* GALLERY GRID */
-.showcase-grid {
+/* ROLE SELECTION GRID */
+.roles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin: 1.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.showcase-item {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
+.role-card-btn {
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  height: 220px;
-  background: #000;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
   cursor: pointer;
   transition: var(--transition-smooth);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.showcase-item:hover {
+.role-card-btn:hover {
   border-color: var(--gold);
-  transform: scale(1.02);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
   box-shadow: var(--gold-glow);
 }
 
-.showcase-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-smooth);
-}
-
-.showcase-item:hover img {
-  transform: scale(1.08);
-}
-
-.showcase-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem 1.25rem;
+.role-card-btn.active {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: var(--gold-glow);
 }
 
 /* RESPONSIVE */
