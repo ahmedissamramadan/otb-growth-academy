@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👑 OTB Team AI Hub — منصة تمكين الذكاء الاصطناعي لملوك المدينة</title>
+  <title>👑 OTB Team AI Hub — التحفة المعمارية لتمكين ملوك المدينة</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,10 +12,10 @@
 </head>
 <body>
 
-  <!-- WEBGL BACKGROUND CANVAS -->
+  <!-- 3D WEBGL PARTICLE & METALLIC CUBE CANVAS -->
   <canvas id="webglCanvas"></canvas>
 
-  <!-- MINIMAL LUXURY NAVBAR -->
+  <!-- LUXURY GLASS NAVBAR -->
   <header class="navbar">
     <a href="#" class="nav-brand" onclick="switchMainTab('roles')">
       <div class="brand-badge-img">
@@ -31,6 +31,7 @@
     <nav class="nav-pills">
       <button class="nav-pill-btn active" id="tabBtn-roles" onclick="switchMainTab('roles')">🎯 أدوار الفريق</button>
       <button class="nav-pill-btn" id="tabBtn-manus" onclick="switchMainTab('manus')">📋 بريف Manus (9 مراحل)</button>
+      <button class="nav-pill-btn" id="tabBtn-gallery" onclick="switchMainTab('gallery')">🎨 المعرض البصري</button>
       <button class="nav-pill-btn" id="tabBtn-courses" onclick="switchMainTab('courses')">📚 المناهج (19)</button>
       <button class="nav-pill-btn" id="tabBtn-prompts" onclick="switchMainTab('prompts')">🤖 استوديو الأوامر</button>
       <button class="nav-pill-btn" id="tabBtn-cases" onclick="switchMainTab('cases')">💼 عملاء OTB</button>
@@ -39,7 +40,7 @@
     </nav>
 
     <div>
-      <a href="tel:+201008080295" class="phone-wrapper" style="font-size: 0.85rem;">
+      <a href="tel:+201008080295" class="phone-wrapper" style="font-size: 0.88rem;">
         <span class="phone-code">+20</span>
         <span class="phone-num">100 808 0295</span>
       </a>
@@ -50,23 +51,23 @@
   <main class="app-container">
 
     <!-- ========================================== -->
-    <!-- SECTION 1: ROLE AI SUPERPOWERS (DEFAULT) -->
+    <!-- SECTION 1: ROLE AI SUPERPOWERS (BENTO GRID) -->
     <!-- ========================================== -->
     <section id="section-roles" class="hub-section">
       
       <!-- HERO -->
       <div class="hero-wrapper">
-        <div class="hero-pill">✨ OTB AI SUPERPOWER ENGINE · 2026</div>
+        <div class="hero-pill">✨ OTB AI SUPERPOWER COCKPIT · 2026</div>
         <h2 class="hero-title">اختر تخصصك.. واكتشف قوة الـ <span>AI الحقيقية 🚀</span></h2>
         <p class="hero-subtitle">
-          بيانات حقيقية 100% مستخلصة من الدليل الرسمي للمسميات وخارطة طريق OTB Agency. اكتشف دورك المعتمد، وتعرف كيف تختزل أدوات الذكاء الاصطناعي 40% من وقت المهام الروتينية.
+          بيانات حقيقية 100% مستخلصة من الدليل الرسمي للمسميات وخارطة طريق OTB Agency. اكتشف دورك المعتمد، وتعرف كيف تختزل أدوات الذكاء الاصطناعي 40% من وقت المهام الروتينية لتبدع كأحد ملوك المدينة.
         </p>
       </div>
 
-      <!-- ROLE SELECTOR CARDS GRID (9 ROLES) -->
+      <!-- ROLE SELECTOR CARDS GRID (9 BESPOKE ROLES) -->
       <div class="role-grid" id="rolesGrid"></div>
 
-      <!-- SELECTED ROLE STAGE -->
+      <!-- SELECTED ROLE BENTO STAGE -->
       <div id="roleDetailsStage" class="role-stage"></div>
     </section>
 
@@ -74,71 +75,116 @@
     <!-- SECTION 2: MANUS 9-STAGE BRIEF -->
     <!-- ========================================== -->
     <section id="section-manus" class="hub-section" style="display: none;">
-      <div class="hero-wrapper" style="margin-bottom: 2rem;">
-        <div class="hero-pill">👑 MANUS STRATEGIC DISCOVERY</div>
-        <h2 class="hero-title">نظام بريف واستقبال العملاء المعتمد (9 مراحل)</h2>
-        <p class="hero-subtitle">المنظومة الرسمية لاكتشاف وتأهيل عملاء وكالة OTB وضبط التوقعات من الجلسة الأولى.</p>
+      <div class="hero-wrapper" style="margin-bottom: 2.5rem;">
+        <div class="hero-pill">👑 MANUS STRATEGIC DISCOVERY PIPELINE</div>
+        <h2 class="hero-title">نظام بريف واستقبال العملاء المعتمد <span>(9 مراحل)</span></h2>
+        <p class="hero-subtitle">المنظومة الرسمية لاكتشاف وتأهيل عملاء وكالة OTB وضبط التوقعات والأهداف من الجلسة الأولى.</p>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 01</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 01</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">🌱 الجذور (من أنتم؟)</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">قصة التأسيس، الرؤية، والسبب الجوهري لوجود البراند في السوق.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">قصة التأسيس، الرؤية، والسبب الجوهري لوجود البراند في السوق والمهمة الأساسية.</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 02</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 02</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">💎 العرض والقيمة (The Offer)</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">المنتجات والخدمات الأساسية، الميزة التنافسية، وهيكل الأسعار.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">المنتجات والخدمات الأساسية، الميزة التنافسية الحصرية، وهيكل الأسعار.</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 03</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 03</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">🎯 الجمهور المستهدف (Audience)</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">الشرائح السكانية، السلوك الشرائي، ونقاط الألم الرئيسية (Pain Points).</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">الشرائح السكانية، السلوك الشرائي، ونقاط الألم الرئيسية (Pain Points).</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 04</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 04</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">🔍 مشهد المنافسة والفجوات</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">المنافسون المباشرون ونقاط ضعفهم التي يمكن لـ OTB استغلالها.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">المنافسون المباشرون ونقاط ضعفهم التي يمكن لـ OTB استغلالها لصالح العميل.</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 05</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 05</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">🎭 شخصية البراند ونبرة الصوت</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">النمط النفسي ونبرة الحديث المعتمدة (Bold, Royal, Friendly...).</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">النمط النفسي ونبرة الحديث المعتمدة (Bold, Royal, Friendly, Prestigious...).</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 06</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 06</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">📈 النجاح ومستهدفات الـ 90 يوماً</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">أهداف الـ ROAS، الإيرادات، والمبيعات المستهدفة ومؤشرات الـ KPIs.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">أهداف الـ ROAS، الإيرادات، والمبيعات المستهدفة ومؤشرات الأداء KPIs.</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 07</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 07</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">⚙️ التشغيل والميزانيات</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">ميزانية الإعلانات الشهرية المتاحة، الموارد، وقنوات التواصل المعتمدة.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">ميزانية الإعلانات الشهرية المتاحة، الموارد، وقنوات التواصل المعتمدة.</p>
         </div>
 
         <div class="glass-card">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 08</span>
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 08</span>
           <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin: 0.3rem 0;">🛡️ السياق والدروس السابقة</h3>
-          <p style="font-size: 0.88rem; color: var(--text-muted);">تجارب الحملات السابقة، ما نجح وما فشل، والمحاذير القانونية والتسويقية.</p>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">تجارب الحملات السابقة، ما نجح وما فشل، والمحاذير التسويقية والقانونية.</p>
         </div>
 
-        <div class="glass-card" style="border-color: var(--border-gold);">
-          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 09</span>
-          <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--gold); margin: 0.3rem 0;">✅ المراجعة وإصدار الرقم المرجعي</h3>
-          <p style="font-size: 0.88rem; color: var(--text-main);">تأكيد بنود البريف وتوليد الكود الرسمي (مثل: OTB-K3M9P) لتوزيع المهام على الفريق.</p>
+        <div class="glass-card" style="border-color: var(--border-gold); background: rgba(212, 168, 83, 0.08);">
+          <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 09</span>
+          <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--gold); margin: 0.3rem 0;">✅ المراجعة وإصدار الكود المرجعي</h3>
+          <p style="font-size: 0.9rem; color: var(--text-main);">تأكيد بنود البريف وتوليد الكود الرسمي (مثل: OTB-K3M9P) لتوزيع المهام على الفريق.</p>
         </div>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 3: 19 COURSES -->
+    <!-- SECTION 3: VISUAL SHOWCASE (LIGHTBOX) -->
+    <!-- ========================================== -->
+    <section id="section-gallery" class="hub-section" style="display: none;">
+      <div class="hero-wrapper" style="margin-bottom: 2.5rem;">
+        <div class="hero-pill">✨ OTB VISUAL MASTERPIECES</div>
+        <h2 class="hero-title">معرض الهوية والأعمال <span>البصرية الراقية</span></h2>
+        <p class="hero-subtitle">استعراض حقيقي للأعمال البصرية ثلاثية الأبعاد وحملات كبرى البراندات التي صنعتها أيادي مصممي OTB.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div class="glass-card" style="padding: 0.85rem; overflow: hidden; cursor: pointer;" onclick="openLightbox('assets/images/otb_official_showcase.jpg', 'OTB Official 3D Masterpiece')">
+          <img src="assets/images/otb_official_showcase.jpg" alt="OTB Showcase" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.4s ease;">
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem;">
+            <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800;">Brand Identity</span>
+            <h4 style="font-family: var(--font-felfel); font-size: 1.15rem; color: #fff;">OTB Official 3D Brand Masterpiece</h4>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding: 0.85rem; overflow: hidden; cursor: pointer;" onclick="openLightbox('assets/images/portfolio1.jpg', 'MIX Coffee Visual Identity')">
+          <img src="assets/images/portfolio1.jpg" alt="MIX Coffee" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.4s ease;">
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem;">
+            <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800;">Specialty Coffee</span>
+            <h4 style="font-family: var(--font-felfel); font-size: 1.15rem; color: #fff;">MIX Coffee Noir Visual Identity</h4>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding: 0.85rem; overflow: hidden; cursor: pointer;" onclick="openLightbox('assets/images/portfolio2.jpg', 'Rancho’s Epic Campaigns')">
+          <img src="assets/images/portfolio2.jpg" alt="Rancho’s" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.4s ease;">
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem;">
+            <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800;">Gourmet Burgers</span>
+            <h4 style="font-family: var(--font-felfel); font-size: 1.15rem; color: #fff;">Rancho's Epic Gourmet Campaigns</h4>
+          </div>
+        </div>
+
+        <div class="glass-card" style="padding: 0.85rem; overflow: hidden; cursor: pointer;" onclick="openLightbox('assets/images/arabic_portfolio.jpg', 'Dr. Zaghloul Luxury Jewelry')">
+          <img src="assets/images/arabic_portfolio.jpg" alt="Dr. Zaghloul" style="width: 100%; height: 220px; object-fit: cover; border-radius: var(--radius-sm); transition: transform 0.4s ease;">
+          <div style="padding: 0.85rem 0.5rem 0.25rem 0.5rem;">
+            <span style="font-size: 0.75rem; color: var(--gold); font-weight: 800;">Luxury Gold</span>
+            <h4 style="font-family: var(--font-felfel); font-size: 1.15rem; color: #fff;">Dr. Zaghloul Luxury Campaigns</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: 19 COURSES -->
     <!-- ========================================== -->
     <section id="section-courses" class="hub-section" style="display: none;">
       <div class="hero-wrapper" style="margin-bottom: 2rem;">
@@ -159,7 +205,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 4: PROMPTS STUDIO -->
+    <!-- SECTION 5: PROMPTS STUDIO -->
     <!-- ========================================== -->
     <section id="section-prompts" class="hub-section" style="display: none;">
       <div class="hero-wrapper" style="margin-bottom: 2rem;">
@@ -195,7 +241,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 5: REAL CASE STUDIES -->
+    <!-- SECTION 6: REAL CASE STUDIES -->
     <!-- ========================================== -->
     <section id="section-cases" class="hub-section" style="display: none;">
       <div class="hero-wrapper" style="margin-bottom: 2.5rem;">
@@ -207,7 +253,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 6: QUIZ & CERTIFICATE -->
+    <!-- SECTION 7: QUIZ & CERTIFICATE -->
     <!-- ========================================== -->
     <section id="section-quiz" class="hub-section" style="display: none;">
       <div class="hero-wrapper" style="margin-bottom: 2rem;">
@@ -260,7 +306,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- SECTION 7: DOWNLOADS -->
+    <!-- SECTION 8: DOWNLOADS -->
     <!-- ========================================== -->
     <section id="section-downloads" class="hub-section" style="display: none;">
       <div class="hero-wrapper" style="margin-bottom: 2.5rem;">
@@ -293,6 +339,15 @@
     </section>
 
   </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightboxModal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.92); z-index: 999999; backdrop-filter: blur(20px); justify-content: center; align-items: center; padding: 2rem;" onclick="closeLightbox()">
+    <div style="max-width: 900px; width: 100%; text-align: center; position: relative;" onclick="event.stopPropagation()">
+      <img id="lightboxImg" src="" style="max-width: 100%; max-height: 75vh; border-radius: var(--radius-md); border: 2px solid var(--gold); box-shadow: 0 0 50px rgba(212, 168, 83, 0.4);">
+      <h3 id="lightboxCaption" style="font-family: var(--font-felfel); font-size: 1.3rem; color: var(--gold-champagne); margin-top: 1rem;"></h3>
+      <button class="btn btn-secondary" style="margin-top: 1rem;" onclick="closeLightbox()">✕ إغلاق المعاينة</button>
+    </div>
+  </div>
 
   <script src="shared_ui.js"></script>
   <script>
@@ -345,41 +400,50 @@
       stage.innerHTML = `
         <div class="role-header-strip">
           <div>
-            <span style="font-size: 0.8rem; color: var(--gold); font-weight: 700;">الدور المعتمد رسمياً في هيكل OTB</span>
-            <h2 class="role-heading">${r.icon} ${r.name} <span style="font-family: var(--font-kookies); font-size: 1.1rem; color: var(--gold-light);">(${r.eng})</span></h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.35rem;">${r.officialRole}</p>
+            <span style="font-size: 0.82rem; color: var(--gold); font-weight: 800; letter-spacing: 1px;">الدور المعتمد رسمياً في هيكل OTB</span>
+            <h2 class="role-heading">${r.icon} ${r.name} <span style="font-family: var(--font-kookies); font-size: 1.15rem; color: var(--gold-champagne);">(${r.eng})</span></h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.35rem;">${r.officialRole}</p>
           </div>
           <button class="btn btn-primary" onclick="copyText(document.getElementById('rolePromptBox').innerText)">📋 نسخ الأمر المعتمد</button>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem;">
-          <div class="glass-card" style="background: rgba(225, 29, 72, 0.06); border-color: rgba(225, 29, 72, 0.25);">
-            <h4 style="color: var(--crimson); font-size: 0.95rem; margin-bottom: 0.35rem; font-weight: 700;">🛑 أين يضيع وقتك يومياً؟ (التحدي المعتاد):</h4>
-            <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.7;">${r.realChallenge}</p>
+        <div class="bento-grid">
+          <div class="bento-col-6 glass-card" style="background: rgba(244, 63, 94, 0.05); border-color: rgba(244, 63, 94, 0.28);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--crimson); box-shadow: 0 0 10px var(--crimson);"></span>
+              <h4 style="color: var(--crimson); font-size: 1rem; font-weight: 800;">أين يضيع وقتك يومياً؟ (التحدي المعتاد):</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-main); line-height: 1.75;">${r.realChallenge}</p>
           </div>
 
-          <div class="glass-card" style="background: rgba(16, 185, 129, 0.06); border-color: rgba(16, 185, 129, 0.25);">
-            <h4 style="color: var(--emerald); font-size: 0.95rem; margin-bottom: 0.35rem; font-weight: 700;">🚀 كيف يضاعف الـ AI إنتاجيتك 5x؟:</h4>
-            <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.7;">${r.aiSuperpower}</p>
+          <div class="bento-col-6 glass-card" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.28);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 10px var(--emerald);"></span>
+              <h4 style="color: var(--emerald); font-size: 1rem; font-weight: 800;">كيف يضاعف الـ AI إنتاجيتك 5x؟:</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-main); line-height: 1.75;">${r.aiSuperpower}</p>
           </div>
-        </div>
 
-        <div style="margin-bottom: 1.5rem;">
-          <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.6rem; font-weight: 700;">🛠️ ترسانة الأدوات المعتمدة لدورك:</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">${toolsHtml}</div>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
-            <h4 style="font-size: 0.95rem; color: var(--cyan); font-weight: 700;">📋 الأمر الجاهز الفوري لعملاء الوكالة (Plug-and-Play Prompt):</h4>
-            <span style="font-size: 0.75rem; color: var(--text-dim);">صيغة RCIC معتمدة</span>
+          <div class="bento-col-12 glass-card">
+            <h4 style="font-size: 1rem; color: var(--text-pure); margin-bottom: 0.75rem; font-weight: 800;">🛠️ ترسانة الأدوات الذكية المعتمدة لدورك:</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">${toolsHtml}</div>
           </div>
-          <div id="rolePromptBox" class="code-box">${r.realPrompt}</div>
-        </div>
 
-        <div class="glass-card" style="background: var(--gold-dim); border-color: var(--border-gold);">
-          <h4 style="color: var(--gold); font-size: 0.95rem; margin-bottom: 0.35rem; font-weight: 700;">💡 النصيحة الذهبية لملوك المدينة:</h4>
-          <p style="font-size: 0.9rem; color: var(--text-main); line-height: 1.8;">${r.goldenRule}</p>
+          <div class="bento-col-12 glass-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+              <h4 style="font-size: 1rem; color: var(--cyan); font-weight: 800;">📋 الأمر الجاهز الفوري لعملاء الوكالة (Plug-and-Play Prompt):</h4>
+              <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700;">صيغة RCIC احترافية</span>
+            </div>
+            <div id="rolePromptBox" class="code-box">${r.realPrompt}</div>
+          </div>
+
+          <div class="bento-col-12 glass-card" style="background: rgba(212, 168, 83, 0.08); border-color: var(--border-gold);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
+              <span style="font-size: 1.3rem;">👑</span>
+              <h4 style="color: var(--gold); font-size: 1.05rem; font-weight: 800;">النصيحة الذهبية لملوك المدينة:</h4>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.85;">${r.goldenRule}</p>
+          </div>
         </div>
       `;
     }
@@ -391,11 +455,11 @@
         html += `
           <div class="glass-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-              <span style="font-size: 0.8rem; color: var(--gold); font-weight: 700;">${c.sector}</span>
-              <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 0.2rem 0.6rem; border-radius: var(--radius-full);">${c.metric}</span>
+              <span style="font-size: 0.8rem; color: var(--gold); font-weight: 800;">${c.sector}</span>
+              <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 800; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.65rem; border-radius: var(--radius-full); border: 1px solid rgba(16, 185, 129, 0.3);">${c.metric}</span>
             </div>
-            <h3 style="font-family: var(--font-felfel); font-size: 1.25rem; color: var(--text-pure); margin-bottom: 0.4rem;">${c.name}</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;">${c.desc}</p>
+            <h3 style="font-family: var(--font-felfel); font-size: 1.3rem; color: var(--text-pure); margin-bottom: 0.4rem;">${c.name}</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.75;">${c.desc}</p>
           </div>
         `;
       });
@@ -413,11 +477,11 @@
         });
 
         html += `
-          <div class="glass-card" style="margin-bottom: 1rem; padding: 1.25rem 1.5rem;">
+          <div class="glass-card" style="margin-bottom: 1rem; padding: 1.35rem 1.65rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleCourseDetails('${c.id}')">
               <div>
-                <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">المرحلة 0${c.phase} · ${c.badge}</span>
-                <h3 style="font-family: var(--font-felfel); font-size: 1.2rem; color: var(--text-pure); margin-top: 0.2rem;">${c.icon} ${c.title}</h3>
+                <span style="font-size: 0.78rem; color: var(--gold); font-weight: 800;">المرحلة 0${c.phase} · ${c.badge}</span>
+                <h3 style="font-family: var(--font-felfel); font-size: 1.25rem; color: var(--text-pure); margin-top: 0.2rem;">${c.icon} ${c.title}</h3>
               </div>
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <span style="font-size: 0.8rem; color: ${isDone ? 'var(--emerald)' : 'var(--text-dim)'};">${isDone ? '✅ مكتمل' : '○ قيد الانتظار'}</span>
@@ -425,8 +489,8 @@
               </div>
             </div>
 
-            <div id="details_${c.id}" style="display: none; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
-              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">${c.desc}</p>
+            <div id="details_${c.id}" style="display: none; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+              <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.25rem;">${c.desc}</p>
               
               <div style="margin-bottom: 1.25rem;">
                 <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.4rem;">📖 الوحدات التدريبية (${c.pages} صفحة منهج):</h4>
@@ -438,20 +502,20 @@
               <div style="margin-bottom: 1.25rem;">
                 <h4 style="font-size: 0.95rem; color: var(--cyan); margin-bottom: 0.35rem;">🤖 أمر الذكاء الاصطناعي المعتمد (RCIC Prompt):</h4>
                 <div class="code-box">${c.prompt}</div>
-                <button class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.8rem;" onclick="copyText(this.previousElementSibling.innerText)">📋 نسخ الأمر</button>
+                <button class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.4rem 1rem;" onclick="copyText(this.previousElementSibling.innerText)">📋 نسخ الأمر</button>
               </div>
 
               <div style="margin-bottom: 1.25rem;">
                 <h4 style="font-size: 0.95rem; color: var(--emerald); margin-bottom: 0.3rem;">💼 دراسة الحالة التطبيقية:</h4>
-                <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;">${c.case_study}</p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;">${c.case_study}</p>
               </div>
 
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle);">
                 <div>
-                  <h4 style="font-size: 0.95rem; color: var(--gold-light); margin-bottom: 0.2rem;">🧪 التكليف العملي:</h4>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">${c.lab}</p>
+                  <h4 style="font-size: 0.95rem; color: var(--gold-champagne); margin-bottom: 0.2rem;">🧪 التكليف العملي:</h4>
+                  <p style="font-size: 0.88rem; color: var(--text-muted);">${c.lab}</p>
                 </div>
-                <button class="btn ${isDone ? 'btn-secondary' : 'btn-primary'}" style="font-size: 0.8rem; padding: 0.4rem 1rem;" onclick="toggleCourseDone('${c.id}')">
+                <button class="btn ${isDone ? 'btn-secondary' : 'btn-primary'}" style="font-size: 0.82rem; padding: 0.45rem 1.1rem;" onclick="toggleCourseDone('${c.id}')">
                   ${isDone ? '✅ تم إكمال المقرر' : '🎯 تحديد كـ مكتمل'}
                 </button>
               </div>
@@ -481,6 +545,18 @@
 
       if (cat === "all") renderCoursesList(coursesData);
       else renderCoursesList(coursesData.filter(c => c.cat === cat));
+    }
+
+    // LIGHTBOX
+    function openLightbox(src, caption) {
+      const modal = document.getElementById("lightboxModal");
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightboxCaption").innerText = caption;
+      modal.style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightboxModal").style.display = "none";
     }
 
     // PROMPTS STUDIO
@@ -521,36 +597,36 @@
 
       wrap.style.display = "block";
       wrap.innerHTML = `
-        <div style="background: #030406; border: 3px solid var(--gold); border-radius: 24px; padding: 3.5rem 2.5rem; text-align: center; margin-top: 2rem; box-shadow: 0 0 60px rgba(212, 168, 83, 0.35);">
-          <div style="font-size: 3.2rem; margin-bottom: 0.5rem;">👑</div>
-          <div style="font-size: 0.85rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-family: var(--font-kookies); font-weight: 700;">OTB Marketing Studio · City Kings</div>
-          <div style="font-family: var(--font-royal); font-size: 2.2rem; color: var(--text-pure); margin: 0.85rem 0; font-weight: 900; letter-spacing: 1px;">CERTIFICATE OF AI MASTERY</div>
-          <p style="color: var(--text-dim); font-size: 1rem;">تشهد أكاديمية وكالة OTB لتمكين الذكاء الاصطناعي وهندسة النمو بأن</p>
-          <h2 style="font-family: var(--font-felfel); font-size: 2.5rem; color: var(--gold); margin: 0.85rem 0; font-weight: 900;">${name}</h2>
-          <p style="color: var(--text-main); max-width: 580px; margin: 0 auto 2rem auto; font-size: 0.95rem; line-height: 1.8;">
+        <div style="background: #020305; border: 4px solid var(--gold); border-radius: 28px; padding: 4rem 2.5rem; text-align: center; margin-top: 2.5rem; box-shadow: 0 0 80px rgba(212, 168, 83, 0.45); position: relative; overflow: hidden;">
+          <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">👑</div>
+          <div style="font-size: 0.9rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; font-family: var(--font-kookies); font-weight: 800;">OTB Marketing Studio · City Kings</div>
+          <div style="font-family: var(--font-royal); font-size: 2.4rem; color: var(--text-pure); margin: 0.85rem 0; font-weight: 900; letter-spacing: 1.5px;">CERTIFICATE OF AI MASTERY</div>
+          <p style="color: var(--text-dim); font-size: 1.05rem;">تشهد أكاديمية وكالة OTB لتمكين الذكاء الاصطناعي وهندسة النمو بأن</p>
+          <h2 style="font-family: var(--font-felfel); font-size: 2.75rem; color: var(--gold); margin: 1rem 0; font-weight: 900;">${name}</h2>
+          <p style="color: var(--text-main); max-width: 600px; margin: 0 auto 2.25rem auto; font-size: 0.98rem; line-height: 1.85;">
             قد أتم بنجاح متطلبات أكاديمية <b>الذكاء الاصطناعي التوليدي والنمو الرقمي (AI-Powered Marketing & Growth Engineering)</b> وأصبح مؤهلاً لمضاعفة الإنتاجية 5x وتطبيق استراتيجيات ملوك المدينة.
           </p>
-          <div style="display: flex; justify-content: space-around; border-top: 1px solid var(--border-gold); padding-top: 1.5rem; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-around; border-top: 1px solid var(--border-gold); padding-top: 1.75rem; font-size: 0.9rem;">
             <div>
-              <div style="color: var(--text-dim); font-size: 0.75rem;">رقم الاعتماد الرسمي</div>
-              <div style="font-family: var(--font-mono); color: var(--gold); font-weight: 700;">${certId}</div>
+              <div style="color: var(--text-dim); font-size: 0.78rem;">رقم الاعتماد الرسمي</div>
+              <div style="font-family: var(--font-mono); color: var(--gold); font-weight: 800;">${certId}</div>
             </div>
             <div>
-              <div style="color: var(--text-dim); font-size: 0.75rem;">تاريخ المنح</div>
-              <div style="color: var(--text-pure); font-weight: 600;">${date}</div>
+              <div style="color: var(--text-dim); font-size: 0.78rem;">تاريخ المنح</div>
+              <div style="color: var(--text-pure); font-weight: 700;">${date}</div>
             </div>
             <div>
-              <div style="color: var(--text-dim); font-size: 0.75rem;">الاعتماد الرقمي</div>
-              <div style="color: var(--gold); font-weight: 800;">OTB Agency 👑</div>
+              <div style="color: var(--text-dim); font-size: 0.78rem;">الاعتماد الرقمي</div>
+              <div style="color: var(--gold); font-weight: 900;">OTB Agency 👑</div>
             </div>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 1.5rem;">
+        <div style="text-align: center; margin-top: 2rem;">
           <button class="btn btn-secondary" onclick="window.print()">🖨️ طباعة الشهادة / حفظ PDF</button>
         </div>
       `;
       wrap.scrollIntoView({ behavior: "smooth" });
-      showToast("👑 تم إصدار شهادة الاعتماد بنجاح!");
+      showToast("👑 تم إصدار شهادة الاعتماد الملكية بنجاح!");
     }
 
     // INITIALIZATION
