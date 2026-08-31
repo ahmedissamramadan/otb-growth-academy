@@ -1,8 +1,9 @@
 
 /* ==========================================================================
-   OTB TEAM AI HUB — LUXURY BRAND & ROLE EMPOWERMENT ENGINE
-   Colors: Obsidian Noir (#050609), Charcoal (#0B0E16), Imperial Gold (#C5A059 / #DFBA73)
-   Fonts: Felfel (Arabic Display), KOOkies (English Typography), Cinzel (Royal Serif), Readex Pro (Body)
+   OTB TEAM AI HUB — MINIMAL LUXURY & BREATHABLE INTERFACE
+   Inspired by Apple, Linear & Stripe Luxury Guidelines
+   Colors: Obsidian Noir (#050608), Surface (#0B0E14), Pure Gold (#D4A853 / #C5A059)
+   Fonts: Felfel (Arabic Display), KOOkies (English Typography), Readex Pro (Body)
    ========================================================================== */
 
 @font-face {
@@ -30,24 +31,23 @@
 }
 
 :root {
-  --bg-app: #050609;
-  --bg-sidebar: #080A0F;
-  --bg-main: #0B0E16;
-  --bg-card: rgba(14, 18, 28, 0.75);
-  --bg-card-hover: rgba(22, 30, 48, 0.9);
-  --bg-input: #040508;
+  --bg-app: #050608;
+  --bg-surface: #090C12;
+  --bg-card: rgba(14, 18, 26, 0.6);
+  --bg-card-hover: rgba(22, 28, 40, 0.85);
+  --bg-input: #040507;
   --bg-code: #030406;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(197, 160, 89, 0.3);
-  --border-gold-bright: rgba(197, 160, 89, 0.7);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-gold: rgba(212, 168, 83, 0.25);
+  --border-gold-bright: rgba(212, 168, 83, 0.7);
 
   --gold: #D4A853;
   --gold-metallic: #C5A059;
-  --gold-light: #DFBA73;
-  --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9E7D3B 100%);
+  --gold-light: #F3E5C8;
+  --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9B7023 100%);
   --gold-dim: rgba(212, 168, 83, 0.08);
-  --gold-glow: 0 0 35px rgba(197, 160, 89, 0.22);
+  --gold-glow: 0 0 35px rgba(212, 168, 83, 0.18);
 
   --cyan: #38BDF8;
   --emerald: #10B981;
@@ -66,13 +66,14 @@
   --font-royal: 'Cinzel', serif;
 
   --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 26px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
   --radius-full: 9999px;
 
-  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -88,80 +89,76 @@ html, body {
   direction: rtl;
   min-height: 100vh;
   line-height: 1.8;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* THREE.JS CANVAS BACKGROUND */
+/* THREE.JS PARTICLES BACKGROUND */
 #webglCanvas {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-app); }
-::-webkit-scrollbar-thumb { background: rgba(197, 160, 89, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(212, 168, 83, 0.25); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
-/* APP HEADER */
-.app-header {
+/* ULTRA-SLEEK BLURRED NAVBAR */
+.navbar {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(8, 10, 15, 0.95);
-  backdrop-filter: blur(20px);
+  z-index: 100;
+  background: rgba(5, 6, 8, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
-  height: 72px;
-  padding: 0 1.75rem;
+  padding: 0.85rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: var(--transition-smooth);
 }
 
-.brand-section {
+.nav-brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
+  text-decoration: none;
 }
 
-.brand-logo-wrap {
-  position: relative;
-  width: 46px;
-  height: 46px;
+.brand-badge-img {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   padding: 2px;
   background: var(--gold-gradient);
-  box-shadow: 0 0 20px rgba(197, 160, 89, 0.35);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.brand-logo-img {
+.brand-badge-img img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.brand-info h1 {
+.brand-text h1 {
   font-family: var(--font-felfel);
   font-size: 1.25rem;
-  font-weight: 700;
   color: var(--text-pure);
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  line-height: 1.15;
+  line-height: 1.1;
 }
 
-.brand-info p {
+.brand-text span {
   font-family: var(--font-kookies);
   font-size: 0.72rem;
   color: var(--gold);
@@ -169,180 +166,233 @@ html, body {
   letter-spacing: 1px;
 }
 
-.header-actions {
+/* NAVBAR NAVIGATION LINKS (Pills) */
+.nav-pills {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-}
-
-.search-input-wrap {
-  position: relative;
-  width: 280px;
-}
-
-.search-input {
-  width: 100%;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.3rem 0.4rem;
   border-radius: var(--radius-full);
-  padding: 0.5rem 1rem 0.5rem 2rem;
-  color: var(--text-pure);
+  border: 1px solid var(--border);
+}
+
+.nav-pill-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
   font-size: 0.85rem;
-  outline: none;
+  font-weight: 600;
+  cursor: pointer;
   transition: var(--transition-fast);
-}
-
-.search-input:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
-}
-
-.internal-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(16, 185, 129, 0.12);
-  color: var(--emerald);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
+  text-decoration: none;
 }
 
-/* APP SHELL */
-.app-shell {
-  display: flex;
-  min-height: calc(100vh - 72px);
+.nav-pill-btn:hover {
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-pill-btn.active {
+  color: #000;
+  background: var(--gold-gradient);
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.35);
+}
+
+/* MAIN CONTAINER (Centered, Breathable, No Clutter) */
+.app-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem 1.5rem;
   position: relative;
   z-index: 1;
 }
 
-/* SIDEBAR */
-.sidebar {
-  width: 320px;
-  background: var(--bg-sidebar);
-  border-left: 1px solid var(--border);
-  overflow-y: auto;
-  height: calc(100vh - 72px);
-  position: sticky;
-  top: 72px;
-  padding: 1.25rem 1rem;
+/* HERO BANNER (Simple & Inspiring) */
+.hero-wrapper {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  animation: fadeIn 0.8s ease-out;
 }
 
-.sidebar-section {
-  margin-bottom: 1.5rem;
-}
-
-.sidebar-heading {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-dim);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 0 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.nav-item {
-  display: flex;
+.hero-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.65rem 0.85rem;
-  border-radius: var(--radius-sm);
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: var(--transition-fast);
-  cursor: pointer;
-  margin-bottom: 0.25rem;
-}
-
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-pure);
-}
-
-.nav-item.active {
+  gap: 0.5rem;
   background: var(--gold-dim);
-  color: var(--gold);
   border: 1px solid var(--border-gold);
-  font-weight: 600;
+  color: var(--gold);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
 }
 
-.nav-item-icon {
-  font-size: 1.1rem;
-  margin-left: 0.6rem;
+.hero-title {
+  font-family: var(--font-felfel);
+  font-size: 2.75rem;
+  color: var(--text-pure);
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+  font-weight: 900;
 }
 
-/* MAIN CONTENT STAGE */
-.main-stage {
-  flex: 1;
-  background: var(--bg-main);
-  padding: 2.5rem 3.5rem 6rem 3.5rem;
-  overflow-y: auto;
-  max-width: 1160px;
+.hero-title span {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 650px;
   margin: 0 auto;
+  line-height: 1.8;
 }
 
-/* PROGRESS BAR */
-.progress-card {
+/* ROLE SELECTOR GRID (Clean, Minimal, Non-Overwhelming) */
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+
+.role-tab {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-spring);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.role-tab:hover {
+  border-color: var(--gold);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--gold-glow);
+}
+
+.role-tab.active {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+.role-icon-box {
+  font-size: 2rem;
+  transition: var(--transition-fast);
+}
+
+.role-tab:hover .role-icon-box {
+  transform: scale(1.15);
+}
+
+.role-name {
+  font-family: var(--font-felfel);
+  font-size: 1rem;
+  color: var(--text-pure);
+  line-height: 1.2;
+}
+
+.role-eng {
+  font-family: var(--font-kookies);
+  font-size: 0.68rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ROLE DISPLAY STAGE (Sleek, Focus-Driven) */
+.role-stage {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), var(--gold-glow);
+  animation: slideUp 0.4s ease-out;
+}
+
+.role-header-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.25rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.progress-track {
-  flex: 1;
-  min-width: 200px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 0 1rem;
+.role-heading {
+  font-family: var(--font-felfel);
+  font-size: 1.85rem;
+  color: var(--text-pure);
 }
 
-.progress-fill {
-  height: 100%;
-  background: var(--gold-gradient);
-  border-radius: 4px;
-  width: 0%;
-  transition: width 0.4s ease;
-}
-
-/* CARDS */
-.card {
+/* CARDS & CONTAINERS */
+.glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 1.5rem;
-  margin-bottom: 1.25rem;
   transition: var(--transition-smooth);
 }
 
-.card:hover {
+.glass-card:hover {
   border-color: var(--border-gold);
   background: var(--bg-card-hover);
+}
+
+/* TOOL BADGES */
+.tool-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.tool-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
   transform: translateY(-2px);
 }
 
-.card-title {
-  font-family: var(--font-felfel);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-pure);
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* CODE / PROMPT BOX (Strict LTR) */
+.code-box {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #38BDF8;
+  direction: ltr !important;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  line-height: 1.7;
 }
 
 /* BUTTONS */
@@ -352,7 +402,7 @@ html, body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.65rem 1.45rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
@@ -365,11 +415,13 @@ html, body {
   background: var(--gold-gradient);
   color: #000;
   font-weight: 700;
+  box-shadow: 0 4px 20px rgba(212, 168, 83, 0.3);
 }
 
 .btn-primary:hover {
   filter: brightness(1.1);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 168, 83, 0.45);
 }
 
 .btn-secondary {
@@ -384,56 +436,7 @@ html, body {
   color: var(--gold-light);
 }
 
-/* TABS */
-.tabs-row {
-  display: flex;
-  gap: 0.4rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.6rem;
-}
-
-.tab-pill {
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-dim);
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.tab-pill:hover {
-  color: var(--text-pure);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.tab-pill.active {
-  color: var(--gold);
-  background: var(--gold-dim);
-  border-color: var(--border-gold);
-}
-
-/* CODE / PROMPT BOX (Strict LTR) */
-.code-box {
-  background: var(--bg-code);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: #38BDF8;
-  direction: ltr !important;
-  text-align: left;
-  white-space: pre-wrap;
-  margin: 0.85rem 0;
-  line-height: 1.6;
-}
-
-/* FOOLPROOF RTL PHONE NUMBER FORMATTING */
+/* FOOLPROOF RTL PHONE NUMBER */
 .phone-wrapper {
   display: inline-flex !important;
   flex-direction: row !important;
@@ -461,15 +464,15 @@ html, body {
 /* TOAST NOTIFICATION */
 .toast {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: #050609;
+  background: #090C12;
   border: 1px solid var(--gold);
   color: var(--gold-light);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.88rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
   font-weight: 600;
   opacity: 0;
   transition: var(--transition-smooth);
@@ -482,44 +485,21 @@ html, body {
   opacity: 1;
 }
 
-/* ROLE SELECTION GRID */
-.roles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.role-card-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.role-card-btn:hover {
-  border-color: var(--gold);
-  background: var(--bg-card-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--gold-glow);
-}
-
-.role-card-btn.active {
-  border-color: var(--gold);
-  background: var(--gold-dim);
-  box-shadow: var(--gold-glow);
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-  .app-shell { flex-direction: column; }
-  .sidebar { width: 100%; height: auto; position: static; border-left: none; border-bottom: 1px solid var(--border); }
-  .main-stage { padding: 1.5rem 1rem; }
-  .search-input-wrap { display: none; }
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 0.85rem; padding: 1rem; }
+  .nav-pills { flex-wrap: wrap; justify-content: center; }
+  .hero-title { font-size: 2rem; }
+  .role-stage { padding: 1.5rem 1rem; }
 }
