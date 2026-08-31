@@ -1,4 +1,17 @@
+import os
+import shutil
+import json
 
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+from generate_master_academy import COURSES_DATA
+courses_json = json.dumps(COURSES_DATA, ensure_ascii=False)
+
+# ==============================================================================
+# 1. AWARD-WINNING LUXURY STYLESHEET (style.css)
+# ==============================================================================
+award_winning_css = """
 /* ==========================================================================
    OTB TEAM AI HUB — AWWWARDS SITE-OF-THE-YEAR DESIGN SYSTEM
    Art Direction: Obsidian Noir, Champagne Gold, Micro-Noise, Fluid Spring Physics
@@ -563,3 +576,154 @@ body::after {
   .hero-title { font-size: 2.2rem; }
   .role-stage { padding: 1.75rem 1.25rem; }
 }
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(award_winning_css)
+
+print("Generated Award-Winning style.css")
+
+# ==============================================================================
+# 2. INTERACTIVE THREE.JS & CURSOR ENGINE (shared_ui.js)
+# ==============================================================================
+award_winning_js = """
+// THREE.JS PARTICLES & SMOOTH MOUSE GLOW ENGINE
+document.addEventListener('DOMContentLoaded', () => {
+  initWebGLParticles();
+  initCursorTracker();
+});
+
+function initWebGLParticles() {
+  const canvas = document.getElementById('webglCanvas');
+  if (!canvas || !window.THREE) return;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 80;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  // 450 GOLD DUST PARTICLES
+  const particleCount = 450;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+
+  const goldColors = [
+    new THREE.Color('#D4A853'),
+    new THREE.Color('#C5A059'),
+    new THREE.Color('#F4E7CE'),
+    new THREE.Color('#9E7D3B')
+  ];
+
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 160;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 160;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 160;
+
+    const col = goldColors[Math.floor(Math.random() * goldColors.length)];
+    colors[i * 3] = col.r;
+    colors[i * 3 + 1] = col.g;
+    colors[i * 3 + 2] = col.b;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  const material = new THREE.PointsMaterial({
+    size: 1.4,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.75,
+    blending: THREE.AdditiveBlending
+  });
+
+  const particleSystem = new THREE.Points(geometry, material);
+  scene.add(particleSystem);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX - window.innerWidth / 2) * 0.03;
+    mouseY = (e.clientY - window.innerHeight / 2) * 0.03;
+  });
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    targetX += (mouseX - targetX) * 0.05;
+    targetY += (mouseY - targetY) * 0.05;
+
+    particleSystem.rotation.y += 0.0008;
+    particleSystem.rotation.x += 0.0004;
+
+    particleSystem.position.x = -targetX;
+    particleSystem.position.y = targetY;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+}
+
+function initCursorTracker() {
+  const glow = document.createElement('div');
+  glow.id = 'cursorGlow';
+  document.body.appendChild(glow);
+
+  window.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}
+
+function copyText(text) {
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('👑 تم نسخ الأمر للحافظة بنجاح!');
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('👑 تم نسخ الأمر للحافظة بنجاح!');
+  });
+}
+
+function showToast(msg) {
+  let t = document.querySelector('.toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.className = 'toast';
+    document.body.appendChild(t);
+  }
+  t.innerText = msg;
+  t.classList.add('show');
+  setTimeout(() => {
+    t.classList.remove('show');
+  }, 2800);
+}
+"""
+
+with open(os.path.join(BASE_DIR, "shared_ui.js"), "w", encoding="utf-8") as f:
+    f.write(award_winning_js)
+
+print("Generated shared_ui.js with WebGL & Cursor Glow")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")
