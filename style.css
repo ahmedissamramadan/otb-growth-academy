@@ -1,23 +1,62 @@
 
+/* ==========================================================================
+   OTB GROWTH ACADEMY — ULTIMATE ENTERPRISE KNOWLEDGE MASTERPIECE
+   Official Luxury Brand System: Obsidian Noir (#050608), Charcoal (#0B0E17), Imperial Gold (#C5A059 / #DFBA73)
+   Fonts: Felfel (Arabic Display), KOOkies (English Typography), Cinzel (Royal Serif), Readex Pro (Body)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Felfel';
+  src: url('assets/fonts/Felfel-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOOkies';
+  src: url('assets/fonts/KOOkies-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOOkies';
+  src: url('assets/fonts/KOOkies-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Guesswhat';
+  src: url('assets/fonts/Guesswhat-Exceptional.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg-app: #06070A;
-  --bg-sidebar: #090B10;
-  --bg-main: #0B0E15;
-  --bg-card: rgba(14, 18, 28, 0.7);
-  --bg-card-hover: rgba(22, 28, 42, 0.9);
-  --bg-input: #05070B;
-  --bg-code: #030407;
+  --bg-app: #050609;
+  --bg-sidebar: #080A0F;
+  --bg-main: #0B0E16;
+  --bg-card: rgba(14, 18, 28, 0.75);
+  --bg-card-hover: rgba(22, 30, 48, 0.9);
+  --bg-input: #040508;
+  --bg-code: #030406;
 
   --border: rgba(255, 255, 255, 0.08);
-  --border-gold: rgba(212, 168, 83, 0.28);
-  --border-gold-bright: rgba(212, 168, 83, 0.6);
+  --border-gold: rgba(197, 160, 89, 0.3);
+  --border-gold-bright: rgba(197, 160, 89, 0.7);
 
   --gold: #D4A853;
   --gold-metallic: #C5A059;
-  --gold-light: #F3E5C8;
-  --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9B7023 100%);
+  --gold-light: #DFBA73;
+  --gold-ivory: #FDFBF7;
+  --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9E7D3B 100%);
   --gold-dim: rgba(212, 168, 83, 0.08);
-  --gold-glow: 0 0 35px rgba(212, 168, 83, 0.2);
+  --gold-glow: 0 0 35px rgba(197, 160, 89, 0.22);
 
   --cyan: #38BDF8;
   --emerald: #10B981;
@@ -29,18 +68,20 @@
   --text-muted: #94A3B8;
   --text-dim: #64748B;
 
+  --font-felfel: 'Felfel', 'Readex Pro', -apple-system, sans-serif;
+  --font-kookies: 'KOOkies', 'Plus Jakarta Sans', sans-serif;
   --font-ar: 'Readex Pro', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-royal: 'Cinzel', serif;
 
   --radius-xs: 6px;
   --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
   --radius-full: 9999px;
 
   --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -61,10 +102,19 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* THREE.JS CANVAS BACKGROUND */
+#webglCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-app); }
-::-webkit-scrollbar-thumb { background: rgba(212, 168, 83, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(197, 160, 89, 0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 /* APP HEADER */
@@ -72,11 +122,11 @@ html, body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(9, 11, 16, 0.95);
+  background: rgba(8, 10, 15, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  height: 68px;
-  padding: 0 1.5rem;
+  height: 72px;
+  padding: 0 1.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,33 +135,47 @@ html, body {
 .brand-section {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1rem;
+}
+
+.brand-logo-wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--gold-gradient);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-logo-img {
-  width: 44px;
-  height: 44px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  border: 2px solid var(--gold);
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(212, 168, 83, 0.3);
 }
 
 .brand-info h1 {
-  font-size: 1.1rem;
-  font-weight: 800;
+  font-family: var(--font-felfel);
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-pure);
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  line-height: 1.15;
 }
 
 .brand-info p {
+  font-family: var(--font-kookies);
   font-size: 0.72rem;
   color: var(--gold);
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .header-actions {
@@ -139,7 +203,7 @@ html, body {
 
 .search-input:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(212, 168, 83, 0.15);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
 }
 
 .internal-badge {
@@ -158,18 +222,20 @@ html, body {
 /* APP SHELL */
 .app-shell {
   display: flex;
-  min-height: calc(100vh - 68px);
+  min-height: calc(100vh - 72px);
+  position: relative;
+  z-index: 1;
 }
 
 /* SIDEBAR */
 .sidebar {
-  width: 320px;
+  width: 330px;
   background: var(--bg-sidebar);
   border-left: 1px solid var(--border);
   overflow-y: auto;
-  height: calc(100vh - 68px);
+  height: calc(100vh - 72px);
   position: sticky;
-  top: 68px;
+  top: 72px;
   padding: 1.25rem 1rem;
 }
 
@@ -223,9 +289,9 @@ html, body {
 .main-stage {
   flex: 1;
   background: var(--bg-main);
-  padding: 2.5rem 3rem 6rem 3rem;
+  padding: 2.5rem 3.5rem 6rem 3.5rem;
   overflow-y: auto;
-  max-width: 1100px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -289,16 +355,18 @@ html, body {
   border-radius: var(--radius-md);
   padding: 1.5rem;
   margin-bottom: 1.25rem;
-  transition: var(--transition-fast);
+  transition: var(--transition-smooth);
 }
 
 .card:hover {
   border-color: var(--border-gold);
   background: var(--bg-card-hover);
+  transform: translateY(-2px);
 }
 
 .card-title {
-  font-size: 1.15rem;
+  font-family: var(--font-felfel);
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-pure);
   margin-bottom: 0.5rem;
@@ -313,7 +381,7 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.35rem;
+  padding: 0.65rem 1.45rem;
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
   font-weight: 600;
@@ -426,7 +494,7 @@ html, body {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: #06070A;
+  background: #050609;
   border: 1px solid var(--gold);
   color: var(--gold-light);
   padding: 0.75rem 1.5rem;
@@ -442,6 +510,52 @@ html, body {
 .toast.show {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
+}
+
+/* GALLERY GRID */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.showcase-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  height: 220px;
+  background: #000;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.showcase-item:hover {
+  border-color: var(--gold);
+  transform: scale(1.02);
+  box-shadow: var(--gold-glow);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.showcase-item:hover img {
+  transform: scale(1.08);
+}
+
+.showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem;
 }
 
 /* RESPONSIVE */
