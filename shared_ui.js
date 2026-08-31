@@ -1,160 +1,92 @@
+// ==========================================================================
+// OTB TEAM AI HUB — CLEAN THREE.JS BACKGROUND & INTERACTION ENGINE
+// ==========================================================================
 
-// 3D FLOATING ISOMETRIC GOLD CUBE + PARTICLE FIELD
-document.addEventListener('DOMContentLoaded', () => {
-  initTranscendentalWebGL();
-  initCursorTracker();
-});
-
-function initTranscendentalWebGL() {
-  const canvas = document.getElementById('webglCanvas');
-  if (!canvas || !window.THREE) return;
+// Subtle Three.js Ambient Particle System
+(function initCleanWebGL() {
+  const canvas = document.getElementById("webglCanvas");
+  if (!canvas || typeof THREE === "undefined") return;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 75;
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 25;
 
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 1. ROTATING METALLIC WIREFRAME CUBE (OTB EMBLEM)
-  const cubeGeo = new THREE.BoxGeometry(18, 18, 18);
-  const cubeMat = new THREE.MeshBasicMaterial({
-    color: 0xD4A853,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.22
-  });
-  const wireCube = new THREE.Mesh(cubeGeo, cubeMat);
-  wireCube.position.set(0, 0, -10);
-  scene.add(wireCube);
-
-  // INNER GLOW CUBE
-  const innerGeo = new THREE.IcosahedronGeometry(9, 1);
-  const innerMat = new THREE.MeshBasicMaterial({
-    color: 0xF5E8D0,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.15
-  });
-  const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-  wireCube.add(innerMesh);
-
-  // 2. 500 GOLD DUST PARTICLES
-  const particleCount = 500;
+  // Particles
+  const particleCount = 350;
   const geometry = new THREE.BufferGeometry();
   const positions = new Float32Array(particleCount * 3);
-  const colors = new Float32Array(particleCount * 3);
 
-  const goldColors = [
-    new THREE.Color('#D4A853'),
-    new THREE.Color('#F5E8D0'),
-    new THREE.Color('#C5A059'),
-    new THREE.Color('#9E7D3B')
-  ];
-
-  for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 170;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 170;
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 170;
-
-    const col = goldColors[Math.floor(Math.random() * goldColors.length)];
-    colors[i * 3] = col.r;
-    colors[i * 3 + 1] = col.g;
-    colors[i * 3 + 2] = col.b;
+  for (let i = 0; i < particleCount * 3; i += 3) {
+    positions[i] = (Math.random() - 0.5) * 50;
+    positions[i + 1] = (Math.random() - 0.5) * 50;
+    positions[i + 2] = (Math.random() - 0.5) * 50;
   }
 
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   const material = new THREE.PointsMaterial({
-    size: 1.5,
-    vertexColors: true,
+    color: 0xD4A853,
+    size: 0.18,
     transparent: true,
-    opacity: 0.8,
+    opacity: 0.6,
     blending: THREE.AdditiveBlending
   });
 
-  const particleSystem = new THREE.Points(geometry, material);
-  scene.add(particleSystem);
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
 
   let mouseX = 0;
   let mouseY = 0;
-  let targetX = 0;
-  let targetY = 0;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX - window.innerWidth / 2) * 0.035;
-    mouseY = (e.clientY - window.innerHeight / 2) * 0.035;
-  });
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  window.addEventListener("pointermove", (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 0.4;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 0.4;
   });
 
   function animate() {
     requestAnimationFrame(animate);
+    particles.rotation.y += 0.0008;
+    particles.rotation.x += 0.0004;
 
-    targetX += (mouseX - targetX) * 0.05;
-    targetY += (mouseY - targetY) * 0.05;
-
-    // ROTATE CUBE & PARTICLES
-    wireCube.rotation.x += 0.003;
-    wireCube.rotation.y += 0.005;
-    innerMesh.rotation.y -= 0.008;
-
-    particleSystem.rotation.y += 0.0006;
-    particleSystem.rotation.x += 0.0003;
-
-    particleSystem.position.x = -targetX * 0.8;
-    particleSystem.position.y = targetY * 0.8;
-
-    wireCube.position.x = targetX * 1.2;
-    wireCube.position.y = -targetY * 1.2;
+    camera.position.x += (mouseX * 5 - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY * 5 - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
 
     renderer.render(scene, camera);
   }
   animate();
-}
 
-function initCursorTracker() {
-  const glow = document.createElement('div');
-  glow.id = 'cursorGlow';
-  document.body.appendChild(glow);
-
-  window.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
   });
-}
+})();
 
-function copyText(text) {
-  if (!text) return;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('👑 تم نسخ الأمر للحافظة بنجاح!');
-  }).catch(() => {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    showToast('👑 تم نسخ الأمر للحافظة بنجاح!');
-  });
-}
-
+// Toast Notification
 function showToast(msg) {
-  let t = document.querySelector('.toast');
-  if (!t) {
-    t = document.createElement('div');
-    t.className = 'toast';
-    document.body.appendChild(t);
+  let toast = document.getElementById("cleanToast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "cleanToast";
+    toast.style.cssText = "position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #D4A853; color: #000; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 9999px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 999999; font-size: 0.9rem; transition: opacity 0.25s cubic-bezier(0.2,0,0,1); opacity: 0; pointer-events: none;";
+    document.body.appendChild(toast);
   }
-  t.innerText = msg;
-  t.classList.add('show');
+  toast.innerText = msg;
+  toast.style.opacity = "1";
   setTimeout(() => {
-    t.classList.remove('show');
-  }, 2800);
+    toast.style.opacity = "0";
+  }, 2200);
+}
+
+// Copy Text
+function copyText(str) {
+  navigator.clipboard.writeText(str).then(() => {
+    showToast("📋 تم نسخ الأمر بنجاح إلى الحافظة!");
+  }).catch(() => {
+    showToast("تم النسخ!");
+  });
 }
