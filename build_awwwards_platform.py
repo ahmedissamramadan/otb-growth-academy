@@ -1,4 +1,691 @@
-<!DOCTYPE html>
+import os
+import shutil
+import json
+
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+from generate_master_academy import COURSES_DATA
+
+courses_json = json.dumps(COURSES_DATA, ensure_ascii=False)
+
+# ==============================================================================
+# 1. AWWWARDS LUXURY STYLESHEET (style.css)
+# ==============================================================================
+awwwards_css = """
+:root {
+  --bg-deep: #06070A;
+  --bg-surface: #0C0F17;
+  --bg-surface-elevated: #111520;
+  --bg-card: rgba(14, 18, 28, 0.7);
+  --bg-card-hover: rgba(20, 26, 40, 0.9);
+  --bg-code: #040508;
+
+  --border: rgba(255, 255, 255, 0.07);
+  --border-gold: rgba(212, 168, 83, 0.22);
+  --border-gold-hover: rgba(212, 168, 83, 0.6);
+
+  --gold: #D4A853;
+  --gold-light: #F3E5C8;
+  --gold-gradient: linear-gradient(135deg, #F3E5C8 0%, #D4A853 50%, #9B7023 100%);
+  --gold-dim: rgba(212, 168, 83, 0.1);
+  --gold-glow: 0 0 40px rgba(212, 168, 83, 0.18);
+
+  --text-pure: #FFFFFF;
+  --text-body: #94A3B8;
+  --text-dim: #64748B;
+  --text-accent: #E2E8F0;
+
+  --font-ar: 'Readex Pro', -apple-system, sans-serif;
+  --font-royal: 'Cinzel', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-ar);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-body);
+  direction: rtl;
+  min-height: 100vh;
+  line-height: 1.75;
+  font-size: 0.96rem;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* THREE.JS BACKGROUND CANVAS */
+#webgl-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: rgba(212, 168, 83, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(6, 7, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand-crown {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px rgba(212, 168, 83, 0.5));
+}
+
+.brand-text h1 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-pure);
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.brand-text p {
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link.active {
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--border-gold);
+  font-weight: 600;
+}
+
+.btn-notebook-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--gold-dim);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.btn-notebook-badge:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  box-shadow: var(--gold-glow);
+}
+
+/* PODCAST STRIP (Selective RTL: Audio remains LTR) */
+.podcast-bar {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.podcast-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.86rem;
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.audio-wrap audio {
+  height: 32px;
+  max-width: 320px;
+  outline: none;
+  direction: ltr;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 6rem 2rem;
+}
+
+/* HERO SECTION */
+.hero-section {
+  text-align: center;
+  padding: 4rem 1rem 5rem 1rem;
+  position: relative;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--border-gold);
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero-headline {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-pure);
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.8px;
+}
+
+.hero-headline span {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  color: var(--text-body);
+  max-width: 720px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.8;
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gold-gradient);
+  color: #000;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: var(--gold-glow);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-pure);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-gold);
+  background: var(--gold-dim);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+/* STATS GRID */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 4.5rem;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+}
+
+.stat-box:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+}
+
+.stat-num {
+  font-family: var(--font-mono);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-pure);
+  margin-top: 0.25rem;
+}
+
+.stat-sub {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* SECTION HEADINGS */
+.section-header {
+  margin-bottom: 2.25rem;
+}
+
+.section-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-pure);
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  max-width: 680px;
+  margin-top: 0.4rem;
+}
+
+/* CARDS */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), var(--gold-glow);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-pure);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* GRIDS */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+
+/* TABS */
+.tabs-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-dim);
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tab-btn.active {
+  color: var(--gold);
+  background: var(--gold-dim);
+  border-color: var(--border-gold);
+}
+
+/* PROMPT / CODE BOX (Selective LTR) */
+.code-box {
+  background: var(--bg-code);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #38BDF8;
+  direction: ltr;
+  text-align: left;
+  white-space: pre-wrap;
+  margin: 0.85rem 0;
+  line-height: 1.6;
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 7, 10, 0.9);
+  backdrop-filter: blur(20px);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 880px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 2.25rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), var(--gold-glow);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-pure);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: rgba(225, 29, 72, 0.2);
+  border-color: #E11D48;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #000;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  padding: 0.8rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: var(--transition-smooth);
+  z-index: 10000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), var(--gold-glow);
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 3.5rem 2rem 2.5rem 2rem;
+  margin-top: 5rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.footer-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 860px) {
+  .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
+  .nav-menu { flex-wrap: wrap; justify-content: center; }
+  .hero-headline { font-size: 2.1rem; }
+  .grid-2 { grid-template-columns: 1fr; }
+}
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(awwwards_css)
+
+print("Generated Awwwards-caliber style.css")
+
+# ==============================================================================
+# 2. SHARED_UI.JS (THREE.JS PARTICLES + GSAP + STATE)
+# ==============================================================================
+shared_js = """
+// OTB Academy — Interactive WebGL & UI Engine
+function showToast(msg) {
+  let toast = document.getElementById("otbToast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "otbToast";
+    toast.className = "toast";
+    document.body.appendChild(toast);
+  }
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(() => { toast.classList.remove("show"); }, 2500);
+}
+
+function copyText(txt, successMsg = "تم النسخ للحافظة بنجاح! 👑") {
+  if (!txt) return;
+  navigator.clipboard.writeText(txt).then(() => {
+    showToast(successMsg);
+  }).catch(err => {
+    console.error("Copy failed", err);
+  });
+}
+
+// THREE.JS AMBIENT PARTICLES
+window.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("webgl-bg");
+  if (!canvas || typeof THREE === "undefined") return;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 80;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  // Gold star particles
+  const count = 350;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(count * 3);
+
+  for (let i = 0; i < count * 3; i += 3) {
+    positions[i] = (Math.random() - 0.5) * 160;
+    positions[i + 1] = (Math.random() - 0.5) * 160;
+    positions[i + 2] = (Math.random() - 0.5) * 80;
+  }
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  const material = new THREE.PointsMaterial({
+    size: 1.4,
+    color: 0xD4A853,
+    transparent: true,
+    opacity: 0.45
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  let mouseX = 0, mouseY = 0;
+  window.addEventListener("mousemove", (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 4;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 4;
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    particles.rotation.y += 0.0005;
+    particles.rotation.x += 0.0003;
+    camera.position.x += (mouseX - camera.position.x) * 0.03;
+    camera.position.y += (-mouseY - camera.position.y) * 0.03;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+});
+"""
+
+with open(os.path.join(BASE_DIR, "shared_ui.js"), "w", encoding="utf-8") as f:
+    f.write(shared_js)
+
+print("Generated shared_ui.js with Three.js engine")
+
+# ==============================================================================
+# 3. MASTER FLAGSHIP INDEX.HTML
+# ==============================================================================
+p_flagship = f"""<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -430,127 +1117,127 @@
 
   <script src="shared_ui.js"></script>
   <script>
-    const coursesData = [{"id": "ai-marketing", "cat": "ai", "phase": 4, "title": "الذكاء الاصطناعي في التسويق الرقمي (AI in Marketing)", "pages": 294, "icon": "🤖", "badge": "GenAI & Prompt Engineering", "desc": "توظيف نماذج الذكاء الاصطناعي التوليدي (ChatGPT, Claude, Midjourney) وهندسة الأوامر المتقدمة (RCIC) في صناعة المحتوى، تحليل البيانات الإعلانية، وأتمتة مسارات البيع.", "units": ["مقدمة في الثورة التوليدية (Generative AI) وتطبيقاتها في صناعة الإعلانات", "إطار هندسة الأوامر التسويقية المتقدمة: Role - Context - Instruction - Constraints (RCIC)", "توليد الأفكار الإعلانية وسيناريوهات الفيديو الفيرال في ثوانٍ", "التصوير التجاري وتوليد أصول الجرافيك و 3D عبر Midjourney & Stable Diffusion", "أتمتة خدمة العملاء وتأهيل الليدز عبر WhatsApp Business API و Chatbots", "التحليل التنبؤي للبيانات وسلوك العملاء والتنبؤ بالقيمة العمرية (LTV)"], "prompt": "Role: Principal AI Growth Engineer at OTB Agency.\nContext: Designing an autonomous multi-modal marketing workflow for [Brand Name] in [Industry].\nTask: Generate a 30-day content and high-converting ad schedule utilizing PAS and AIDA frameworks.\nConstraints: High-converting hooks, Egyptian colloquial luxury tone, direct CTA to WhatsApp.", "case_study": "تم بناء مسار ردود ذكي لعميل مختبرات علاج (Elag Labs) يستقبل استفسارات التحاليل، يصنف الحالة، ويحجز موعد الزيارة المنزلية تلقائياً، محققاً أكثر من 800 حجز مؤهل شهرياً.", "lab": "بناء برومبت مخصص من 4 أبعاد (RCIC) لإنتاج 5 إعلانات ممولة مختلفة لبراند من اختيارك."}, {"id": "content-marketing", "cat": "creative", "phase": 2, "title": "تسويق المحتوى والسرد القصصي الفيرال (Content Marketing)", "pages": 476, "icon": "✍️", "badge": "Viral Storytelling & Copywriting", "desc": "أسرار صناعة المحتوى الجذاب، صياغة النصوص الإعلانية المباشرة (Direct-Response Copywriting)، وسيكولوجية الفيديو القصير (Reels & TikTok).", "units": ["سيكولوجية الانتباه وقاعدة الـ 3 ثوانٍ الأولى (Scroll-Stopping Hooks)", "أطر الكتابة الإعلانية المعتمدة عالمياً: AIDA, PAS, BAB, FAB", "بناء الركائز الإعلانية وجدول المحتوى الشهري (Content Pillars & Editorial Calendar)", "هندسة الفيديوهات القصيرة (Short-Form Video Anatomy): الصوت، الإيقاع، والنص على الشاشة", "سرد القصص العاطفي (Brand Storytelling) وتحويل المتابع العادي إلى مدافع عن البراند", "إعادة تدوير المحتوى (Content Repurposing) عبر منصات التواصل المتعددة"], "prompt": "Role: Senior Direct-Response Copywriter at OTB Agency.\nContext: Launching a viral short-form video campaign for [Brand Name].\nTask: Write 3 contrasting 15-second Reel scripts (Angle 1: Humor & Relatability, Angle 2: FOMO & Urgency, Angle 3: Pure Luxury Aesthetic).\nFormat: Shot-by-shot table with Scene, Visual Action, Audio SFX, and Voiceover.", "case_study": "حملة فيديو ريلز لـ Rancho's EG تبرز تفاصيل تقطيع البرجر الملحمي مع صوص الجبنة، محققة أكثر من 450 ألف مشاهدة أورجانيك ورفع المبيعات بنسبة 65%.", "lab": "كتابة اسكريبت فيديو قصير مدته 15 ثانية يعتمد على صيغة PAS مع تفصيل لقطات الـ ASMR الصوتية."}, {"id": "facebook-ads", "cat": "media", "phase": 3, "title": "إعلانات فيسبوك وميتا للأداء وسكيلينج الـ ROAS (Meta Ads)", "pages": 239, "icon": "📊", "badge": "Performance Media Buying", "desc": "الهندسة المتقدمة لإعلانات Meta، ضبط خوارزميات Advantage+، إعداد Conversions API، واستراتيجيات التوسع الرأسي والأفقي لتحقيق عائد استثمار مضاعف.", "units": ["بنية الحملات المعيارية: TOFU (الوعي الواسع) / MOFU (التفاعل) / BOFU (إعادة الاستهداف)", "استراتيجيات الاستهداف الحديثة: Broad Targeting vs Lookalike vs Retargeting", "ضبط تتبع السيرفر المتقدم: Conversions API (CAPI) وتجاوز قيود iOS 14.5+", "مصفوفة اختبار الكرييتف الإعلاني (Creative Testing Framework)", "قواعد السكيلينج الآمنة: Vertical Scaling (+20% كل 48 ساعة) و Horizontal Scaling", "تحليل المؤشرات المالية: CAC, CPA, MER, Break-Even ROAS, LTV"], "prompt": "Role: Principal Media Buyer and Growth Architect at OTB Agency.\nContext: Client [Brand] with 25% profit margin running Meta Ads in Egypt.\nTask: Formulate a 48-hour scaling protocol when a creative hits 5.2x ROAS.\nFormat: Step-by-step checklist covering budget adjustments, audience duplication, and stop-loss criteria.", "case_study": "إعادة هيكلة حساب إعلانات مجوهرات د. زغلول (Dr. Zaghloul) بحملات Advantage+ وتتبع CAPI دقيق، مما حقق ROAS تجاوز 7.5x واستقراراً تاماً في التكلفة.", "lab": "حساب الـ Break-Even ROAS لمنتج بهامش ربح 30%، وتصميم خطة ميزانية أسبوعية لاختبار 6 كرييتفز جديدة."}, {"id": "instagram-mastery", "cat": "creative", "phase": 2, "title": "احتراف إنستغرام وهندسة التفاعل (Instagram & Reels)", "pages": 199, "icon": "📸", "badge": "Visual Branding & Community", "desc": "تحويل الحساب إلى واجهة عرض ملكية (Visual Storefront)، إتقان خوارزمية الريلز، أتمتة الرسائل المباشرة (ManyChat & IG DM)، وبناء مجتمع مخلص.", "units": ["تحسين البروفايل الاحترافي (Bio, Highlights, Grid Aesthetic)", "أسرار خوارزمية الـ Reels وعوامل رفع نسبة الإكمال (Retention Rate)", "سيكولوجية الستوري اليومية (Story Sequences) لتحقيق مبيعات فورية", "أتمتة الرسائل الخاصة (Instagram DM Automation) لتحويل التعليقات لطلبات شراء", "التسويق عبر المؤثرين والمايكرو إنفلونسرز (Micro-Influencer Collaborations)", "تحليلات إنستغرام واستخراج أوقات الذروة والمحتوى الأكثر حفظاً ومشاركة"], "prompt": "Role: Instagram Growth Strategist at OTB Agency.\nContext: Managing luxury account for [Brand Name].\nTask: Design a 7-day Instagram Story sales funnel (Days 1-2: Tease, Days 3-4: Social Proof, Day 5: Grand Offer, Days 6-7: Last Chance Urgency).", "case_study": "تحويل حساب MIX Coffee على إنستغرام إلى وجهة بصرية داكنة فاخرة، مما رفع تفاعل الحساب بنسبة 180% ومعدل الحفظ والمشاركة بنسبة 240%.", "lab": "تصميم تسلسل ستوري من 5 شرائح مع دعوة تفاعلية لإرسال رسالة خاصة للحصول على كود خصم حصري."}, {"id": "tiktok-growth", "cat": "media", "phase": 3, "title": "إعلانات ونمو تيك توك وسيكولوجية الفيرال (TikTok Ads)", "pages": 80, "icon": "🎵", "badge": "Trends Hijacking & Spark Ads", "desc": "استغلال سرعة انتشار تيك توك، استهداف الجيل Z والشباب، إطلاق حملات Spark Ads، وتصميم إعلانات لا تبدو كإعلانات تقليدية (Don't Make Ads, Make TikToks).", "units": ["فهم صفحة For You Page (FYP) ومعايير انتشار الفيديو التلقائي", "صناعة محتوى UGC (User-Generated Content) عالي المصداقية", "منصة إعلانات تيك توك (TikTok Ads Manager) وإعداد البيكسل", "إعلانات Spark Ads واستغلال الفيديوهات الأورجانيك الرابحة", "سيو تيك توك (TikTok SEO) واستهداف الكلمات المفتاحية في شريط البحث", "تتبع التحويلات ومبيعات المتاجر الإلكترونية على تيك توك"], "prompt": "Role: Creative TikTok Director at OTB Agency.\nContext: Creating native TikTok ads for [Product Name].\nTask: Draft 3 viral UGC concept scripts featuring unboxing, unexpected problem-solving, and funny meme twists.", "case_study": "حملة تيك توك لـ Wilson Crepe تعتمد على تصوير تحضير الكريب الساخن مع ترند موسيقي شائع، حققت أكثر من 600 ألف مشاهدة ومئات الطلبات في عطلة نهاية الأسبوع.", "lab": "صياغة فكرة إعلان تيك توك على نمط UGC مع كتابة الهوك البصري والصوتي لأول ثانيتين."}, {"id": "linkedin-b2b", "cat": "strategy", "phase": 3, "title": "لينكد إن واكتساب عملاء الشركات B2B (LinkedIn Mastery)", "pages": 147, "icon": "💼", "badge": "B2B Lead Generation & Authority", "desc": "بناء العلامة التجارية الشخصية للقيادات التنفيذية، استراتيجيات الاستقطاب البارد (Cold Outreach)، ونشر المقالات والدراسات التي تجذب عقود الشركات والريتينر.", "units": ["تحسين الصفحة الشخصية التنفيذية (All-Star Profile Optimization)", "استراتيجية المحتوى القيادي وبناء السلطة المعرفية (Thought Leadership)", "استخدام LinkedIn Sales Navigator في استهداف صناع القرار", "رسائل الاستقطاب غير المزعجة وسرد القيمة (InMail & Direct Messaging)", "إعلانات لينكد إن الممولة (LinkedIn Sponsored Content & Lead Gen Forms)", "بناء شبكة علاقات مهنية واستقطاب شراكات وعقود وكالة طويلة الأجل"], "prompt": "Role: B2B Growth Strategist at OTB Agency.\nContext: Reaching out to CEOs and CMOs of retail chains in Egypt & Gulf.\nTask: Write a 3-stage cold LinkedIn outreach sequence focusing on high-ROI marketing infrastructure and waste elimination.", "case_study": "استقطاب 4 عقود ريتينر كبرى لـ OTB Agency عبر منشورات دراسات الحالة التحليلية لنتائج العملاء على لينكد إن.", "lab": "صياغة رسالة تواصل احترافية على لينكد إن موجهة لمدير تسويق شركة تجارة إلكترونية تقترح تدقيقاً مجانياً لحسابهم الإعلاني."}, {"id": "strategy-planning", "cat": "strategy", "phase": 1, "title": "الاستراتيجية والتخطيط التسويقي الشامل (Marketing Strategy)", "pages": 124, "icon": "🎯", "badge": "STP, SOSTAC & 90-Day Blueprints", "desc": "المنهجية المعتمدة لبناء خطط التسويق المتكاملة، دراسة السوق والمنافسين، نموذج SOSTAC، وتحويل الأهداف العامة إلى مؤشرات أداء رقمية قابلة للقياس.", "units": ["تحليل الوضع الراهن وتدقيق العلامة التجارية (SWOT & PESTLE Analysis)", "نموذج STP العملي: Segmentation, Targeting, Positioning", "إطار التخطيط الاستراتيجي SOSTAC (من الوضع الحالي حتى التحكم والقياس)", "صياغة الأهداف الذكية (SMART Goals) ومؤشرات الأداء الرئيسية (KPIs)", "تحديد مصفوفة الميزانيات وتوزيع الإنفاق على القنوات التسويقية", "بناء خارطة طريق التنفيذ لـ 90 يوماً (90-Day Execution Roadmap)"], "prompt": "Role: Chief Strategy Officer at OTB Agency.\nContext: Designing a comprehensive 90-day growth strategy for a mid-market brand entering the Egyptian market.\nTask: Provide full SOSTAC framework breakdown with actionable milestones and risk mitigation.", "case_study": "بناء الاستراتيجية الشاملة لإطلاق سلسلة فروع حلويات Rice Patisserie وتحديد الشرائح المستهدفة وتوقيتات الحملات الموسمية.", "lab": "تطبيق نموذج SOSTAC على بيزنس تجاري حقيقي وتحديد 3 مؤشرات أداء رئيسية للنمو."}, {"id": "branding-identity", "cat": "strategy", "phase": 1, "title": "بناء الهوية والعلامة التجارية (Branding & Identity)", "pages": 78, "icon": "👑", "badge": "Brand Archetypes & Equity", "desc": "صناعة الشخصية النفسية للعلامة التجارية، اختيار النمط الأصيل (The Ruler & The Creator)، توحيد الصوت البصري والنصي، وبناء قيمة البراند (Brand Equity).", "units": ["الفرق الجوهري بين الهوية البصرية (Visual Identity) وبناء البراند (Branding)", "الأنماط النفسية الـ 12 للعلامات التجارية (Brand Archetypes)", "صياغة نبرة الصوت والمفردات اللغوية (Tone of Voice & Messaging)", "كتابة كراسة معايير الهوية (Brand Guidelines Bible)", "تموضع السعر والهيبة (Premium Positioning & Pricing Power)", "حماية سمعة العلامة التجارية وإدارة الأزمات (Brand Crisis Management)"], "prompt": "Role: Brand Architecture Director at OTB Agency.\nContext: Developing a luxury brand identity manual for [Client Name].\nTask: Define the Brand Archetype (The Ruler), Core Values, Mission/Vision, and Tone of Voice dos & don'ts.", "case_study": "صياغة هوية وكالة OTB نفسها ('The City Kings' 👑) والاعتماد على مزيج الأسود والذهب لفرض تموضع القيادة والهيبة في السوق.", "lab": "تحديد النمط النفسي (Archetype) المناسب لبراند فاخر وصياغة 3 جمل تعبر عن نبرة صوته الملكية."}, {"id": "seo-mastery", "cat": "creative", "phase": 2, "title": "سيو محركات البحث ومحرك الزيارات العضوية (Search Engine Optimization)", "pages": 173, "icon": "🔍", "badge": "3-Day Technical & On-Page Engine", "desc": "تصدر نتائج بحث جوجل العضوية، السيو التقني وتهيئة الموقع، استراتيجيات الكلمات المفتاحية، وبناء الروابط الخلفية القوية (Backlinks) والظهور في نتائج الذكاء الاصطناعي (SGE/AIO).", "units": ["أساسيات محركات البحث وخوارزميات الترتيب والزحف والفهرسة (Crawling & Indexing)", "البحث عن الكلمات المفتاحية التنافسية وتجميعها (Keyword Research & Clustering)", "السيو الداخلي (On-Page SEO): العناوين، الأوصاف، الروابط الداخلية، والوسوم الدلالية", "السيو التقني (Technical SEO): سرعة الموقع، Core Web Vitals، وهيكل البيانات Schema", "بناء الروابط الخلفية والسلطة (Off-Page SEO & High-Authority Backlinks)", "سيو التجارة الإلكترونية ومحركات بحث الذكاء الاصطناعي (Search Generative Experience)"], "prompt": "Role: Lead SEO Specialist at OTB Agency.\nContext: Optimizing e-commerce website [Website Domain] selling fashion items in Egypt.\nTask: Perform On-Page SEO audit, identify keyword gaps, and write optimized meta titles and H1/H2 structures.", "case_study": "تحسين موقع متجر صقر (Sakr Store) وتصدر الكلمات المفتاحية لمنتجات الأدوات المنزلية، محققاً نمواً في الزيارات العضوية بنسبة 320% دون إنفاق إعلاني إضافي.", "lab": "إجراء بحث كلمات مفتاحية لمنتج تجاري وتحديد 5 كلمات ذات نية شراء عالية (Commercial Intent)."}, {"id": "youtube-strategy", "cat": "creative", "phase": 2, "title": "يوتيوب وسيو الفيديو وزيادة المشاهدات (YouTube & Video SEO)", "pages": 82, "icon": "🎥", "badge": "CTR, Retention & Monetization", "desc": "صناعة القنوات المؤثرة، تصميم الصور المصغرة ذات معدل النقر المرتفع (CTR)، رفع متوسط وقت المشاهدة (Audience Retention)، وتوظيف YouTube Shorts.", "units": ["سيكولوجية الصورة المصغرة (Thumbnails) والعنوان لرفع معدل النقر (CTR > 10%)", "هندسة محتوى الفيديو الطويل للحفاظ على المشاهدين حتى النهاية (Retention Graph)", "سيو الفيديو وتصدر نتائج بحث يوتيوب ومقاطع الفيديو المقترحة (Suggested Videos)", "استراتيجية YouTube Shorts لجذب آلاف المشتركين الجدد يومياً", "تحليلات استوديو يوتيوب وفهم مصادر الزيارات ونقاط هبوط المشاهدين", "تحويل مشاهدات يوتيوب إلى مبيعات وعملاء لقمع البيع المباشر"], "prompt": "Role: YouTube Growth Producer at OTB Agency.\nContext: Planning a high-production brand series for [Company Name].\nTask: Design 3 high-CTR thumbnail & title concepts, outline a 10-minute video retention structure with B-roll cues.", "case_study": "إطلاق سلسلة بودكاست وفيديوهات خلف الكواليس لأحد عملاء OTB محققة أكثر من 200 ألف مشاهدة ومئات العملاء المهتمين بخدماتهم.", "lab": "تصميم خطة فيديو يوتيوب مدته 8 دقائق مع تحديد اللقطات الافتتاحية والصور المصغرة المقترحة."}, {"id": "email-marketing", "cat": "ai", "phase": 4, "title": "التسويق بالبريد الإلكتروني وتدفقات الأتمتة (Email Marketing & Retention)", "pages": 52, "icon": "📧", "badge": "Klaviyo Flows & Lifecycle LTV", "desc": "بناء الأصول التسويقية المملوكة (Owned Media)، تدفقات استعادة السلات المتروكة، الرسائل الترحيبية المؤتمتة، ورفع القيمة العمرية للعميل (LTV).", "units": ["أهمية القوائم البريدية وحماية البيزنس من تقلبات خوارزميات المنصات الإعلانية", "سلاسل التدفقات المؤتمتة الإلزامية (Welcome Series, Abandoned Cart, Post-Purchase)", "تقسيم القوائم البريدية (Advanced Segmentation) بناءً على سلوك الشراء", "كتابة عناوين البريد التي تضمن معدلات فتح قياسية (Open Rates > 35%)", "تصميم إيميلات متوافقة مع الموبايل وموجهة للتحويل الفوري (Responsive Design)", "ضمان تسليم الإيميل في صندوق الوارد وتجنب مجلد الرسائل غير المرغوبة (Spam)"], "prompt": "Role: Lifecycle & Retention Email Architect at OTB Agency.\nContext: Designing an Abandoned Cart email sequence for [E-Commerce Store].\nTask: Write a 3-email recovery sequence (Email 1 at 1hr: Helpful reminder, Email 2 at 12hrs: Social proof & reviews, Email 3 at 24hrs: 10% limited-time incentive).", "case_study": "تطبيق تدفقات Klaviyo المؤتمتة لمتجر إلكتروني رفعت إيرادات المتجر الإجمالية بنسبة 28% دون دفع دولار واحد إضافي في الإعلانات.", "lab": "كتابة إيميل استعادة سلة متروكة يتضمن عنواناً جذاباً ودعوة واضحة لإتمام الطلب."}, {"id": "growth-hacking", "cat": "ai", "phase": 4, "title": "الجروث هاكينج وحلقات الانتشار الفيرال (Growth Hacking)", "pages": 58, "icon": "🚀", "badge": "AARRR Funnel & Viral Loops", "desc": "أساليب النمو غير التقليدية للشركات الناشئة، قمع القرصنة AARRR، هندسة برامج الإحالة الفيرال، ومصفوفة أولويات التجارب السريعة (ICE Framework).", "units": ["عقلية الجروث هاكر والفرق بينه وبين المسوق التقليدي", "قمع النمو AARRR: Acquisition, Activation, Retention, Referral, Revenue", "هندسة حلقات الانتشار الفيرال (Viral Loops & Referral Mechanisms)", "مصفوفة تقييم واختبار الأفكار التجريبية السريعة (ICE Prioritization Framework)", "تقنيات استخراج البيانات والمنافسين (Scraping & Growth Tools)", "تحسين معدلات التحويل داخل الموقع والتطبيق (CRO & UX Optimization)"], "prompt": "Role: Lead Growth Hacker at OTB Agency.\nContext: Rapidly scaling a local delivery app user base in Cairo.\nTask: Brainstorm 5 low-cost, high-impact growth experiments using the ICE scoring framework.", "case_study": "تطبيق حلقة إحالة 'ادعُ صديقك واحصل على وجبة مجانية' لـ Rancho's EG، مما جلب أكثر من 3,500 عميل جديد خلال 3 أسابيع بأقل تكلفة استحواذ.", "lab": "تقييم 3 أفكار نمو تجريبية باستخدام مصفوفة ICE وترتيبها حسب الأولوية."}, {"id": "twitter-x", "cat": "media", "phase": 3, "title": "منصة إكس والتموضع المؤسسي (Twitter / X Authority)", "pages": 136, "icon": "🐦", "badge": "Viral Threads & Newsjacking", "desc": "بناء التواجد الرسمي القوي، كتابة الثريدات التحليلية الفيرال، استغلال الترندات والأخبار العاجلة (Newsjacking)، والتواصل المباشر مع النخب والمستثمرين.", "units": ["خوارزمية منصة إكس وكيفية تحقيق وصول واسع للتغريدات والثريدات", "صناعة الثريدات المعرفية العميقة التي تجذب آلاف المتابعين والمشاركات", "استراتيجيات ركوب الترند الذكي (Newsjacking) دون الإضرار بسمعة البراند", "إدارة الأزمات والرد السريع على استفسارات وشكاوى العملاء العامة", "إعلانات منصة إكس الموجهة لرواد الأعمال والجمهور الخليجي", "بناء الحضور الرسمي والمؤسسي الموثق للشركات الكبرى"], "prompt": "Role: Corporate Communications Strategist at OTB Agency.\nContext: Managing an executive X account in the tech and venture capital space.\nTask: Write an engaging 7-tweet viral thread dissecting a major industry trend with deep market insights.", "case_study": "نشر ثريد تحليلي حول أخطاء إعلانات المطاعم في مصر حقق أكثر من 120 ألف تفاعل وجلب عملاء تجاريين جدد لوكالة OTB.", "lab": "كتابة تغريدة افتتاحية (Hook Tweet) لثريد تسويقي جذاب يناقش سيكولوجية المستهلك."}, {"id": "snapchat-ads", "cat": "media", "phase": 3, "title": "إعلانات سناب شات والتوسع في الخليج (Snapchat Ads & GCC)", "pages": 45, "icon": "👻", "badge": "AR Lenses & GCC Scaling", "desc": "استهداف الأسواق الخليجية (السعودية والإمارات والكويت)، تصميم عدسات الواقع المعزز (AR Lenses)، وإطلاق حملات الشراء المباشر والزيارات للمتاجر.", "units": ["طبيعة مستخدمي سناب شات وسيطرته المطلقة في الأسواق الخليجية", "منصة إعلانات سناب شات (Snap Ads Manager) وتركيب Snap Pixel", "أنواع الإعلانات: Single Image, Story Ads, Collection Ads, Commercials", "تصميم عدسات الواقع المعزز (Snap AR Lenses) التفاعلية لزيادة تفاعل البراند", "استراتيجيات مبيعات المتاجر الإلكترونية والتطبيقات في السوق السعودي", "تحسين الميزانيات وتجنب إهدار الإنفاق الإعلاني على سناب شات"], "prompt": "Role: GCC Media Buying Specialist at OTB Agency.\nContext: Launching a luxury fragrance line on Snapchat targeting Riyadh & Jeddah.\nTask: Design a high-converting Snap Ads funnel utilizing Collection Ads and Story Ads with clear ROI benchmarks.", "case_study": "حملة إعلانية على سناب شات لعلامة تجارية سعودية حققت عائداً إعلانيا 6.8x وتصدرت مبيعات العطور في موسم التخفيضات.", "lab": "تصميم فكرة إعلان سناب شات عمودي (9:16) مدته 6 ثوانٍ يستهدف الجمهور الخليجي."}, {"id": "affiliate-marketing", "cat": "ai", "phase": 4, "title": "التسويق بالعمولة والشراكات الاستراتيجية (Affiliate Marketing)", "pages": 44, "icon": "🤝", "badge": "Partner Networks & Commissions", "desc": "بناء شبكات المسوقين بالعمولة لبراندك، اختيار شبكات الأفلييت الموثوقة، تصميم عروض العمولات الجذابة، وتتبع المبيعات بنزاهة وشفافية.", "units": ["مفهوم التسويق بالعمولة وكيف تبني جيشاً من المسوقين يبيعون لمنتجاتك", "أشهر شبكات الأفلييت العربية والعالمية ونماذج التتبع (Cookie Windows & Attribution)", "تصميم هيكل العمولات المربحة (CPA, CPL, RevShare) دون الإضرار بهامش الربح", "توفير المواد التسويقية الجاهزة للأفلييتس (Creatives, Copy, Landing Pages)", "حماية البرنامج من التلاعب والاحتيال التسويقي (Fraud Prevention)", "استقطاب كبار صناع المحتوى والمواقع المتخصصة لترويج منتجاتك"], "prompt": "Role: Affiliate Program Director at OTB Agency.\nContext: Building an affiliate partner network for an established Egyptian e-commerce brand.\nTask: Create a partner recruitment landing page outline and commission structure guide.", "case_study": "بناء برنامج أفلييت لمتجر إلكتروني جلب أكثر من 150 صانع محتوى وسوقوا لمنتجات المتجر محققين 22% من إجمالي المبيعات السنوية.", "lab": "تصميم هيكل عمولات عادل لمنتج سعر بيعه 1000 جنيه وهامش ربحه 40%."}, {"id": "marketing-principles", "cat": "strategy", "phase": 1, "title": "مبادئ وأسس التسويق الحديث (Modern Marketing Principles)", "pages": 20, "icon": "💡", "badge": "4Ps to 4Cs & Consumer Psychology", "desc": "الأسس الأكاديمية الراسخة التي تحكم عالم التسويق، الانتقال من المزيج التسويقي التقليدي (4Ps) إلى المزيج الموجه للعميل (4Cs)، وسيكولوجية اتخاذ القرار.", "units": ["المفهوم الحقيقي للتسويق: خلق القيمة وتلبية الاحتياجات وتحقيق الربحية", "المزيج التسويقي الكلاسيكي (4Ps: Product, Price, Place, Promotion)", "المزيج التسويقي الحديث المرتكز على العميل (4Cs: Customer, Cost, Convenience, Communication)", "مراحل رحلة العميل (Customer Journey & Buyer Persona)", "سيكولوجية التسعير وإدراك القيمة (Perceived Value vs Real Cost)", "أخلاقيات التسويق وبناء الثقة طويلة الأجل مع الجمهور"], "prompt": "Role: Senior Marketing Consultant at OTB Agency.\nContext: Training newly hired marketing associates.\nTask: Explain the practical shift from 4Ps to 4Cs using real Egyptian market examples.", "case_study": "تطبيق مبادئ إدراك القيمة على قائمة أسعار MIX Coffee لجعل خيار الحجم الكبير الأكثر جاذبية وطلباً من العملاء.", "lab": "تحويل عناصر الـ 4Ps لمنتج خدمي إلى نموذج الـ 4Cs المقابل له."}, {"id": "freelancing-retainers", "cat": "career", "phase": 4, "title": "العمل الحر وإغلاق عقود الريتينر الشهرية (Agency Retainers)", "pages": 52, "icon": "💼", "badge": "$2,500/mo Retainer Pitching", "desc": "كيفية تسعير الخدمات التسويقية، بناء البورتفوليو المقنع، تقديم عروض الأسعار التي لا تقاوم، وإغلاق عقود الريتينر الشهرية بقيمة $2,500+ بثقة تامة.", "units": ["الانتقال من العمل بالساعة إلى التسعير القائم على القيمة والعائد (Value-Based Pricing)", "بناء العرض الذي لا يقاوم (Grand Slam Offer) لخدمات التسويق", "هيكل باقات الريتينر الشهرية لـ OTB: Starter, Dominance ($2,500), Scale", "مهارات إدارة اجتماعات الاكتشاف والمبيعات (Discovery Calls & Closing)", "كتابة مقترحات العمل والعقود القانونية وحماية مستحقات الوكالة", "الحفاظ على العملاء وتجديد العقود (Client Retention & Upselling)"], "prompt": "Role: Commercial Director at OTB Agency.\nContext: Closing a high-ticket $2,500/month Dominance Retainer with a multi-branch business owner.\nTask: Write an executive pitch email outlining the strategic roadmap, team deliverables, and projected ROI.", "case_study": "إغلاق عقود ريتينر شهرية مستمرة مع عملاء OTB الرئيسيين بالاعتماد على توضيح عوائد الاستثمار بدلاً من مجرد سرد عدد البوستات.", "lab": "صياغة مقترح باقة تسويقية شهرية بقيمة $2,500 تتضمن المحتوى والإعلانات والأتمتة."}, {"id": "career-interview", "cat": "career", "phase": 4, "title": "التميز المهني ومهارات المقابلات الشخصية (Career & Interview)", "pages": 43, "icon": "🎯", "badge": "STAR Method & Executive Presence", "desc": "بناء السيرة الذاتية المبنية على الأرقام والإنجازات (ATS-Friendly CV)، استعراض سابقة الأعمال باحترافية، وإتقان الإجابة على أصعب أسئلة المقابلات بنموذج STAR.", "units": ["هندسة السيرة الذاتية القائمة على النتائج والأرقام (Metric-Driven Resume)", "تصميم معرض الأعمال التفاعلي (Interactive Case Study Portfolio)", "استخدام نموذج STAR للإجابة على الأسئلة السلوكية: Situation, Task, Action, Result", "مهارات التفاوض على الراتب والحوافز والمكافآت المرتبطة بالأداء", "الحضور التنفيذي والتواصل الواثق مع الإدارة العليا والعملاء", "بناء مسار الترقي المهني المستمر والتطوير الذاتي في مجال التسويق"], "prompt": "Role: Executive Talent & Career Mentor at OTB Agency.\nContext: Preparing a senior candidate for a Head of Growth interview.\nTask: Provide 5 tough behavioral interview scenarios and structure high-impact answers using the STAR method.", "case_study": "تأهيل كوادر OTB Agency الداخلية للتعامل المباشر مع المستثمرين ومدراء الشركات بثقة واحترافية عالية.", "lab": "صياغة إنجاز تسويقي حقيقي باستخدام نموذج STAR المعتمد."}, {"id": "corelink-sops", "cat": "strategy", "phase": 1, "title": "نظام التشغيل CoreLink CRM والانضباط الإجرائي (SOPs)", "pages": 65, "icon": "🛡️", "badge": "Zero Waste & SLA Management", "desc": "الإجراءات التشغيلية الموحدة لمنع الهدر، القضاء على التوجيه الفارغ، ربط الأقسام بنظام قفل التبعيات (Sequential Locking)، والالتزام باتفاقيات الخدمة (SLA).", "units": ["معايير الجودة الشاملة داخل منظومة OTB التشغيلية", "إلزامية نماذج البريف القياسي ومنع التعليمات الشفهية", "قفل المراحل التسلسلي: اكتمال النصوص 100% قبل فتح مهام التصميم", "قواعد المراجعات وتسليم الأصول عبر السحابة (Cloudflare R2)", "اتفاقية مستوى الخدمة (SLA Rule): مراجعة خلال 24 ساعة والتصعيد بعد 48 ساعة", "تتبع التكلفة الحقيقية وساعات العمل لحساب ربحية كل حساب بدقة"], "prompt": "Role: Operations & CRM Director at OTB Agency.\nContext: Implementing zero-waste SOPs in CoreLink CRM.\nTask: Draft an internal policy document detailing the sequential locking process and SLA escalation ladder.", "case_study": "تطبيق إجراءات SOPs الموحدة داخل وكالة OTB مما خفض نسبة إعادة العمل والتعديلات بنسبة 42% وسرع إطلاق الحملات.", "lab": "تعبئة نموذج بريف تشغيلي كامل لمهمة إعلانية تتضمن فريق المحتوى والتصميم والميديا بايينج."}];
+    const coursesData = {courses_json};
 
-    function renderCoursesGrid(list) {
+    function renderCoursesGrid(list) {{
       const grid = document.getElementById("coursesGrid");
       let html = "";
-      list.forEach(c => {
+      list.forEach(c => {{
         html += `
-          <div class="card" onclick="openCourseModal('${c.id}')" style="cursor: pointer;">
+          <div class="card" onclick="openCourseModal('${{c.id}}')" style="cursor: pointer;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-              <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">${c.badge}</span>
-              <span style="font-size: 0.76rem; color: var(--text-dim); font-family: var(--font-mono);">${c.pages} P.</span>
+              <span style="font-size: 0.78rem; color: var(--gold); font-weight: 700;">${{c.badge}}</span>
+              <span style="font-size: 0.76rem; color: var(--text-dim); font-family: var(--font-mono);">${{c.pages}} P.</span>
             </div>
             <h3 class="card-title">
-              <span>${c.icon}</span>
-              <span>${c.title}</span>
+              <span>${{c.icon}}</span>
+              <span>${{c.title}}</span>
             </h3>
             <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.7; margin-bottom: 1.25rem;">
-              ${c.desc}
+              ${{c.desc}}
             </p>
             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 0.75rem;">
               <span style="color: var(--gold); font-weight: 700; font-size: 0.85rem;">استعراض المنهج والتكليف ←</span>
-              <span style="font-size: 0.8rem; color: var(--text-dim);">المرحلة 0${c.phase}</span>
+              <span style="font-size: 0.8rem; color: var(--text-dim);">المرحلة 0${{c.phase}}</span>
             </div>
           </div>
         `;
-      });
+      }});
       grid.innerHTML = html;
-    }
+    }}
 
-    function openCourseModal(courseId) {
+    function openCourseModal(courseId) {{
       const c = coursesData.find(item => item.id === courseId);
       if (!c) return;
 
       let unitsHtml = "";
-      c.units.forEach((u, i) => {
-        unitsHtml += `<li style="margin-bottom: 0.4rem;"><b>الوحدة ${i + 1}:</b> ${u}</li>`;
-      });
+      c.units.forEach((u, i) => {{
+        unitsHtml += `<li style="margin-bottom: 0.4rem;"><b>الوحدة ${{i + 1}}:</b> ${{u}}</li>`;
+      }});
 
       document.getElementById("modalBody").innerHTML = `
-        <span class="hero-pill" style="margin-bottom: 0.75rem;">المرحلة 0${c.phase} · ${c.badge} · ${c.pages} صفحة منهج</span>
-        <h2 style="font-size: 1.7rem; color: var(--text-pure); margin-bottom: 0.75rem;">${c.icon} ${c.title}</h2>
-        <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.5rem;">${c.desc}</p>
+        <span class="hero-pill" style="margin-bottom: 0.75rem;">المرحلة 0${{c.phase}} · ${{c.badge}} · ${{c.pages}} صفحة منهج</span>
+        <h2 style="font-size: 1.7rem; color: var(--text-pure); margin-bottom: 0.75rem;">${{c.icon}} ${{c.title}}</h2>
+        <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.5rem;">${{c.desc}}</p>
 
         <div class="card" style="margin-bottom: 1.25rem;">
           <h4 style="font-size: 1rem; color: var(--text-pure); margin-bottom: 0.5rem;">📖 الوحدات الأكاديمية للمنهج:</h4>
           <ul style="padding-right: 1.25rem; font-size: 0.9rem; color: var(--text-body); line-height: 1.8;">
-            ${unitsHtml}
+            ${{unitsHtml}}
           </ul>
         </div>
 
         <div class="card" style="margin-bottom: 1.25rem; border-color: rgba(56, 189, 248, 0.3);">
           <h4 style="font-size: 1rem; color: #38BDF8; margin-bottom: 0.4rem;">🤖 أمر الذكاء الاصطناعي المعتمد (RCIC Prompt):</h4>
-          <div class="code-box">${c.prompt}</div>
+          <div class="code-box">${{c.prompt}}</div>
           <button class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.4rem 0.9rem;" onclick="copyText(this.previousElementSibling.innerText)">📋 نسخ الأمر</button>
         </div>
 
         <div class="card" style="margin-bottom: 1.25rem; border-color: rgba(16, 185, 129, 0.3);">
           <h4 style="font-size: 1rem; color: #10B981; margin-bottom: 0.3rem;">💼 دراسة الحالة التطبيقية لعملاء OTB:</h4>
-          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.7;">${c.case_study}</p>
+          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.7;">${{c.case_study}}</p>
         </div>
 
         <div class="card" style="border-color: rgba(168, 85, 247, 0.3);">
           <h4 style="font-size: 1rem; color: #A855F7; margin-bottom: 0.3rem;">🧪 التكليف العملي الإلزامي:</h4>
-          <p style="font-size: 0.9rem; color: var(--gold-light); line-height: 1.7;"><b>المطلوب تسليمه:</b> ${c.lab}</p>
+          <p style="font-size: 0.9rem; color: var(--gold-light); line-height: 1.7;"><b>المطلوب تسليمه:</b> ${{c.lab}}</p>
         </div>
       `;
 
       document.getElementById("courseModal").classList.add("active");
-    }
+    }}
 
-    function closeCourseModal() {
+    function closeCourseModal() {{
       document.getElementById("courseModal").classList.remove("active");
-    }
+    }}
 
-    function filterCourses(cat, btn) {
+    function filterCourses(cat, btn) {{
       document.querySelectorAll(".tabs-bar .tab-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       if (cat === "all") renderCoursesGrid(coursesData);
       else renderCoursesGrid(coursesData.filter(c => c.cat === cat));
-    }
+    }}
 
     // SPRINT ENGINE
     const sprintLessons = [
-      {
+      {{
         day: 1,
         title: "اليوم الأول: تحليل السوق والتموضع وبناء الهوية (STP & Positioning)",
         audience: "الاستراتيجيون ومدراء الحسابات",
         concepts: "• <b>Segmentation:</b> تقسيم السوق سلوكياً ونفسياً.<br>• <b>Targeting:</b> اختيار الشريحة ذات أعلى قيمة عمرية (LTV).<br>• <b>Positioning:</b> حفر تموضع ملكي لا يُنسى في ذهن العميل.",
         caseStudy: "تحويل MIX Coffee من كافيه تقليدي إلى وجهة أولى لرواد الأعمال، محققاً +180% نمواً في التفاعل.",
-        prompt: "معادلة التموضع (Positioning Statement):\n[Target Audience] + [Category] + [Differentiating Benefit] + [Reason to Believe]",
+        prompt: "معادلة التموضع (Positioning Statement):\\n[Target Audience] + [Category] + [Differentiating Benefit] + [Reason to Believe]",
         lab: "اختيار عميل وتعبئة وثيقة البريف واستخراج 3 زوايا تسويقية تستغل فجوات المنافسين."
-      },
-      {
+      }},
+      {{
         day: 2,
         title: "اليوم الثاني: الكوبي رايتنج الإعلاني وسيكولوجية الفيديو القصير",
         audience: "صناع المحتوى والمصممون والمونتيرون",
         concepts: "• <b>قاعدة الـ 3 ثوانٍ (Hook Rate > 35%):</b> كسر التمرير بصرياً وصوتياً.<br>• <b>صيغة PAS:</b> Problem (المشكلة) + Agitation (التهويل) + Solution (الحل الفوري).<br>• <b>صوتيات الـ ASMR:</b> رفع الإشباع البصري والصوتي في فيديوهات المنتجات.",
         caseStudy: "فيديو ريلز لـ Rancho's EG يبرز تفاصيل تقطيع البرجر الملحمي حقق 450 ألف مشاهدة ورفع مبيعات الواتساب بنسبة 65%.",
-        prompt: "Problem: تعبت من ساندوتشات البرجر اللي كلها عيش؟\nAgitation: بتدفع مبلغ وفي الآخر بيجيلك بارد وتندم.\nSolution: في Rancho's قطمة واحدة من الـ Smoked Beef بالصوص السري هتعرف يعني إيه برجر ملوك!",
+        prompt: "Problem: تعبت من ساندوتشات البرجر اللي كلها عيش؟\\nAgitation: بتدفع مبلغ وفي الآخر بيجيلك بارد وتندم.\\nSolution: في Rancho's قطمة واحدة من الـ Smoked Beef بالصوص السري هتعرف يعني إيه برجر ملوك!",
         lab: "كتابة 3 نصوص إعلانية بـ 3 زوايا مختلفة واسكريبت فيديو 15 ثانية."
-      },
-      {
+      }},
+      {{
         day: 3,
         title: "اليوم الثالث: ميديا بايينج الأداء وسكيلينج الـ ROAS",
         audience: "الميديا بايرز وهندسة النمو",
         concepts: "• <b>Advantage+ & Broad Targeting:</b> الاستهداف المفتوح مع تغذية الخوارزمية بكرييتفز قوية.<br>• <b>Conversions API (CAPI):</b> ربط التتبع بالسيرفر لتجاوز قيود iOS 14.5+.<br>• <b>قاعدة الـ 20%:</b> رفع الميزانية 20% فقط كل 48-72 ساعة لحماية استقرار الحملة.",
         caseStudy: "إعادة هيكلة إعلانات Dr. Zaghloul Jewelry بحملات Advantage+ محققة ROAS تجاوز 7.5x.",
-        prompt: "Break-Even ROAS = 1 / Gross Profit Margin %\n(إذا كان الهامش 25%، التعادل = 4.0x)",
+        prompt: "Break-Even ROAS = 1 / Gross Profit Margin %\\n(إذا كان الهامش 25%، التعادل = 4.0x)",
         lab: "تدقيق حساب إعلاني نشط، فحص جودة مطابقة CAPI، وإعداد مصفوفة الميزانية الأسبوعية."
-      },
-      {
+      }},
+      {{
         day: 4,
         title: "اليوم الرابع: الذكاء الاصطناعي وهندسة الأوامر وأتمتة الواتساب",
         audience: "جميع أعضاء الفريق",
         concepts: "• <b>إطار RCIC:</b> Role (الدور) + Context (السياق) + Instruction (التعليمات) + Constraints (القيود).<br>• <b>مسار WhatsApp Business API:</b> ترحيب فوري، تصنيف الطلب، إرسال الكتالوج، وتسجيل البيع تلقائياً.",
         caseStudy: "بناء بوت واتساب لمختبرات علاج (Elag Labs) يستقبل ويؤهل أكثر من 800 حجز منزلي شهرياً.",
-        prompt: "Role: Senior Direct-Response Copywriter at OTB Agency.\nContext: Client is [Brand] in Egypt. Target: 20-35.\nTask: Write 3 ad copies using PAS framework in refined modern Egyptian Arabic.\nConstraints: Bold tone, high-urgency CTA for WhatsApp ordering.",
+        prompt: "Role: Senior Direct-Response Copywriter at OTB Agency.\\nContext: Client is [Brand] in Egypt. Target: 20-35.\\nTask: Write 3 ad copies using PAS framework in refined modern Egyptian Arabic.\\nConstraints: Bold tone, high-urgency CTA for WhatsApp ordering.",
         lab: "توليد 5 إعلانات وبرودكت شوت 3D عبر الـ AI، ورسم مخطط لمسار ردود الواتساب."
-      },
-      {
+      }},
+      {{
         day: 5,
         title: "اليوم الخامس: الانضباط التشغيلي وعقود الريتينر الشهرية",
         audience: "الإدارة ومدراء الحسابات",
@@ -558,75 +1245,75 @@
         caseStudy: "إغلاق عقود ريتينر طويلة الأجل مع عملاء OTB بالاعتماد على إثبات العائد المالي بدلاً من عدد البوستات.",
         prompt: "نحن في OTB لا نبيع مجرد بوستات وتصاميم، بل نبني لك محرك نمو متكامل يربط الهوية بالإعلانات الممولة لتحقيق أعلى عائد مالي مضمون.",
         lab: "تقديم مقترح خطة نمو شهرية مصغرة لعميل حقيقي تتضمن الاستراتيجية وعينة المحتوى ومسار الأتمتة."
-      }
+      }}
     ];
 
-    function loadSprintDay(dNum, btn) {
-      if (btn) {
+    function loadSprintDay(dNum, btn) {{
+      if (btn) {{
         document.querySelectorAll("#sprint .tab-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-      }
+      }}
       const d = sprintLessons.find(item => item.day === dNum);
       document.getElementById("sprintView").innerHTML = `
-        <div style="font-size: 0.8rem; color: var(--gold); font-weight: 700; margin-bottom: 0.4rem;">المستهدفون: ${d.audience}</div>
-        <h3 style="font-size: 1.35rem; color: var(--text-pure); margin-bottom: 1.25rem;">${d.title}</h3>
+        <div style="font-size: 0.8rem; color: var(--gold); font-weight: 700; margin-bottom: 0.4rem;">المستهدفون: ${{d.audience}}</div>
+        <h3 style="font-size: 1.35rem; color: var(--text-pure); margin-bottom: 1.25rem;">${{d.title}}</h3>
 
         <div style="margin-bottom: 1.25rem;">
           <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.35rem;">📖 المفاهيم والنماذج:</h4>
-          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.8;">${d.concepts}</p>
+          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.8;">${{d.concepts}}</p>
         </div>
 
         <div style="margin-bottom: 1.25rem;">
           <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.35rem;">💼 دراسة الحالة التطبيقية:</h4>
-          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.7;">${d.caseStudy}</p>
+          <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.7;">${{d.caseStudy}}</p>
         </div>
 
         <div style="margin-bottom: 1.25rem;">
           <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.35rem;">📐 القالب التكتيكي:</h4>
-          <div class="code-box">${d.prompt}</div>
+          <div class="code-box">${{d.prompt}}</div>
         </div>
 
         <div>
           <h4 style="font-size: 0.95rem; color: var(--text-pure); margin-bottom: 0.35rem;">🧪 التكليف اليومي:</h4>
-          <p style="font-size: 0.9rem; color: var(--gold-light); line-height: 1.7;"><b>المطلوب تسليمه:</b> ${d.lab}</p>
+          <p style="font-size: 0.9rem; color: var(--gold-light); line-height: 1.7;"><b>المطلوب تسليمه:</b> ${{d.lab}}</p>
         </div>
       `;
-    }
+    }}
 
     // PROMPTS STUDIO ENGINE
-    function updatePrompt() {
+    function updatePrompt() {{
       const task = document.getElementById("promptTask").value;
       const brand = document.getElementById("promptBrand").value || "البراند";
       const out = document.getElementById("promptOutput");
 
-      if (task === "copy") {
-        out.innerText = "Role: Senior Direct-Response Copywriter at OTB Agency.\n" +
-          "Context: Running high-performance Meta Ads for " + brand + " in Egypt.\n" +
-          "Task: Write 3 ad copy variations using PAS framework in refined modern Egyptian Arabic.\n" +
+      if (task === "copy") {{
+        out.innerText = "Role: Senior Direct-Response Copywriter at OTB Agency.\\n" +
+          "Context: Running high-performance Meta Ads for " + brand + " in Egypt.\\n" +
+          "Task: Write 3 ad copy variations using PAS framework in refined modern Egyptian Arabic.\\n" +
           "Constraints: Hook under 8 words, bold royal tone, strong urgency CTA linking to WhatsApp menu.";
-      } else if (task === "reels") {
-        out.innerText = "Role: Short-Form Video Director at OTB Agency.\n" +
-          "Context: Instagram Reel / TikTok for " + brand + ".\n" +
-          "Task: Write a shot-by-shot 15-second script with 3-second hook, fast ASMR cuts, and direct promotional offer.\n" +
+      }} else if (task === "reels") {{
+        out.innerText = "Role: Short-Form Video Director at OTB Agency.\\n" +
+          "Context: Instagram Reel / TikTok for " + brand + ".\\n" +
+          "Task: Write a shot-by-shot 15-second script with 3-second hook, fast ASMR cuts, and direct promotional offer.\\n" +
           "Format: Table [Time (Sec) | Visual Action | Audio SFX | Voiceover].";
-      } else if (task === "media") {
-        out.innerText = "Role: Principal Media Buyer and Growth Architect at OTB Agency.\n" +
-          "Context: Analyzing Meta Ads performance for " + brand + ". Target ROAS is 4.0x.\n" +
+      }} else if (task === "media") {{
+        out.innerText = "Role: Principal Media Buyer and Growth Architect at OTB Agency.\\n" +
+          "Context: Analyzing Meta Ads performance for " + brand + ". Target ROAS is 4.0x.\\n" +
           "Task: Diagnose Hook Rate and Click-to-Purchase conversion drop-offs and provide a 48-hour scaling plan.";
-      } else if (task === "design") {
+      }} else if (task === "design") {{
         out.innerText = "/imagine prompt: Ultra-realistic commercial 3D product shot of " + brand + ", obsidian noir stone podium, royal gold accents and droplets, dramatic rim lighting, cinematic 8k render --ar 9:16 --style raw --v 6.0";
-      } else if (task === "retainer") {
-        out.innerText = "Role: Commercial Director at OTB Agency.\n" +
-          "Context: Drafting a $2,500/month Dominance Retainer Proposal for " + brand + ".\n" +
+      }} else if (task === "retainer") {{
+        out.innerText = "Role: Commercial Director at OTB Agency.\\n" +
+          "Context: Drafting a $2,500/month Dominance Retainer Proposal for " + brand + ".\\n" +
           "Task: Write a 1-page executive proposal covering market positioning, 90-day growth roadmap, and expected ROAS targets.";
-      }
-    }
+      }}
+    }}
 
     // CERTIFICATE ENGINE
-    function generateCert() {
+    function generateCert() {{
       const name = document.getElementById("certName").value || "خريج الأكاديمية";
       const certId = "OTB-" + Math.floor(100000 + Math.random() * 900000);
-      const date = new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+      const date = new Date().toLocaleDateString('ar-EG', {{ year: 'numeric', month: 'long', day: 'numeric' }});
       const wrap = document.getElementById("certOutput");
 
       wrap.style.display = "block";
@@ -636,18 +1323,18 @@
           <div style="font-size: 0.85rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; font-family: var(--font-royal); font-weight: 700;">OTB Marketing Studio · City Kings</div>
           <div style="font-family: var(--font-royal); font-size: 2rem; color: var(--text-pure); margin: 0.85rem 0; font-weight: 900; letter-spacing: 1px;">CERTIFICATE OF GROWTH MASTERY</div>
           <p style="color: var(--text-dim); font-size: 1rem;">تشهد أكاديمية وكالة OTB للتسويق وهندسة النمو بأن</p>
-          <h2 style="font-size: 2.2rem; color: var(--gold); margin: 0.85rem 0; font-weight: 900;">${name}</h2>
+          <h2 style="font-size: 2.2rem; color: var(--gold); margin: 0.85rem 0; font-weight: 900;">${{name}}</h2>
           <p style="color: var(--text-accent); max-width: 580px; margin: 0 auto 2rem auto; font-size: 0.95rem; line-height: 1.8;">
             قد أتم بنجاح متطلبات أكاديمية <b>النمو والتسويق الرقمي والذكاء الاصطناعي (Full-Stack Growth Engineering)</b> وأصبح مؤهلاً لتطبيق استراتيجيات وإعلانات ملوك المدينة.
           </p>
           <div style="display: flex; justify-content: space-around; border-top: 1px solid var(--border-gold); padding-top: 1.5rem; font-size: 0.88rem;">
             <div>
               <div style="color: var(--text-dim); font-size: 0.75rem;">رقم الاعتماد الرسمي</div>
-              <div style="font-family: var(--font-mono); color: var(--gold); font-weight: 700;">${certId}</div>
+              <div style="font-family: var(--font-mono); color: var(--gold); font-weight: 700;">${{certId}}</div>
             </div>
             <div>
               <div style="color: var(--text-dim); font-size: 0.75rem;">تاريخ المنح</div>
-              <div style="color: var(--text-pure); font-weight: 600;">${date}</div>
+              <div style="color: var(--text-pure); font-weight: 600;">${{date}}</div>
             </div>
             <div>
               <div style="color: var(--text-dim); font-size: 0.75rem;">الاعتماد الرقمي</div>
@@ -659,9 +1346,9 @@
           <button class="btn btn-secondary" onclick="window.print()">🖨️ طباعة الشهادة / حفظ PDF</button>
         </div>
       `;
-      wrap.scrollIntoView({ behavior: "smooth" });
+      wrap.scrollIntoView({{ behavior: "smooth" }});
       showToast("👑 تم إصدار شهادة الاعتماد بنجاح!");
-    }
+    }}
 
     // INITIALIZE
     renderCoursesGrid(coursesData);
@@ -670,3 +1357,15 @@
   </script>
 </body>
 </html>
+"""
+
+with open(os.path.join(BASE_DIR, "index.html"), "w", encoding="utf-8") as f:
+    f.write(p_flagship)
+
+print("Generated flagship index.html")
+
+# Sync to Downloads
+if os.path.exists(DOWNLOADS_DIR):
+    shutil.rmtree(DOWNLOADS_DIR)
+shutil.copytree(BASE_DIR, DOWNLOADS_DIR)
+print("Synchronized to Downloads!")
