@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ معسكر الـ 5 أيام السريع — OTB Growth Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header class="navbar">
+    <a href="index.html" class="brand-link">
+      <span class="crown-logo">👑</span>
+      <div class="brand-info">
+        <h1>OTB GROWTH ACADEMY</h1>
+        <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-item"><a href="sprint.html" class="active">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+
+    </ul>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
+      <span>✨ مشروع NotebookLM</span>
+    </a>
+  </header>
+
+  <div class="audio-banner">
+    <div class="audio-title-group">
+      <div class="live-indicator">
+        <div class="pulse-dot"></div>
+        <span>استوديو التدريب الصوتي المعتمد</span>
+      </div>
+      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+    </div>
+    <audio controls class="custom-audio-player">
+      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+      متصفحك لا يدعم مشغل الصوت المباشر.
+    </audio>
+  </div>
+
+
+  <div class="breadcrumb-bar">
+    <a href="index.html">الرئيسية</a> / <span>معسكر الـ 5 أيام السريع</span>
+  </div>
+
+  <main class="container">
+    
+    <div class="page-header">
+      <span class="page-tag">TRACK A · FAST-TRACK SPRINT</span>
+      <h1 class="page-title">معسكر الـ 5 أيام المكثف: <span>الزبدة التطبيقية لفرق OTB</span></h1>
+      <p class="page-subtitle">دورة تدريبية سريعة ومضغوطة تركز على النماذج التكتيكية الفورية لكل دور وظيفي في الوكالة مع تكليفات عمل حقيقية.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="card" style="padding: 1.25rem;">
+          <h3 style="color: var(--gold-primary); font-size: 1.1rem; margin-bottom: 1rem;">📅 جدول أيام المعسكر</h3>
+          <div class="sidebar-list">
+            <div class="sidebar-item active" onclick="loadDay(1)">
+              <span class="item-badge">Day 01</span>
+              <div class="item-title">تحليل السوق والتموضع (STP)</div>
+              <div class="item-meta">👥 الاستراتيجيين ومدراء الحسابات</div>
+            </div>
+            <div class="sidebar-item" onclick="loadDay(2)">
+              <span class="item-badge">Day 02</span>
+              <div class="item-title">محرك الكرييتف وسيكولوجية الريلز</div>
+              <div class="item-meta">✍️ كتاب المحتوى والمصممون</div>
+            </div>
+            <div class="sidebar-item" onclick="loadDay(3)">
+              <span class="item-badge">Day 03</span>
+              <div class="item-title">ميديا بايينج الأداء وسكيلينج ROAS</div>
+              <div class="item-meta">📊 ميديا بايرز وهندسة النمو</div>
+            </div>
+            <div class="sidebar-item" onclick="loadDay(4)">
+              <span class="item-badge">Day 04</span>
+              <div class="item-title">الذكاء الاصطناعي وأتمتة الواتساب</div>
+              <div class="item-meta">🤖 جميع أعضاء الفريق</div>
+            </div>
+            <div class="sidebar-item" onclick="loadDay(5)">
+              <span class="item-badge">Day 05</span>
+              <div class="item-title">الانضباط التشغيلي وعقود الريتينر</div>
+              <div class="item-meta">💼 الإدارة ومدراء المشاريع</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lessonContainer" class="lesson-content"></div>
+    </div>
+
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span style="font-size: 2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+    </div>
+  </footer>
+
+
+  <script>
+    const sprintData = [
+      {
+        day: 1,
+        tag: "اليوم الأول · الاستراتيجية والتموضع",
+        title: "تحليل السوق الاستراتيجي وبناء الهوية وتموضع البراند (STP & Positioning)",
+        meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة ورشة تطبيقية · 👥 المستهدفون: الاستراتيجيون ومدراء الحسابات",
+        boxes: [
+          {
+            title: "🎯 أهداف جلسة اليوم الأول",
+            content: "<ul><li>تطبيق نموذج STP (Segmentation, Targeting, Positioning) على قطاعات F&B، التجارة الإلكترونية، والخدمات في السوق المصري.</li><li>استخراج وصياغة شخصية العميل المثالي (Buyer Persona) بناءً على الدوافع النفسية والألم الحقيقي.</li><li>تطبيق نموذج The Ruler & Creator Archetype المعتمد لفرض هيبة العلامات التجارية.</li></ul>"
+          },
+          {
+            title: "📊 معادلة التموضع التنافسي لـ OTB",
+            content: "<p><b>Positioning Statement</b> = [الجمهور المستهدف] + [الفئة السوقية] + [الميزة التنافسية الجوهرية] + [سبب التصديق والإثبات].</p><p style='margin-top:0.5rem;'><i>دراسة حالة MIX Coffee:</i> 'لرواد الأعمال والشباب الباحثين عن تجربة قهوة فاخرة، MIX Coffee هي وجهتك الأولى التي تقدم بن مختص إثيوبي محمص طازجاً كل أسبوع لنمنحك أعلى طاقة وتركيز.'</p>"
+          },
+          {
+            title: "🛠️ التكليف التطبيقي الفوري (Day 1 Assignment)",
+            content: "<p>اختر أحد عملاء الوكالة (أو عميل جديد قيد الـ Onboarding) وقم بملء وثيقة البريف الاستراتيجي وتحديد 3 زوايا تسويقية غير تقليدية تستغل فجوات المنافسين.</p>"
+          }
+        ]
+      },
+      {
+        day: 2,
+        tag: "اليوم الثاني · الكرييتف والمحتوى الفيرال",
+        title: "محرك الكرييتف الإعلاني والكوبي رايتنج وسيكولوجية الفيديو القصير",
+        meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة كتابة وتصوير · 👥 المستهدفون: صناع المحتوى والمصممون والمونتيرون",
+        boxes: [
+          {
+            title: "🎯 أهداف جلسة اليوم الثاني",
+            content: "<ul><li>إتقان معادلات الكوبي رايتنج الإعلاني المباشر: AIDA و PAS و BAB.</li><li>تطبيق قاعدة الثواني الـ 3 الأولى لكسر التمرير (Pattern Interrupt) في ريلز وتيك توك.</li><li>رفع معدل الـ Hook Rate فوق 35% والـ Hold Rate فوق 15%.</li></ul>"
+          },
+          {
+            title: "✍️ نموذج PAS الإعلاني لقطاع المطاعم (Rancho's Example)",
+            content: "<p><b>Problem:</b> تعبت من البرجر اللي كله عيش واللحمة ملهاش طعم؟<br><b>Agitation:</b> بتدفع مبلغ محترم وفي الآخر بيجيلك بارد وتندم على الخروجة.<br><b>Solution:</b> في Rancho's مش بنعمل برجر عادي.. قطمة واحدة من الـ Smoked Double Beef وهتعرف يعني إيه برجر ملوك حقيقي!</p>"
+          },
+          {
+            title: "🛠️ التكليف التطبيقي الفوري (Day 2 Assignment)",
+            content: "<p>كتابة 3 نصوص إعلانية بـ 3 زوايا مختلفة (فكاهية، FOMO، هيبة اجتماعية) وتصميم اسكريبت ستوري بورد لريل 15 ثانية جاهز للتصوير.</p>"
+          }
+        ]
+      },
+      {
+        day: 3,
+        tag: "اليوم الثالث · الميديا بايينج والأرقام",
+        title: "ميديا بايينج الأداء على ميتا وتيك توك وسكيلينج الـ ROAS",
+        meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة تحليل حسابات إعلانية · 👥 المستهدفون: الميديا بايرز وهندسة النمو",
+        boxes: [
+          {
+            title: "🎯 أهداف جلسة اليوم الثالث",
+            content: "<ul><li>بناء الهياكل الإعلانية المتقدمة (CBO vs ABO & Advantage+).</li><li>ضبط التتبع الرقمي وحل قيود iOS 14.5+ عبر Conversions API (CAPI).</li><li>إتقان الرياضيات المالية: حساب ROAS, Break-Even ROAS, CPA, CAC, Contribution Margin.</li><li>تطبيق قواعد السكيلينج الرأسي والأفقي للوصول إلى ميزانيات $10,000+ شهرياً.</li></ul>"
+          },
+          {
+            title: "🧮 معادلات الميديا باير المحترف",
+            content: "<p><b>Break-Even ROAS</b> = 1 / Gross Profit Margin %<br><i>إذا كان هامش الربح 25%، فإن نقطة التعادل الإعلانية المطلوبة = 4.0x.</i></p><p style='margin-top:0.5rem;'><b>قاعدة الـ 20%:</b> زيادة ميزانية الحملة الرابحة بـ 20% فقط كل 48-72 ساعة لتجنب إعادة دخول مرحلة التعلم (Learning Phase).</p>"
+          },
+          {
+            title: "🛠️ التكليف التطبيقي الفوري (Day 3 Assignment)",
+            content: "<p>تدقيق حساب إعلاني حقيقي لأحد عملاء OTB، مراجعة جودة مطابقة أحداث CAPI، وإعداد مصفوفة الميزانية الأسبوعية وجدول الـ Testing & Scaling.</p>"
+          }
+        ]
+      },
+      {
+        day: 4,
+        tag: "اليوم الرابع · الذكاء الاصطناعي والأتمتة",
+        title: "الذكاء الاصطناعي التسويقي وهندسة الأوامر وأتمتة الليدز",
+        meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة بناء مسار أتمتة · 👥 المستهدفون: جميع أعضاء الفريق",
+        boxes: [
+          {
+            title: "🎯 أهداف جلسة اليوم الرابع",
+            content: "<ul><li>إتقان إطار RCIC المتقدم (Role, Context, Instruction, Constraint) لصياغة أوامر تسويقية دقيقة.</li><li>أتمتة إنتاج الأصول المرئية والموشن والاسكريبتات بأدوات AI الحديثة.</li><li>ربط وتفعيل قنوات المراسلة المباشرة عبر WhatsApp Business API لتحويل المحادثات لمبيعات.</li></ul>"
+          },
+          {
+            title: "🤖 إطار RCIC لهندسة الأوامر",
+            content: "<p>• <b>Role:</b> أنت Senior Copywriter & Growth Marketer خبير.<br>• <b>Context:</b> العميل هو براند مجوهرات فاخر (Dr. Zaghloul) يستهدف المقبلين على الزواج.<br>• <b>Instruction:</b> اكتب 3 إعلانات تركز على الأمان والقيمة الاستثمارية.<br>• <b>Constraint:</b> ممنوع العبارات المستهلكة، النبرة ملكية وواثقة بالعامية المصرية الراقية.</p>"
+          },
+          {
+            title: "🛠️ التكليف التطبيقي الفوري (Day 4 Assignment)",
+            content: "<p>استخدام أوامر الـ AI من دليل OTB لتوليد 5 نصوص إعلانية وبرودكت شوت 3D لعميل حقيقي، ورسم مسار ردود WhatsApp API لأحد المتاجر.</p>"
+          }
+        ]
+      },
+      {
+        day: 5,
+        tag: "اليوم الخامس · التشغيل وعقود الريتينر",
+        title: "الانضباط التشغيلي وإدارة المشاريع وعقود الريتينر الشهرية",
+        meta: "⏱️ 90 دقيقة تدريبية + 45 دقيقة محاكاة إغلاق الصفقات · 👥 المستهدفون: الإدارة ومدراء الحسابات",
+        boxes: [
+          {
+            title: "🎯 أهداف جلسة اليوم الخامس",
+            content: "<ul><li>القضاء على متلازمة البريف الفارغ (Empty Brief) وخفض نسبة إعادة العمل بأكثر من 40%.</li><li>تطبيق إجراءات العمل القياسية (SOPs) داخل CoreLink CRM و ClickUp.</li><li>تفعيل اتفاقيات مستوى الخدمة (SLA) وتصعيد المهام المتأخرة بعد 48 ساعة.</li><li>إغلاق وتغليف عقود الريتينر الشهرية ($1,500 - $3,000) للعملاء.</li></ul>"
+          },
+          {
+            title: "💼 باقات الريتينر الشهرية المعتمدة في OTB",
+            content: "<p>• <b>Growth Starter ($1,200/شهر):</b> للمشاريع الناشئة والمطاعم الفردية.<br>• <b>Dominance Retainer 👑 ($2,500/شهر):</b> للبراندات المتوسطة وسلاسل الفروع.<br>• <b>Enterprise Scale ($4,500+/شهر):</b> للشركات الكبرى ومتاجر التجارة الإلكترونية الضخمة.</p>"
+          },
+          {
+            title: "🏆 مشروع ختام المعسكر (Sprint Capstone)",
+            content: "<p>تقديم خطة نمو شهرية مصغرة لعميل حقيقي تتضمن (الاستراتيجية، عينة المحتوى، خطة الإعلانات، ومسار الأتمتة) وتحديث ملفات الـ SOPs الخاصة بك.</p>"
+          }
+        ]
+      }
+    ];
+
+    function loadDay(dayNum) {
+      const data = sprintData.find(d => d.day === dayNum);
+      const container = document.getElementById("lessonContainer");
+      
+      document.querySelectorAll(".sidebar-item").forEach((item, idx) => {
+        if (idx + 1 === dayNum) item.classList.add("active");
+        else item.classList.remove("active");
+      });
+
+      let boxesHtml = "";
+      data.boxes.forEach(b => {
+        boxesHtml += `
+          <div class="lesson-box">
+            <h3>${b.title}</h3>
+            ${b.content}
+          </div>
+        `;
+      });
+
+      container.innerHTML = `
+        <div class="lesson-hero">
+          <span class="item-badge">${data.tag}</span>
+          <h2>${data.title}</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">${data.meta}</p>
+        </div>
+        ${boxesHtml}
+        <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+          ${dayNum > 1 ? `<button class="btn-secondary" onclick="loadDay(${dayNum - 1})">← اليوم السابق</button>` : '<div></div>'}
+          ${dayNum < 5 ? `<button class="btn-primary" onclick="loadDay(${dayNum + 1})">اليوم التالي →</button>` : '<a href="quiz.html" class="btn-primary">الانتقال لاختبار الكفاءة 👑</a>'}
+        </div>
+      `;
+    }
+
+    loadDay(1);
+  </script>
+</body>
+</html>

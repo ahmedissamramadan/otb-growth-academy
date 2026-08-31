@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📋 الـ SOPs ومولد البريفات — OTB Growth Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header class="navbar">
+    <a href="index.html" class="brand-link">
+      <span class="crown-logo">👑</span>
+      <div class="brand-info">
+        <h1>OTB GROWTH ACADEMY</h1>
+        <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-item"><a href="sops.html" class="active">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+
+    </ul>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
+      <span>✨ مشروع NotebookLM</span>
+    </a>
+  </header>
+
+  <div class="audio-banner">
+    <div class="audio-title-group">
+      <div class="live-indicator">
+        <div class="pulse-dot"></div>
+        <span>استوديو التدريب الصوتي المعتمد</span>
+      </div>
+      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+    </div>
+    <audio controls class="custom-audio-player">
+      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+      متصفحك لا يدعم مشغل الصوت المباشر.
+    </audio>
+  </div>
+
+
+  <div class="breadcrumb-bar">
+    <a href="index.html">الرئيسية</a> / <span>إجراءات التشغيل القياسية والبريفات</span>
+  </div>
+
+  <main class="container">
+    
+    <div class="page-header">
+      <span class="page-tag">OPERATIONAL EXCELLENCE & CRM</span>
+      <h1 class="page-title">الانضباط التشغيلي: <span>مولد البريفات القياسية وإجراءات CoreLink</span></h1>
+      <p class="page-subtitle">القضاء على متلازمة التوجيه الفارغ، توحيد نماذج الإسناد، وضمان التزام الفرق باتفاقيات مستوى الخدمة (SLA).</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom: 3rem;">
+      <div class="card" style="border: 2px solid var(--gold-primary);">
+        <h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 1.25rem;">⚙️ مولد البريف الإلزامي للقسم</h3>
+        <div class="form-group">
+          <label class="form-label">اسم العميل / البراند:</label>
+          <input type="text" id="sopClient" class="form-input" value="Rancho's EG">
+        </div>
+        <div class="form-group">
+          <label class="form-label">القسم والتكليف:</label>
+          <select id="sopType" class="form-select">
+            <option>كتابة محتوى وكوبي رايتنج إعلاني (Copywriting)</option>
+            <option>تصميم سوشيال ميديا وموشن جرافيك (Design/Video)</option>
+            <option>إطلاق وإدارة حملات ميديا بايينج ممولة (Media Buying)</option>
+            <option>أتمتة رسائل واتساب وخدمة عملاء (WhatsApp CRM)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">الهدف التسويقي الأساسي:</label>
+          <input type="text" id="sopGoal" class="form-input" value="مضاعفة مبيعات فرع التجمع ورفع متوسط الفاتورة">
+        </div>
+        <div class="form-group">
+          <label class="form-label">الزاوية الإعلانية (Angle):</label>
+          <input type="text" id="sopAngle" class="form-input" value="زاوية الطعم الملحمي الحصري للـ Smoked Brisket">
+        </div>
+        <div class="form-group">
+          <label class="form-label">المحددات والممنوعات ونبرة الصوت:</label>
+          <textarea id="sopNotes" class="form-textarea" rows="3">النبرة ملكية وواثقة بالعامية المصرية الراقية. ممنوع العبارات المبتذلة. الـ CTA يوجه لطلب القائمة عبر واتساب.</textarea>
+        </div>
+        <button class="btn-primary" style="width: 100%;" onclick="generateSopBrief()">⚡ توليد البريف القياسي الآن</button>
+      </div>
+
+      <div class="card">
+        <h3 style="color: var(--gold-light); font-size: 1.25rem; margin-bottom: 1.25rem;">📋 النص الجاهز للإسناد في CoreLink CRM</h3>
+        <textarea id="sopResult" class="form-textarea" style="height: 380px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; line-height: 1.7;" readonly placeholder="اضغط على زر التوليد وسيظهر البريف هنا..."></textarea>
+        <button class="btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="copyBriefText()">📋 نسخ البريف للإسناد الفوري</button>
+      </div>
+    </div>
+
+    <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--gold-light); margin-bottom: 1.5rem; border-right: 4px solid var(--gold-primary); padding-right: 0.75rem;">
+      🛡️ القواعد الأربع لمنع الهدر التشغيلي في OTB
+    </h2>
+
+    <div class="grid-2">
+      <div class="lesson-box">
+        <h3>1. لا مهمة بدون بريف إلزامي كامل</h3>
+        <p>يُحظر بدء أي تصميم أو تصوير أو ميديا بايينج بناءً على رسائل شفهية أو محادثات واتساب مبعثرة. كل مهمة يجب أن تحتوي على زاوية إعلانية، نص معتمد، وهدف رقمي واضح.</p>
+      </div>
+
+      <div class="lesson-box">
+        <h3>2. قفل التبعيات التسلسلي (Sequential Locking)</h3>
+        <p>مرحلة التصميم الجرافيكي والمونتاج لا تفتح للمصمم إلا بعد اعتماد مدير المحتوى لكامل النصوص بنسبة 100%، مما يقضي تماماً على تضارب النصوص بعد انتهاء التصميم.</p>
+      </div>
+
+      <div class="lesson-box">
+        <h3>3. قاعدة الـ 24 ساعة للمراجعات (SLA Rule)</h3>
+        <p>كل تسليم يتم رفعه عبر Cloudflare R2 داخل النظام يجب مراجعته واعتماده أو إرجاعه بملاحظات معيارية خلال 24 ساعة. إذا تجاوزت المهمة 48 ساعة يتم تصعيدها فوراً للإدارة العليا.</p>
+      </div>
+
+      <div class="lesson-box">
+        <h3>4. الشفافية التامة في تتبع الساعات (True Cost Tracking)</h3>
+        <p>استخدام المؤقت الفعلي للعمل مع الإيقاف التلقائي عند الخمول لكشف التكلفة الحقيقية لكل عميل وحساب ربحية عقود الريتينر بدقة متناهية.</p>
+      </div>
+    </div>
+
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span style="font-size: 2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+    </div>
+  </footer>
+
+
+  <script>
+    function generateSopBrief() {
+      const client = document.getElementById("sopClient").value || "العميل";
+      const type = document.getElementById("sopType").value;
+      const goal = document.getElementById("sopGoal").value || "تحقيق مبيعات";
+      const angle = document.getElementById("sopAngle").value || "الجودة العالية";
+      const notes = document.getElementById("sopNotes").value || "الالتزام بالهوية.";
+      const date = new Date().toLocaleDateString('ar-EG');
+
+      const brief = "### 👑 OTB OFFICIAL TASK BRIEF\n" +
+        "==================================================\n" +
+        "* العميل / المشروع: " + client + "\n" +
+        "* القسم والتكليف: " + type + "\n" +
+        "* تاريخ الإسناد: " + date + "\n" +
+        "* نظام التتبع: CoreLink CRM (Live System)\n" +
+        "==================================================\n" +
+        "🎯 الهدف التسويقي (Marketing Objective):\n" +
+        goal + "\n\n" +
+        "💡 الزاوية الإعلانية (Angle & Positioning):\n" +
+        angle + "\n\n" +
+        "⚠️ المحددات ونبرة الصوت والممنوعات (Constraints & Tone):\n" +
+        notes + "\n\n" +
+        "📦 التسليم والمراجعة (Delivery & SLA):\n" +
+        "- مكان التسليم: Cloudflare R2 Storage inside CoreLink CRM\n" +
+        "- مهلة المراجعة القصوى: 24 ساعة من تاريخ الرفع.\n" +
+        "==================================================\n" +
+        "👑 OTB Agency — We Are The City Kings";
+
+      document.getElementById("sopResult").value = brief;
+    }
+
+    function copyBriefText() {
+      const txt = document.getElementById("sopResult").value;
+      if (!txt) return alert("يرجى توليد البريف أولاً!");
+      navigator.clipboard.writeText(txt).then(() => {
+        alert("تم نسخ البريف بنجاح! جاهز للصق في CoreLink CRM.");
+      });
+    }
+
+    generateSopBrief();
+  </script>
+</body>
+</html>

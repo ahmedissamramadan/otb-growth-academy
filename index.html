@@ -6,201 +6,168 @@
   <title>👑 OTB Growth Academy — The City Kings Internal Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
+  
   <header class="navbar">
-    <div class="brand-badge">
-      <span class="crown-icon">👑</span>
-      <div class="brand-title">
+    <a href="index.html" class="brand-link">
+      <span class="crown-logo">👑</span>
+      <div class="brand-info">
         <h1>OTB GROWTH ACADEMY</h1>
         <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
       </div>
-    </div>
-    <div class="nav-actions">
-      <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
-        <span>✨ فتح مشروع NotebookLM الرسمي</span>
-      </a>
-    </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html" class="active">🏠 الرئيسية</a></li>
+<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
+<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+
+    </ul>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
+      <span>✨ مشروع NotebookLM</span>
+    </a>
   </header>
 
-  <!-- AUDIO STRIP (PODCAST PLAYER) -->
-  <section class="audio-strip">
-    <div class="audio-info">
-      <div class="pulse-dot"></div>
-      <div>
-        <strong>🎙️ البودكاست الاستراتيجي المعتمد:</strong>
-        <span style="color: var(--gold-light);">OTB Growth Engineering & Full-Stack AI Overview</span>
+  <div class="audio-banner">
+    <div class="audio-title-group">
+      <div class="live-indicator">
+        <div class="pulse-dot"></div>
+        <span>استوديو التدريب الصوتي المعتمد</span>
       </div>
+      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
     </div>
-    <audio controls>
+    <audio controls class="custom-audio-player">
       <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
       متصفحك لا يدعم مشغل الصوت المباشر.
     </audio>
-  </section>
+  </div>
 
-  <!-- MAIN CONTAINER -->
-  <main class="main-container">
+
+  <main class="container">
     
-    <!-- NAVIGATION TABS -->
-    <nav class="nav-tabs">
-      <button class="tab-btn active" data-target="tabSprint">⚡ معسكر الـ 5 أيام السريع (Sprint)</button>
-      <button class="tab-btn" data-target="tabMasterclass">📚 الأكاديمية الشاملة (4 أسابيع)</button>
-      <button class="tab-btn" data-target="tabPrompts">🤖 استوديو أوامر الذكاء الاصطناعي</button>
-      <button class="tab-btn" data-target="tabQuiz">📝 الاختبار التفاعلي والاعتماد</button>
-      <button class="tab-btn" data-target="tabSOP">📋 مولد البريفات القياسية (SOPs)</button>
-      <button class="tab-btn" data-target="tabDownloads">📥 مركز الملفات والمستخرجات</button>
-    </nav>
+    <div class="page-header" style="text-align: center; padding: 2rem 0;">
+      <span class="page-tag">👑 OFFICIAL INTERNAL ACADEMY · 2026 EDITION</span>
+      <h1 class="page-title">أكاديمية OTB للتسويق: <span>ماستركلاس ملوك المدينة وهندسة النمو</span></h1>
+      <p class="page-subtitle" style="margin: 0.75rem auto 1.5rem auto;">
+        المنظومة التدريبية والتنفيذية الداخلية الموحدة لتمكين فرق عمل وكالة OTB الـ 16 دوراً وظيفياً بأقوى استراتيجيات التسويق الرقمي، إعلانات الأداء (Performance Ads)، وأتمتة الذكاء الاصطناعي.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="sprint.html" class="btn-primary">⚡ بدء معسكر الـ 5 أيام السريع</a>
+        <a href="prompts.html" class="btn-secondary">🤖 فتح استوديو أوامر الـ AI</a>
+        <a href="quiz.html" class="btn-secondary">📝 دخول اختبار الكفاءة والشهادة</a>
+      </div>
+    </div>
 
-    <!-- TAB 1: SPRINT -->
-    <section id="tabSprint" class="tab-panel active">
-      <div class="grid-2col">
-        <div class="card">
-          <h3 style="margin-bottom: 1rem; color: var(--gold-primary);">📅 جدول أيام المعسكر</h3>
-          <div class="lesson-list" id="sprintList"></div>
-        </div>
-        <div class="card" id="sprintDetail"></div>
+    <div class="grid-4" style="margin-bottom: 3rem;">
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 2.2rem; font-weight: 900; color: var(--gold-primary); font-family: 'JetBrains Mono';">16</div>
+        <div style="font-size: 0.95rem; font-weight: 700; margin-top: 0.25rem;">وحدة تخصصية شاملة</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">تغطي كامل مسارات الـ Full-Stack Growth</div>
       </div>
-    </section>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 2.2rem; font-weight: 900; color: var(--emerald); font-family: 'JetBrains Mono';">5 Days</div>
+        <div style="font-size: 0.95rem; font-weight: 700; margin-top: 0.25rem;">معسكر مكثف وسريع</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">تطبيقات وورش عمل يومية لكل قسم</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 2.2rem; font-weight: 900; color: var(--cyan); font-family: 'JetBrains Mono';">50+</div>
+        <div style="font-size: 0.95rem; font-weight: 700; margin-top: 0.25rem;">أمر ذكاء اصطناعي معتمد</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">بإطار RCIC المخصص لفرق OTB</div>
+      </div>
+      <div class="card" style="text-align: center;">
+        <div style="font-size: 2.2rem; font-weight: 900; color: var(--crimson); font-family: 'JetBrains Mono';">7+ Years</div>
+        <div style="font-size: 0.95rem; font-weight: 700; margin-top: 0.25rem;">خبرة سوق حقيقية موثقة</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted);">مبنية على أرقام وحملات كبرى البراندات</div>
+      </div>
+    </div>
 
-    <!-- TAB 2: MASTERCLASS -->
-    <section id="tabMasterclass" class="tab-panel">
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <h2 style="color: var(--gold-light); margin-bottom: 0.5rem;">👑 مسار الأكاديمية التخصصية الشاملة (4 أسابيع)</h2>
-        <p style="color: var(--text-muted);">تحويل المنهج الأكاديمي لـ 16 وحدة تخصصية مقسمة على 4 مراحل محورية لبناء منظومة التسويق وهندسة النمو 360°.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-        <div class="card">
-          <span class="lesson-badge">الأسبوع 01</span>
-          <h3 style="margin: 0.5rem 0; color: var(--gold-primary);">الاستراتيجية وأبحاث السوق والبراندنج</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">بناء ملف التموضع الاستراتيجي، ونموذج STP، والهوية الملكية لـ OTB (The Ruler & Creator).</p>
-        </div>
-        <div class="card">
-          <span class="lesson-badge">الأسبوع 02</span>
-          <h3 style="margin: 0.5rem 0; color: var(--gold-primary);">محرك الكرييتف والسيو الفيرال</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">كتابة الإعلانات التحويلية، سيكولوجية الفيديو القصير وسيو المواقع والمطاعم.</p>
-        </div>
-        <div class="card">
-          <span class="lesson-badge">الأسبوع 03</span>
-          <h3 style="margin: 0.5rem 0; color: var(--gold-primary);">ميديا بايينج الأداء وسكيلينج الـ ROAS</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">إعلانات Meta/TikTok، ضبط CAPI، ومضاعفة الميزانيات بأمان من 1K$ إلى 50K$.</p>
-        </div>
-        <div class="card">
-          <span class="lesson-badge">الأسبوع 04</span>
-          <h3 style="margin: 0.5rem 0; color: var(--gold-primary);">الذكاء الاصطناعي وعقود الريتينر</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">أتمتة WhatsApp API، إدارة مشاريع CoreLink CRM، ومشروع التخرج الشامل 360°.</p>
-        </div>
-      </div>
-    </section>
+    <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--gold-light); margin-bottom: 1.5rem; border-right: 4px solid var(--gold-primary); padding-right: 0.75rem;">
+      🚀 بوابات التعلم والتنفيذ السريع
+    </h2>
+    <div class="grid-3" style="margin-bottom: 3rem;">
+      <a href="sprint.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">المسار (أ)</span>
+        <h3 class="card-title">⚡ معسكر الـ 5 أيام السريع (Sprint)</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          الكبسولة التدريبية المكثفة لفريق العمل: STP، كتابة الكوبي رايتنج الإعلاني، ميديا بايينج ميتا وتيك توك، أتمتة الواتساب، وعقود الريتينر.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">استعراض أيام المعسكر ←</div>
+      </a>
 
-    <!-- TAB 3: PROMPTS STUDIO -->
-    <section id="tabPrompts" class="tab-panel">
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <h2 style="color: var(--gold-light); margin-bottom: 0.5rem;">🤖 استوديو أوامر الذكاء الاصطناعي المعتمدة</h2>
-        <p style="color: var(--text-muted);">أوامر ذكاء اصطناعي تم اختبارها وصياغتها بإطار RCIC لتوليد المحتوى والإعلانات واستراتيجيات النمو بنقرة واحدة.</p>
-      </div>
-      <div class="prompt-grid" id="promptGrid"></div>
-    </section>
+      <a href="masterclass.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">المسار (ب)</span>
+        <h3 class="card-title">📚 الأكاديمية الشاملة (4 أسابيع)</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          التدريب التخصصي الأكاديمي لـ 16 وحدة دراسية كاملة تغطي الـ SEO، الإعلانات الممولة، الجروث هاكينج، ومشروع التخرج الشامل 360°.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">استعراض المنهج الأكاديمي ←</div>
+      </a>
 
-    <!-- TAB 4: QUIZ -->
-    <section id="tabQuiz" class="tab-panel">
-      <div class="quiz-box">
-        <div class="card" style="margin-bottom: 1.5rem; text-align: center;">
-          <h2 style="color: var(--gold-light); margin-bottom: 0.5rem;">📝 اختبار تقييم الكفاءة التسويقية لملوك المدينة</h2>
-          <p style="color: var(--text-muted);">أجب عن الأسئلة التالية لاختبار استيعابك لمنهج ومفاهيم النمو المعتمدة داخل OTB.</p>
-        </div>
-        <div id="quizBox"></div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <button class="btn-copy" style="padding: 1rem 2.5rem; font-size: 1.1rem; margin: 0 auto;" onclick="submitQuiz()">
-            👑 تسليم الإجابات وحساب النتيجة
-          </button>
-        </div>
-        <div id="quizResult" class="quiz-result" style="display:none; margin-top: 2rem;"></div>
-      </div>
-    </section>
+      <a href="prompts.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">استوديو AI</span>
+        <h3 class="card-title">🤖 استوديو الأوامر المخصصة</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          مكتبة أوامر ذكاء اصطناعي تفاعلية لصناع المحتوى، الميديا بايرز، والمصممين لتوليد الاسكريبتات والإعلانات والتصاميم بضغطة زر.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">فتح محاكي الأوامر ←</div>
+      </a>
 
-    <!-- TAB 5: SOP BUILDER -->
-    <section id="tabSOP" class="tab-panel">
-      <div class="grid-2col">
-        <div class="card">
-          <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">⚙️ إعداد بيانات البريف</h3>
-          <div class="form-group">
-            <label>اسم العميل / البراند:</label>
-            <input type="text" id="sopClient" class="form-control" placeholder="مثال: MIX Coffee / Rancho's">
-          </div>
-          <div class="form-group">
-            <label>نوع التكليف والقسم:</label>
-            <select id="sopType" class="form-control">
-              <option>كتابة محتوى وكوبي رايتنج إعلاني</option>
-              <option>تصميم سوشيال ميديا وموشن جرافيك</option>
-              <option>إطلاق وإدارة حملات ميديا بايينج ممولة</option>
-              <option>أتمتة رسائل واتساب وخدمة عملاء</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>الهدف التسويقي الأساسي:</label>
-            <input type="text" id="sopGoal" class="form-control" placeholder="مثال: مضاعفة المبيعات / إطلاق فرع جديد">
-          </div>
-          <div class="form-group">
-            <label>الزاوية الإعلانية (Angle):</label>
-            <input type="text" id="sopAngle" class="form-control" placeholder="مثال: زاوية الفخامة والجودة الاستثنائية">
-          </div>
-          <div class="form-group">
-            <label>ملاحظات وممنوعات (Constraints):</label>
-            <textarea id="sopNotes" class="form-control" rows="3" placeholder="ممنوع استخدام عبارات تقليدية.."></textarea>
-          </div>
-          <button class="btn-copy" style="width: 100%;" onclick="generateBrief()">⚡ توليد البريف القياسي</button>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📋 الناتج التنفيذي للإسناد في CoreLink CRM</h3>
-          <textarea id="sopOutput" class="form-control" style="height: 350px; font-family: 'JetBrains Mono', monospace;" readonly placeholder="اضغط على زر التوليد لعرض البريف القياسي هنا..."></textarea>
-        </div>
-      </div>
-    </section>
+      <a href="case-studies.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">قاعدة المعرفة</span>
+        <h3 class="card-title">💼 دراسات حالة عملاء OTB</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          تحليل استراتيجي لعملاء الوكالة الموثقين (MIX Coffee, Rancho's EG, Dr. Zaghloul, Rice Patisserie) وشرح النماذج التكتيكية.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">قراءة دراسات الحالة ←</div>
+      </a>
 
-    <!-- TAB 6: DOWNLOADS -->
-    <section id="tabDownloads" class="tab-panel">
-      <div class="card" style="margin-bottom: 1.5rem;">
-        <h2 style="color: var(--gold-light); margin-bottom: 0.5rem;">📥 مركز المستخرجات والأصول التنفيذية</h2>
-        <p style="color: var(--text-muted);">جميع الملفات والأدلة المنشأة محفوظة محلياً وجاهزة للمشاركة المباشرة مع الفريق.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-        <div class="card">
-          <h3 style="color: var(--gold-primary); margin-bottom: 0.5rem;">⚡ حقائب معسكر الـ 5 أيام</h3>
-          <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-            <li>📄 Day 01: Strategic Market Analysis</li>
-            <li>📄 Day 02: Creative Engine & Copywriting</li>
-            <li>📄 Day 03: Performance Media Buying</li>
-            <li>📄 Day 04: AI Marketing & Automation</li>
-            <li>📄 Day 05: Operations & Retainers</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--gold-primary); margin-bottom: 0.5rem;">📖 الأدلة التكتيكية والكوديكس</h3>
-          <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-            <li>📖 OTB Prompt Engineering Bible (50+ Prompts)</li>
-            <li>✈️ OTB Media Buying Pre-Flight Checklist</li>
-            <li>📋 OTB Standard SOPs & Briefing Templates</li>
-            <li>🎓 OTB 360° Capstone Growth Engine Brief</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--gold-primary); margin-bottom: 0.5rem;">🎙️ أصول Gemini Studio الرسمية</h3>
-          <ul style="list-style: none; padding: 0; font-size: 0.9rem; line-height: 2;">
-            <li>🎙️ OTB Growth Engineering Podcast (MP4 Audio)</li>
-            <li>📑 OTB Executive Strategic Briefing (Markdown)</li>
-            <li>📝 OTB Marketing Assessment Quiz (JSON)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      <a href="quiz.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">التقييم والاعتماد</span>
+        <h3 class="card-title">📝 محاكي الاختبارات والشهادة</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          اختبر معلوماتك التسويقية في 10 أسئلة تخصصية واحصل فوراً على شهادة إتمام معتمدة من أكاديمية OTB باسمك ورقم اعتماد رسمي.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">بدء الاختبار الآن ←</div>
+      </a>
+
+      <a href="sops.html" class="card" style="text-decoration: none; color: inherit;">
+        <span class="item-badge">التشغيل وCRM</span>
+        <h3 class="card-title">📋 الـ SOPs ومولد البريفات</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6;">
+          إجراءات العمل القياسية داخل CoreLink CRM و ClickUp، ومولد تفاعلي لإنشاء بريفات المهام ومنع الهدر التشغيلي وإعادة العمل.
+        </p>
+        <div style="margin-top: 1rem; color: var(--gold-primary); font-weight: 700; font-size: 0.85rem;">توليد بريف فوري ←</div>
+      </a>
+    </div>
 
   </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span style="font-size: 2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+    </div>
+  </footer>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

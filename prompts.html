@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🤖 استوديو أوامر الذكاء الاصطناعي — OTB Growth Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header class="navbar">
+    <a href="index.html" class="brand-link">
+      <span class="crown-logo">👑</span>
+      <div class="brand-info">
+        <h1>OTB GROWTH ACADEMY</h1>
+        <p>THE CITY KINGS · INTERNAL MASTERY PORTAL 2026</p>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="index.html">🏠 الرئيسية</a></li>
+<li class="nav-item"><a href="sprint.html">⚡ معسكر الـ 5 أيام</a></li>
+<li class="nav-item"><a href="masterclass.html">📚 الأكاديمية (4 أسابيع)</a></li>
+<li class="nav-item"><a href="prompts.html" class="active">🤖 استوديو الأوامر</a></li>
+<li class="nav-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
+<li class="nav-item"><a href="quiz.html">📝 الاختبار والشهادة</a></li>
+<li class="nav-item"><a href="sops.html">📋 الـ SOPs والبريفات</a></li>
+<li class="nav-item"><a href="downloads.html">📥 التحميلات والموارد</a></li>
+
+    </ul>
+    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook">
+      <span>✨ مشروع NotebookLM</span>
+    </a>
+  </header>
+
+  <div class="audio-banner">
+    <div class="audio-title-group">
+      <div class="live-indicator">
+        <div class="pulse-dot"></div>
+        <span>استوديو التدريب الصوتي المعتمد</span>
+      </div>
+      <span style="color: var(--gold-light); font-size: 0.85rem; font-weight: 600;">🎙️ OTB Growth Engineering & AI Podcast (Deep Dive Overview)</span>
+    </div>
+    <audio controls class="custom-audio-player">
+      <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
+      متصفحك لا يدعم مشغل الصوت المباشر.
+    </audio>
+  </div>
+
+
+  <div class="breadcrumb-bar">
+    <a href="index.html">الرئيسية</a> / <span>استوديو أوامر الذكاء الاصطناعي</span>
+  </div>
+
+  <main class="container">
+    
+    <div class="page-header">
+      <span class="page-tag">AI STUDIO · RCIC PROMPT ENGINE</span>
+      <h1 class="page-title">استوديو أوامر الذكاء الاصطناعي: <span>المولد التفاعلي لفرق OTB</span></h1>
+      <p class="page-subtitle">اختر دورك الوظيفي، وخصص بيانات العميل، وانسخ البرومبت الاحترافي المعتمد بنقرة واحدة لتحقيق نتائج فائقة الدقة.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 2.5rem; border: 2px solid var(--gold-primary);">
+      <h2 style="color: var(--gold-light); font-size: 1.4rem; margin-bottom: 1.25rem;">⚡ المولد التفاعلي للأوامر الذكية</h2>
+      <div class="grid-3">
+        <div class="form-group">
+          <label class="form-label">القسم / الدور الوظيفي:</label>
+          <select id="builderRole" class="form-select" onchange="updateCustomPrompt()">
+            <option value="copy">كتابة الإعلانات والكوبي رايتنج (Copywriting)</option>
+            <option value="media">الميديا بايينج وسكيلينج الحملات (Media Buying)</option>
+            <option value="design">تصوير وتوليد برودكت شوت 3D (Midjourney)</option>
+            <option value="account">مقترحات عقود الريتينر (Account Management)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">اسم البراند / العميل:</label>
+          <input type="text" id="builderBrand" class="form-input" value="MIX Coffee" oninput="updateCustomPrompt()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">القطاع / الفئة:</label>
+          <input type="text" id="builderNiche" class="form-input" value="Specialty Coffee & F&B" oninput="updateCustomPrompt()">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">الأمر التكتيكي المولد فورياً (جاهز للإرسال للذكاء الاصطناعي):</label>
+        <div id="livePromptBox" class="prompt-box"></div>
+      </div>
+
+      <button class="btn-primary" onclick="copyLivePrompt()">📋 نسخ الأمر المخصص للحافظة</button>
+    </div>
+
+    <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--gold-light); margin-bottom: 1.5rem; border-right: 4px solid var(--gold-primary); padding-right: 0.75rem;">
+      📖 موسوعة الأوامر المعتمدة للأقسام
+    </h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="item-badge">Copywriting</span>
+        <h3 class="card-title">إعلان PAS تحويلي للمطاعم والأغذية</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">صياغة 3 إعلانات تحويلية تركز على إثارة الرغبة والطلب المباشر.</p>
+        <div class="prompt-box">Role: Senior Direct-Response Copywriter at OTB Agency.
+Context: Client is [Brand Name] in Egypt. Target: Foodies aged 18-35.
+Task: Write 3 ad copies using PAS (Problem-Agitation-Solution) in modern Egyptian Arabic.
+Constraints: Bold tone, no clichés, high-urgency CTA for WhatsApp ordering.</div>
+        <button class="btn-secondary" style="width: 100%;" onclick="copyStaticPrompt(this)">📋 نسخ الأمر</button>
+      </div>
+
+      <div class="card">
+        <span class="item-badge">Media Buying</span>
+        <h3 class="card-title">تشخيص حساب إعلاني وقرار الـ Scaling</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">تحليل أرقام الحملة واستخراج اختناقات التحويل وتحديد اتجاه السكيلينج.</p>
+        <div class="prompt-box">Role: Principal Growth Marketer & Media Buyer at OTB Agency.
+Context: Analyzing 7-day data for [Client Name]: Spend, CTR, Purchases, ROAS, CPA.
+Task: Full funnel diagnosis (Hook Rate, Hold Rate, Drop-off) + Scaling direction.
+Format: 48-hour clear action plan to scale ROAS > 4.0x.</div>
+        <button class="btn-secondary" style="width: 100%;" onclick="copyStaticPrompt(this)">📋 نسخ الأمر</button>
+      </div>
+
+      <div class="card">
+        <span class="item-badge">3D Design</span>
+        <h3 class="card-title">برومبت تصوير تجاري 3D لـ Midjourney</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">توليد لقطات منتجات فخمة بإضاءة استوديو وسينمائية داكنة.</p>
+        <div class="prompt-box">/imagine prompt: Ultra-realistic 3D commercial product shot of [Product Name], obsidian black podium, royal gold accents and droplets, dramatic rim lighting, cinematic 8k studio render --ar 9:16 --style raw --v 6.0</div>
+        <button class="btn-secondary" style="width: 100%;" onclick="copyStaticPrompt(this)">📋 نسخ الأمر</button>
+      </div>
+
+      <div class="card">
+        <span class="item-badge">Account Management</span>
+        <h3 class="card-title">صياغة مقترح عقد ريتينر شهري ($2,500)</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">خطاب تنفيذي مقنع يوضح العائد وخطة النمو لـ 90 يوماً.</p>
+        <div class="prompt-box">Role: Commercial Director at OTB Marketing Studio (The City Kings).
+Context: Executive Retainer proposal for [Client] to scale from $20k to $100k GMV.
+Task: 1-page executive summary: Market gaps, 90-day growth roadmap, $2,500/mo deliverables, and ROAS governance.</div>
+        <button class="btn-secondary" style="width: 100%;" onclick="copyStaticPrompt(this)">📋 نسخ الأمر</button>
+      </div>
+    </div>
+
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span style="font-size: 2rem;">👑</span>
+        <div>
+          <h3 style="color: var(--gold-light); font-size: 1.1rem; font-weight: 800;">OTB Agency — We Are The City Kings</h3>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <div>📍 القاهرة، مصر</div>
+        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Designed & Architected for Elite Performance.
+    </div>
+  </footer>
+
+
+  <script>
+    function updateCustomPrompt() {
+      const role = document.getElementById("builderRole").value;
+      const brand = document.getElementById("builderBrand").value || "البراند";
+      const niche = document.getElementById("builderNiche").value || "القطاع";
+      const box = document.getElementById("livePromptBox");
+
+      if (role === "copy") {
+        box.innerText = "Role: Senior Direct-Response Copywriter & Growth Marketer at OTB Agency.\n" +
+          "Context: We are running high-performance Meta and TikTok campaigns for " + brand + " (" + niche + ") in the Egyptian and Arab market.\n" +
+          "Task: Write 3 ad variations using the PAS (Problem-Agitation-Solution) framework in engaging, refined Egyptian Arabic.\n" +
+          "Constraints:\n" +
+          "- Hook must be under 8 words.\n" +
+          "- Tone: Bold, authoritative, and royal ('The City Kings' style).\n" +
+          "- Include strong scarcity/urgency Call To Action linking to our WhatsApp ordering menu.";
+      } else if (role === "media") {
+        box.innerText = "Role: Principal Media Buyer and Growth Architect at OTB Agency.\n" +
+          "Context: Analyzing performance campaigns for " + brand + " (" + niche + "). Target ROAS is 4.0x, current CPA is $[Amount].\n" +
+          "Task:\n" +
+          "1. Conduct a full funnel diagnostic on Hook Rate, Hold Rate, and Click-to-Purchase conversion drop-offs.\n" +
+          "2. Recommend whether to Scale Vertically (20% budget boost) or Horizontally (Broad targeting + new angles).\n" +
+          "3. Outline a 48-hour tactical action plan.";
+      } else if (role === "design") {
+        box.innerText = "/imagine prompt: Cinematic commercial product photography of " + brand + " (" + niche + "), obsidian noir stone podium, royal gold accents, elegant backlight, 8k resolution studio render, dramatic rim lighting --ar 9:16 --style raw --v 6.0";
+      } else if (role === "account") {
+        box.innerText = "Role: Commercial Growth Director at OTB Agency.\n" +
+          "Context: Drafting a $2,500/month Retainer Proposal for " + brand + " in the " + niche + " sector.\n" +
+          "Task: Draft an executive 1-page proposal covering market positioning, 90-day growth roadmap, content & media deliverables, and expected ROAS targets.";
+      }
+    }
+
+    function copyLivePrompt() {
+      const text = document.getElementById("livePromptBox").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("تم نسخ الأمر بنجاح إلى الحافظة!");
+      });
+    }
+
+    function copyStaticPrompt(btn) {
+      const text = btn.previousElementSibling.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.innerText = "✅ تم النسخ!";
+        setTimeout(() => btn.innerText = "📋 نسخ الأمر", 2000);
+      });
+    }
+
+    updateCustomPrompt();
+  </script>
+</body>
+</html>

@@ -1,4 +1,13 @@
+import os
+import shutil
 
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+# ==========================================
+# 1. SHARED CSS (LUXURY OBSIDIAN & ROYAL GOLD)
+# ==========================================
+style_css = """
 :root {
   --bg-primary: #070A10;
   --bg-secondary: #0D131F;
@@ -555,3 +564,10 @@ body {
   font-size: 0.78rem;
   color: var(--text-dim);
 }
+"""
+
+print("Generating multi-page files...")
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(style_css)
+
+print("Shared style.css generated!")
