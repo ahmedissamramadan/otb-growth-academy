@@ -570,3 +570,17 @@ body {
   .hero-headline { font-size: 2.1rem; }
   .grid-2 { grid-template-columns: 1fr; }
 }
+
+/* RTL PHONE NUMBER & NUMERIC ISOLATION (W3C / Unicode BiDi Best Practice) */
+.phone-number,
+.phone-link,
+a[href^="tel:"],
+bdi[dir="ltr"],
+.ltr-text {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+  text-align: left;
+  font-family: var(--font-mono), var(--font-ar), sans-serif;
+  letter-spacing: 0.5px;
+}

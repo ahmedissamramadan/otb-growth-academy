@@ -1098,7 +1098,7 @@ p_flagship = f"""<!DOCTYPE html>
       </div>
       <div class="footer-links">
         <div>📍 القاهرة، مصر</div>
-        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
+        <div>📞 <bdi dir="ltr"><a href="tel:+201008080295" class="phone-link">&lrm;+20 100 808 0295</a></bdi></div>
         <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
       </div>
     </div>
