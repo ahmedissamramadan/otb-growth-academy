@@ -1,4 +1,14 @@
+import os
+import shutil
+import json
 
+BASE_DIR = "/Users/ahmedissamramadan/.gemini/antigravity/scratch/otb-growth-academy"
+DOWNLOADS_DIR = "/Users/ahmedissamramadan/Downloads/Materials/OTB_GROWTH_ACADEMY"
+
+# ==============================================================================
+# 1. ULTRA-MINIMAL LUXURY CSS (style.css)
+# ==============================================================================
+minimal_css = """
 :root {
   --bg: #090A0D;
   --bg-sub: #101218;
@@ -324,3 +334,9 @@ body {
   .hero-title { font-size: 1.7rem; }
   .audio-bar { flex-direction: column; text-align: center; }
 }
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(minimal_css)
+
+print("Generated minimal style.css")

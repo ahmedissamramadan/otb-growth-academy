@@ -3,371 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📝 اختبار الكفاءة والشهادة — OTB Growth Academy</title>
+  <title>📝 الشهادة والاختبار — OTB Growth Academy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@600;700&family=Readex+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=Cinzel:wght@700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .quiz-option {
-      display: block;
-      padding: 1.1rem 1.35rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-sm);
-      margin-bottom: 0.85rem;
-      cursor: pointer;
-      font-size: 0.96rem;
-      transition: var(--transition-fast);
-    }
-    .quiz-option:hover {
-      background: rgba(245, 158, 11, 0.08);
-      border-color: var(--gold-500);
-      transform: translateX(-3px);
-    }
-    .quiz-option.selected {
-      background: rgba(245, 158, 11, 0.22);
-      border-color: var(--gold-500);
-      color: var(--gold-100);
-      font-weight: 800;
-    }
-    .quiz-option.correct {
-      background: rgba(16, 185, 129, 0.28) !important;
-      border-color: var(--emerald) !important;
-      color: #FFF !important;
-    }
-    .quiz-option.wrong {
-      background: rgba(225, 29, 72, 0.28) !important;
-      border-color: var(--crimson) !important;
-    }
-    .certificate-box {
-      background: #020305;
-      border: 6px solid var(--gold-500);
-      border-radius: 24px;
-      padding: 3.5rem 2.5rem;
+    .cert-frame {
+      background: #060709;
+      border: 3px solid var(--gold);
+      border-radius: 16px;
+      padding: 3rem 2rem;
       text-align: center;
-      position: relative;
-      box-shadow: 0 0 60px rgba(245, 158, 11, 0.35);
-      margin-top: 2.5rem;
-    }
-    .cert-title {
-      font-family: 'Cinzel', serif;
-      font-size: 2.3rem;
-      font-weight: 900;
-      color: var(--gold-400);
-      letter-spacing: 2px;
-      margin: 1rem 0;
+      margin-top: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
     }
   </style>
 </head>
 <body>
   
-  <header class="navbar">
-    <a href="index.html" class="brand-wrapper">
+  <nav class="navbar">
+    <a href="index.html" class="brand">
       <span class="brand-crown">👑</span>
-      <div class="brand-text">
-        <h1>OTB GROWTH ACADEMY</h1>
-        <p>THE CITY KINGS · FULL-SPECTRUM ENTERPRISE LMS 2026</p>
-      </div>
+      <span>OTB Academy</span>
     </a>
-    <ul class="nav-menu">
-      <li class="nav-link-item"><a href="index.html">🏠 الرئيسية</a></li>
-<li class="nav-link-item"><a href="mindmap.html">🗺️ الخريطة الذهنية</a></li>
-<li class="nav-link-item"><a href="courses.html">📚 المقررات الـ 19</a></li>
-<li class="nav-link-item"><a href="sprint.html">⚡ المعسكر السريع</a></li>
-<li class="nav-link-item"><a href="masterclass.html">🎓 الأكاديمية (4 أسابيع)</a></li>
-<li class="nav-link-item"><a href="prompts.html">🤖 استوديو الأوامر</a></li>
-<li class="nav-link-item"><a href="case-studies.html">💼 دراسات الحالة</a></li>
-<li class="nav-link-item"><a href="quiz.html" class="active">📝 الاختبار والشهادة</a></li>
-<li class="nav-link-item"><a href="sops.html">📋 الـ SOPs</a></li>
-<li class="nav-link-item"><a href="downloads.html">📥 التحميلات</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">الرئيسية</a></li>
+<li><a href="mindmap.html">الخريطة الذهنية</a></li>
+<li><a href="courses.html">المقررات</a></li>
+<li><a href="sprint.html">المعسكر (5 أيام)</a></li>
+<li><a href="prompts.html">الأوامر (AI)</a></li>
+<li><a href="quiz.html" class="active">الشهادة</a></li>
+<li><a href="downloads.html">الموارد</a></li>
 
     </ul>
-    <a href="https://notebooklm.google.com/notebook/76ef5be2-d7d2-4a33-a88d-f88fc0fe1148" target="_blank" class="btn-notebook-badge">
-      <span>✨ مشروع NotebookLM الرسمي</span>
-    </a>
-  </header>
-
-  <div class="podcast-strip">
-    <div class="podcast-info">
-      <div class="live-badge">
-        <div class="pulse-dot"></div>
-        <span>استوديو التدريب الصوتي المعتمد</span>
-      </div>
-      <span style="color: var(--gold-200); font-size: 0.86rem; font-weight: 700;">🎙️ OTB Growth Engineering & AI Masterclass (Deep Dive Podcast)</span>
-    </div>
-    <div class="audio-controls-wrap">
-      <audio controls>
-        <source src="track_b_4week_masterclass/studio_artifacts/OTB_Growth_Podcast.mp4" type="audio/mp4">
-        متصفحك لا يدعم مشغل الصوت المباشر.
-      </audio>
-    </div>
-  </div>
+  </nav>
 
 
-  <div class="breadcrumb-bar">
-    <a href="index.html">الرئيسية</a> / <span>اختبار الكفاءة والشهادة</span>
-  </div>
-
-  <main class="container" style="max-width: 960px;">
+  <main class="container" style="max-width: 800px;">
     
-    <div class="page-header" style="text-align: center;">
-      <span class="page-pill">EXAMINATION & OFFICIAL CERTIFICATION</span>
-      <h1 class="page-title">اختبار الكفاءة التسويقية: <span>شهادة ملوك المدينة</span></h1>
-      <p class="page-subtitle" style="margin: 0 auto;">أجب عن الأسئلة الـ 10 المعيارية التالية لإثبات استيعابك لمنظومة النمو وإصدار شهادة الاعتماد الملكية الرسمية باسمك.</p>
+    <div class="hero" style="margin-bottom: 2rem;">
+      <span class="hero-tag">ASSESSMENT & CERTIFICATION</span>
+      <h1 class="hero-title">شهادة إتمام الأكاديمية</h1>
+      <p class="hero-desc">أدخل اسمك وأجب عن الأسئلة الخمسة الأساسية لإصدار شهادتك الرسمية المعتمدة.</p>
     </div>
 
-    <div class="card" style="margin-bottom: 2rem;">
-      <label style="display: block; font-size: 0.95rem; font-weight: 800; color: var(--gold-200); margin-bottom: 0.6rem;">
-        👑 الاسم بالكامل (ليظهر بشكل رسمي على الشهادة المعتمدة):
-      </label>
-      <input type="text" id="traineeName" class="btn-secondary" style="width: 100%; padding: 0.9rem 1.25rem; font-size: 1.05rem; font-weight: 700; color: #FFF; background: var(--bg-surface); text-align: right;" placeholder="اكتب اسمك الثلاثي هنا..." value="أحمد عصام رمضان">
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <label style="display: block; font-size: 0.88rem; color: var(--text); margin-bottom: 0.4rem; font-weight: 600;">الاسم الرسمي على الشهادة:</label>
+      <input type="text" id="certName" class="btn btn-secondary" style="width: 100%; text-align: right; background: var(--bg-input); font-size: 1rem;" value="أحمد عصام رمضان">
     </div>
 
-    <div id="quizContainer"></div>
+    <div id="questionsWrap">
+      <div class="card">
+        <h4 style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem;">1. ما هو التموضع والنمط النفسي المعتمد لوكالة OTB؟</h4>
+        <label style="display:block; margin-bottom:0.4rem; font-size:0.88rem;"><input type="radio" name="q0" value="0"> المنافسة على أقل سعر</label>
+        <label style="display:block; font-size:0.88rem;"><input type="radio" name="q0" value="1" checked> The Ruler & The Creator (ملوك المدينة: الهيبة والجرأة والتركيز على العائد)</label>
+      </div>
 
-    <div style="text-align: center; margin-top: 3rem;">
-      <button class="btn-primary" style="padding: 1.1rem 3.5rem; font-size: 1.2rem;" onclick="submitExam()">
-        👑 تسليم الإجابات وإصدار الشهادة
-      </button>
+      <div class="card">
+        <h4 style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem;">2. ما هو الهدف الأساسي من أول 3 ثوانٍ في ريلز الإعلانات؟</h4>
+        <label style="display:block; margin-bottom:0.4rem; font-size:0.88rem;"><input type="radio" name="q1" value="1" checked> كسر التمرير (Pattern Interrupt) وجذب انتباه المشاهد (Hook Rate > 35%)</label>
+        <label style="display:block; font-size:0.88rem;"><input type="radio" name="q1" value="0"> كتابة أرقام السجل التجاري</label>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem;">3. إذا كان هامش الربح 25%، فما هو الـ Break-Even ROAS؟</h4>
+        <label style="display:block; margin-bottom:0.4rem; font-size:0.88rem;"><input type="radio" name="q2" value="1" checked> 4.0x (حيث 1 / 0.25 = 4)</label>
+        <label style="display:block; font-size:0.88rem;"><input type="radio" name="q2" value="0"> 1.5x</label>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem;">4. ما هي النسبة الآمنة لزيادة ميزانية الحملات الرابحة (Scaling)؟</h4>
+        <label style="display:block; margin-bottom:0.4rem; font-size:0.88rem;"><input type="radio" name="q3" value="1" checked> زيادة 20% كل 48-72 ساعة لحماية استقرار الحملة</label>
+        <label style="display:block; font-size:0.88rem;"><input type="radio" name="q3" value="0"> مضاعفة الميزانية 200% كل ساعة</label>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem;">5. ما هو السعر القياسي لباقة الـ Dominance Retainer لـ OTB؟</h4>
+        <label style="display:block; margin-bottom:0.4rem; font-size:0.88rem;"><input type="radio" name="q4" value="1" checked> $2,500 / شهر (هوية + 24 محتوى + ميديا بايينج + أتمتة)</label>
+        <label style="display:block; font-size:0.88rem;"><input type="radio" name="q4" value="0"> $300 / شهر</label>
+      </div>
     </div>
 
-    <div id="resultContainer" style="display: none;"></div>
+    <div style="text-align: center; margin: 2rem 0;">
+      <button class="btn btn-primary" style="padding: 0.8rem 2.5rem; font-size: 1rem;" onclick="generateCert()">👑 إصدار شهادة الاعتماد</button>
+    </div>
+
+    <div id="certResult" style="display: none;"></div>
 
   </main>
   
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span style="font-size: 2.2rem;">👑</span>
-        <div>
-          <h3 style="color: var(--gold-100); font-size: 1.15rem; font-weight: 900;">OTB Agency — We Are The City Kings</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">استراتيجيات جريئة.. نتائج حقيقية | Bold Strategies. Real Results</p>
-        </div>
-      </div>
-      <div class="footer-contact">
-        <div>📍 القاهرة، مصر</div>
-        <div>📞 <a href="tel:+201008080295">+20 100 808 0295</a></div>
-        <div>✉️ <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 OTB Agency Growth Engineering Academy. All Rights Reserved. Engineered for Unmatched Market Dominance.
-    </div>
+    <div style="margin-bottom: 0.5rem; color: var(--text);">OTB Agency — We Are The City Kings 👑</div>
+    <div>القاهرة · <a href="tel:+201008080295">+20 100 808 0295</a> · <a href="mailto:otbagency5@gmail.com">otbagency5@gmail.com</a></div>
   </footer>
   <script src="shared_ui.js"></script>
 
 
   <script>
-    const questions = [
-      {
-        q: "ما هو التموضع والنمط النفسي المعتمد لوكالة OTB في السوق؟",
-        options: [
-          "المنافسة على أقل سعر ممكن وتقليل التكاليف",
-          "The Ruler & The Creator (ملوك المدينة: الهيبة والجرأة والتركيز الصارم على النتائج)",
-          "الاعتماد على الإعلانات الممولة دون أي هوية",
-          "تقديم تصاميم عادية دون قياس العائد المالي"
-        ],
-        correct: 1,
-        expl: "تموضع OTB يجمع بين هيبة القيادة والجرأة الإبداعية لفرض السيطرة السوقية وصناعة عوائد ملموسة."
-      },
-      {
-        q: "ما هو الهدف الحاسم من أول 3 ثوانٍ في أي فيديو ريلز إعلاني (Short-Form Video)؟",
-        options: [
-          "عرض تفاصيل فروع الشركة وأرقام الهواتف",
-          "كسر التمرير (Pattern Interrupt) وجذب انتباه المشاهد الفوري (Hook Rate > 35%)",
-          "شرح تاريخ تأسيس الشركة منذ 2018",
-          "وضع حقوق الملكية الفكرية والشعار"
-        ],
-        correct: 1,
-        expl: "أول 3 ثوانٍ تحسم بقاء المشاهد وتحدد تكلفة الألف ظهور ومعدل تفاعل الإعلان."
-      },
-      {
-        q: "إذا كان هامش الربح الإجمالي لمنتج هو 25%، فما هو الـ Break-Even ROAS المطلوب لتحقيق نقطة التعادل؟",
-        options: [
-          "1.5x",
-          "2.0x",
-          "4.0x (حيث 1 / 0.25 = 4)",
-          "8.0x"
-        ],
-        correct: 2,
-        expl: "نقطة التعادل = 1 مقسومة على هامش الربح (1 / 0.25 = 4.0x)."
-      },
-      {
-        q: "ما هي القاعدة الآمنة للتوسع الرأسي (Vertical Scaling) في ميزانية الحملات الإعلانية الرابحة؟",
-        options: [
-          "مضاعفة الميزانية 200% كل يوم",
-          "زيادة الميزانية بنسبة 20% كل 48-72 ساعة لتجنب إعادة دخول مرحلة التعلم",
-          "تغيير الاستهداف الإعلاني يومياً",
-          "إيقاف الحملة وإعادة تشغيلها بميزانية جديدة"
-        ],
-        correct: 1,
-        expl: "زيادة 20% كل يومين إلى 3 أيام تضمن استقرار أداء الخوارزمية وتكلفة التحويل."
-      },
-      {
-        q: "ما الذي يرمز له حرف (C) الأخير في إطار هندسة الأوامر التسويقية RCIC؟",
-        options: [
-          "Creativity (الإبداع)",
-          "Constraints (القيود والشروط والممنوعات)",
-          "Category (الفئة)",
-          "Customer (العميل)"
-        ],
-        correct: 1,
-        expl: "Constraints هي المحددات التي تمنع الـ AI من استخدام عبارات مستهلكة وتضبط النبرة بدقة."
-      },
-      {
-        q: "كيف يتم القضاء على 'متلازمة التوجيه الفارغ' (Empty Brief) داخل CoreLink CRM؟",
-        options: [
-          "التواصل عبر رسائل واتساب شفهية وسريعة",
-          "إلزامية تعبئة نموذج البريف الكامل والاعتماد النصي بنسبة 100% قبل بدء التصميم",
-          "البدء في التصميم فوراً دون انتظار المحتوى",
-          "إلغاء المراجعات بالكامل"
-        ],
-        correct: 1,
-        expl: "نماذج البريف الإلزامية و Sequential Locking تخفض نسبة إعادة العمل بأكثر من 40%."
-      },
-      {
-        q: "في نموذج PAS للكتابة الإعلانية، ماذا يمثل حرف (A)؟",
-        options: [
-          "Action (الفعل)",
-          "Agitation (تهويل المشكلة وتوضيح ألم استمرارها)",
-          "Awareness (الوعي)",
-          "Attention (الانتباه)"
-        ],
-        correct: 1,
-        expl: "Agitation هو تعميق المشكلة وإشعار العميل بخسارة عدم حلها فوراً."
-      },
-      {
-        q: "ما هي الفائدة الأساسية من إعداد Conversions API (CAPI) مع Meta Pixel؟",
-        options: [
-          "تقليل تكلفة إعلانات جوجل",
-          "تجاوز قيود الخصوصية و iOS 14.5+ وتمرير بيانات الشراء مباشرة من السيرفر بجودة مطابقة عالية",
-          "زيادة عدد المتابعين الأورجانيك",
-          "الحصول على علامة التوثيق الزرقاء"
-        ],
-        correct: 1,
-        expl: "CAPI يرسل الأحداث مباشرة من الخادم لميتا مما يحمي بيانات التتبع والـ ROAS."
-      },
-      {
-        q: "ما هو معدل الـ Hook Rate المستهدف في إعلانات الريلز الاحترافية لـ OTB؟",
-        options: [
-          "أكثر من 5%",
-          "أكثر من 15%",
-          "أكثر من 35%",
-          "100%"
-        ],
-        correct: 2,
-        expl: "الهدف القياسي لفيديوهات OTB هو تخطي 35% في أول 3 ثوانٍ."
-      },
-      {
-        q: "ما هو السعر القياسي المعتمد لباقة الـ Dominance Retainer الشهرية لـ OTB؟",
-        options: [
-          "$300 / شهر",
-          "$800 / شهر",
-          "$2,500 / شهر",
-          "$10,000 / شهر"
-        ],
-        correct: 2,
-        expl: "باقة Dominance Retainer تغطي هوية كاملة و24 محتوى عالي الجودة وميديا بايينج وأتمتة بسعر $2,500 شهرياً."
-      }
-    ];
-
-    let userAnswers = {};
-
-    function renderQuiz() {
-      const container = document.getElementById("quizContainer");
-      let html = "";
-      questions.forEach((q, qIdx) => {
-        let optsHtml = "";
-        q.options.forEach((opt, oIdx) => {
-          optsHtml += `
-            <div class="quiz-option" data-q="${qIdx}" data-o="${oIdx}" onclick="selectOpt(${qIdx}, ${oIdx})">
-              ${opt}
-            </div>
-          `;
-        });
-        html += `
-          <div class="card" style="margin-bottom: 1.75rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="page-pill" style="font-size: 0.75rem; margin: 0;">سؤال ${qIdx + 1} من 10</span>
-            </div>
-            <h3 style="color: var(--gold-100); font-size: 1.2rem; font-weight: 800; margin-bottom: 1.25rem;">${q.q}</h3>
-            <div>${optsHtml}</div>
-            <div id="expl_${qIdx}" style="display:none; margin-top:1rem; padding:1rem; background:rgba(245,158,11,0.1); border-radius:var(--radius-sm); font-size:0.9rem; border-right:4px solid var(--gold-500); color:#FFF;"></div>
-          </div>
-        `;
-      });
-      container.innerHTML = html;
-    }
-
-    function selectOpt(qIdx, oIdx) {
-      userAnswers[qIdx] = oIdx;
-      document.querySelectorAll(`[data-q="${qIdx}"]`).forEach(el => el.classList.remove("selected"));
-      document.querySelector(`[data-q="${qIdx}"][data-o="${oIdx}"]`).classList.add("selected");
-    }
-
-    function submitExam() {
-      const name = document.getElementById("traineeName").value || "خريج الأكاديمية";
-      let score = 0;
-
-      questions.forEach((q, qIdx) => {
-        const selected = userAnswers[qIdx];
-        const expl = document.getElementById(`expl_${qIdx}`);
-        expl.style.display = "block";
-        expl.innerHTML = `<b>💡 توضيح الإجابة الصحيحة:</b> ${q.expl}`;
-
-        document.querySelectorAll(`[data-q="${qIdx}"]`).forEach((el, oIdx) => {
-          if (oIdx === q.correct) el.classList.add("correct");
-          if (selected !== undefined && selected === oIdx && selected !== q.correct) {
-            el.classList.add("wrong");
-          }
-        });
-
-        if (selected === q.correct) score++;
-      });
-
-      const percentage = Math.round((score / questions.length) * 100);
-      const resContainer = document.getElementById("resultContainer");
-      resContainer.style.display = "block";
-
+    function generateCert() {
+      const name = document.getElementById("certName").value || "خريج الأكاديمية";
       const certId = "OTB-" + Math.floor(100000 + Math.random() * 900000);
-      const dateStr = new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+      const date = new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+      const wrap = document.getElementById("certResult");
 
-      resContainer.innerHTML = `
-        <div class="certificate-box">
-          <div style="font-size: 3.5rem;">👑</div>
-          <div style="font-size: 0.95rem; letter-spacing: 3px; color: var(--gold-200); text-transform: uppercase; font-weight: 800;">OTB Marketing Studio · City Kings</div>
-          <div class="cert-title">CERTIFICATE OF GROWTH MASTERY</div>
-          <p style="color: var(--text-muted); font-size: 1.05rem;">تشهد أكاديمية وكالة OTB للتسويق وهندسة النمو بأن</p>
-          <h2 style="font-size: 2.4rem; color: #FFF; margin: 1.25rem 0; font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">${name}</h2>
-          <p style="color: #E2E8F0; max-width: 680px; margin: 0 auto; line-height: 1.85; font-size: 1.05rem;">
-            قد اجتاز بنجاح كافة متطلبات معسكر وأكاديمية <b>النمو والتسويق الرقمي المتقدم والذكاء الاصطناعي (Full-Stack Growth Engineering)</b> بدرجة <b>${percentage}%</b>، وأصبح مؤهلاً لتطبيق استراتيجيات وإعلانات ملوك المدينة.
+      wrap.style.display = "block";
+      wrap.innerHTML = `
+        <div class="cert-frame">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👑</div>
+          <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase;">OTB Marketing Studio · City Kings</div>
+          <div style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--text); margin: 0.75rem 0; font-weight: 700;">CERTIFICATE OF GROWTH MASTERY</div>
+          <p style="color: var(--text-dim); font-size: 0.95rem;">تشهد أكاديمية وكالة OTB للتسويق وهندسة النمو بأن</p>
+          <h2 style="font-size: 2rem; color: var(--gold); margin: 0.85rem 0; font-weight: 800;">${name}</h2>
+          <p style="color: var(--text-body); max-width: 540px; margin: 0 auto 2rem auto; font-size: 0.92rem; line-height: 1.7;">
+            قد أتم بنجاح متطلبات أكاديمية <b>النمو والتسويق الرقمي والذكاء الاصطناعي (Full-Stack Growth Engineering)</b> وأصبح مؤهلاً لتطبيق استراتيجيات وإعلانات ملوك المدينة.
           </p>
-          <div style="display: flex; justify-content: space-around; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(245, 158, 11, 0.3);">
+          <div style="display: flex; justify-content: space-around; border-top: 1px solid var(--border); padding-top: 1.5rem; font-size: 0.85rem;">
             <div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">رقم الاعتماد الرقمي</div>
-              <div style="font-family: 'JetBrains Mono'; font-weight: 800; color: var(--gold-400); font-size: 1.1rem;">${certId}</div>
+              <div style="color: var(--text-dim); font-size: 0.75rem;">رقم الاعتماد</div>
+              <div style="font-family: 'JetBrains Mono'; color: var(--gold); font-weight: 600;">${certId}</div>
             </div>
             <div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">تاريخ المنح</div>
-              <div style="font-weight: 800; color: #FFF;">${dateStr}</div>
+              <div style="color: var(--text-dim); font-size: 0.75rem;">تاريخ المنح</div>
+              <div style="color: var(--text);">${date}</div>
             </div>
             <div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">الاعتماد الرسمي</div>
-              <div style="font-weight: 900; color: var(--gold-200); font-size: 1.1rem;">OTB Agency 👑</div>
+              <div style="color: var(--text-dim); font-size: 0.75rem;">الاعتماد الرسمي</div>
+              <div style="color: var(--gold); font-weight: 700;">OTB Agency 👑</div>
             </div>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-          <button class="btn-primary" style="padding: 0.9rem 2.5rem;" onclick="window.print()">🖨️ طباعة أو حفظ الشهادة كـ PDF</button>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="btn btn-secondary" onclick="window.print()">🖨️ طباعة الشهادة / حفظ PDF</button>
         </div>
       `;
-
-      showToast("👑 تهانينا! تم إصدار شهادة الاعتماد بنجاح!");
-      resContainer.scrollIntoView({ behavior: "smooth" });
+      wrap.scrollIntoView({ behavior: "smooth" });
+      showToast("👑 تم إصدار الشهادة بنجاح!");
     }
-
-    renderQuiz();
   </script>
 </body>
 </html>
