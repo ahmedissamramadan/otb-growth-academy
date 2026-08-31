@@ -1,6 +1,5 @@
 /* ==========================================================================
-   OTB TEAM AI HUB — VERCEL REACT BEST PRACTICES STYLESHEET
-   GPU Acceleration, content-visibility optimization, Zero Cumulative Layout Shifts
+   OTB TEAM AI HUB — MASTER STYLESHEET (LUCIDE & VERCEL CERTIFIED)
    ========================================================================== */
 
 :root {
@@ -91,10 +90,23 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  contain: paint;
 }
 
-/* Vercel rendering-content-visibility rule for off-screen optimizations */
+/* Lucide Vector Icons Global Sizing & Alignment */
+svg.lucide, i.lucide, [data-lucide] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Content Visibility */
 .cv-optimize {
   content-visibility: auto;
   contain-intrinsic-size: 1px 400px;
@@ -110,15 +122,14 @@ body {
   pointer-events: none;
   z-index: 0;
   opacity: 0.55;
-  will-change: transform;
 }
 
-/* Translucent Glass Navbar */
+/* Navbar */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(6, 8, 12, 0.78);
+  background: rgba(6, 8, 12, 0.85);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 1px solid var(--border-subtle);
@@ -126,7 +137,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transform: translateZ(0); /* GPU layer */
 }
 
 .nav-brand {
@@ -194,10 +204,10 @@ body {
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.15s ease, background 0.15s ease, transform 0.12s var(--spring-snappy);
+  transition: all 0.18s var(--spring-snappy);
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .nav-pill-btn:hover {
@@ -216,6 +226,10 @@ body {
   box-shadow: 0 0 15px var(--gold-glow);
 }
 
+.nav-pill-btn.active svg {
+  color: #000 !important;
+}
+
 /* Phone Button */
 .phone-wrapper {
   direction: ltr !important;
@@ -231,7 +245,7 @@ body {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
   font-size: 0.88rem;
   transition: all 0.2s var(--spring-snappy);
 }
@@ -246,7 +260,7 @@ body {
   transform: scale(0.96);
 }
 
-/* Container */
+/* App Container */
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -265,7 +279,7 @@ body {
 .hero-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   padding: 0.4rem 1.25rem;
   background: rgba(212, 168, 83, 0.08);
   border: 1px solid var(--border-gold);
@@ -307,7 +321,6 @@ body {
   border-radius: var(--radius-md);
   padding: 1.75rem;
   transition: transform 0.25s var(--spring-snappy), border-color 0.25s ease, box-shadow 0.25s ease;
-  transform: translateZ(0);
 }
 
 .glass-card:hover {
@@ -377,8 +390,10 @@ body {
 }
 
 .role-icon-box {
-  font-size: 1.85rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .role-name {
@@ -476,6 +491,10 @@ body {
   transform: translateY(-1px);
 }
 
+.btn-primary svg {
+  color: #000 !important;
+}
+
 .btn-secondary {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-main);
@@ -537,23 +556,4 @@ body {
   color: #000;
   font-weight: 700;
   box-shadow: 0 0 12px var(--gold-glow);
-}
-
-/* Reduced Motion & Transparency */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .glass-card, .btn, .role-tab, .tool-pill {
-    transform: none !important;
-  }
-}
-
-@media (prefers-reduced-transparency: reduce) {
-  .navbar, .glass-card, .role-stage, .nav-pills {
-    background: #0B0E14 !important;
-    backdrop-filter: none !important;
-  }
 }

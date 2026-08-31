@@ -181,33 +181,602 @@ roles_json = json.dumps(REAL_ROLES_DATA, ensure_ascii=False)
 clients_json = json.dumps(REAL_CLIENTS_DATA, ensure_ascii=False)
 courses_json = json.dumps(COURSES_DATA, ensure_ascii=False)
 
-# Build HTML with Lucide Icons and clean Vercel scripts
+# Build Enhanced CSS with Lucide vector support
+css_content = """/* ==========================================================================
+   OTB TEAM AI HUB — MASTER STYLESHEET (LUCIDE & VERCEL CERTIFIED)
+   ========================================================================== */
+
+:root {
+  --bg-main: #06080C;
+  --bg-card: rgba(14, 18, 26, 0.76);
+  --bg-card-hover: rgba(22, 28, 40, 0.88);
+  --bg-input: rgba(12, 16, 24, 0.9);
+  --bg-surface: #0A0D14;
+
+  --gold: #D4A853;
+  --gold-light: #F5E6C8;
+  --gold-glow: rgba(212, 168, 83, 0.28);
+  --gold-accent: #E5C378;
+
+  --emerald: #10B981;
+  --crimson: #F43F5E;
+  --cyan: #38BDF8;
+
+  --text-pure: #FFFFFF;
+  --text-main: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 168, 83, 0.32);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --font-felfel: 'Felfel-Bold', 'Readex Pro', system-ui, -apple-system, sans-serif;
+  --font-kookies: 'KOOkies-Bold', 'Readex Pro', system-ui, -apple-system, sans-serif;
+  --font-kookies-black: 'KOOkies-ExtraBold', 'Readex Pro', system-ui, -apple-system, sans-serif;
+  --font-royal: 'Cinzel', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Readex Pro', 'SF Pro Text', system-ui, sans-serif;
+
+  --spring-snappy: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@font-face {
+  font-family: 'Felfel-Bold';
+  src: url('assets/fonts/Felfel-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOOkies-Bold';
+  src: url('assets/fonts/KOOkies-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KOOkies-ExtraBold';
+  src: url('assets/fonts/KOOkies-ExtraBold.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-main);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lucide Vector Icons Global Sizing & Alignment */
+svg.lucide, i.lucide, [data-lucide] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Content Visibility */
+.cv-optimize {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
+}
+
+/* WebGL Background */
+#webglCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(6, 8, 12, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand-badge-img {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
+  transition: transform 0.2s var(--spring-snappy);
+}
+
+.brand-badge-img:hover {
+  transform: scale(1.05);
+}
+
+.brand-badge-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-text h1 {
+  font-family: var(--font-kookies-black);
+  font-size: 1.15rem;
+  color: var(--text-pure);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.brand-text span {
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+/* Nav Pills */
+.nav-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(16, 20, 30, 0.75);
+  padding: 0.3rem 0.45rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.nav-pill-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.48rem 1.05rem;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s var(--spring-snappy);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-pill-btn:hover {
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-pill-btn:active {
+  transform: scale(0.96);
+}
+
+.nav-pill-btn.active {
+  color: #000;
+  background: var(--gold);
+  font-weight: 700;
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.nav-pill-btn.active svg {
+  color: #000 !important;
+}
+
+/* Phone Button */
+.phone-wrapper {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(212, 168, 83, 0.08);
+  border: 1px solid var(--border-gold);
+  padding: 0.45rem 1rem;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  transition: all 0.2s var(--spring-snappy);
+}
+
+.phone-wrapper:hover {
+  background: rgba(212, 168, 83, 0.18);
+  border-color: var(--gold);
+  box-shadow: 0 0 14px var(--gold-glow);
+}
+
+.phone-wrapper:active {
+  transform: scale(0.96);
+}
+
+/* App Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero */
+.hero-wrapper {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1.25rem;
+  background: rgba(212, 168, 83, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: var(--font-felfel);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  color: var(--text-pure);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero-title span {
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: transform 0.25s var(--spring-snappy), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+}
+
+.bento-col-12 { grid-column: span 12; }
+.bento-col-6  { grid-column: span 6; }
+.bento-col-4  { grid-column: span 4; }
+
+@media (max-width: 860px) {
+  .bento-col-6, .bento-col-4 {
+    grid-column: span 12;
+  }
+  .nav-pills {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
+
+/* Role Grid */
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.role-tab {
+  background: rgba(14, 18, 26, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  min-height: 44px;
+  cursor: pointer;
+  transition: all 0.22s var(--spring-snappy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+}
+
+.role-tab:hover {
+  background: rgba(22, 28, 40, 0.85);
+  border-color: var(--border-gold);
+  transform: translateY(-2px);
+}
+
+.role-tab:active {
+  transform: scale(0.97);
+}
+
+.role-tab.active {
+  background: rgba(212, 168, 83, 0.1);
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.2);
+}
+
+.role-icon-box {
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.role-name {
+  font-family: var(--font-felfel);
+  font-size: 1.1rem;
+  color: var(--text-pure);
+  font-weight: 700;
+}
+
+.role-eng {
+  font-family: var(--font-kookies);
+  font-size: 0.82rem;
+  color: var(--gold);
+  letter-spacing: 0.4px;
+}
+
+/* Role Stage */
+.role-stage {
+  background: rgba(10, 13, 20, 0.85);
+  border: 1.5px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(24px);
+}
+
+.role-header-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.role-heading {
+  font-family: var(--font-felfel);
+  font-size: 2.1rem;
+  color: var(--text-pure);
+  margin-top: 0.2rem;
+}
+
+/* Tool Badges */
+.tool-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.95rem;
+  min-height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.18s var(--spring-snappy);
+}
+
+.tool-pill:hover {
+  background: rgba(212, 168, 83, 0.12);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.4rem;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.18s var(--spring-snappy);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #000;
+  box-shadow: 0 4px 15px var(--gold-glow);
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  box-shadow: 0 6px 20px rgba(212, 168, 83, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary svg {
+  color: #000 !important;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--border-gold);
+  color: var(--text-pure);
+  transform: translateY(-1px);
+}
+
+/* Code Console Box */
+.code-box {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--cyan);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  direction: ltr;
+  text-align: left;
+  position: relative;
+  margin: 0.65rem 0;
+}
+
+/* Tabs */
+.tabs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  padding: 0.48rem 1.1rem;
+  min-height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s var(--spring-snappy);
+}
+
+.tab-pill:hover {
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-pill.active {
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+"""
+
+with open(os.path.join(BASE_DIR, "style.css"), "w", encoding="utf-8") as f:
+    f.write(css_content)
+
+# Build Master HTML with Local Script Paths & Fallbacks
 html_content = f"""<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Aggressive Cache Prevention Meta -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
   <title>👑 OTB Team AI Hub — منصة تمكين ملوك المدينة</title>
   
-  <!-- Vercel Performance Resource Hints -->
+  <!-- Resource Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
   
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=JetBrains+Mono:wght@500;600;700&family=Readex+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.6.0">
   
-  <!-- Lucide Icons & Three.js CDN -->
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <!-- Standalone Bundled Libraries (Local + CDN fallback) -->
+  <script src="assets/js/lucide.min.js"></script>
+  <script src="assets/js/three.min.js"></script>
 </head>
 <body>
 
   <!-- WebGL Background -->
   <canvas id="webglCanvas"></canvas>
 
-  <!-- Translucent Glass Navbar -->
+  <!-- Navbar -->
   <header class="navbar">
     <a href="#" class="nav-brand" onclick="switchMainTab('roles')">
       <div class="brand-badge-img">
@@ -219,7 +788,7 @@ html_content = f"""<!DOCTYPE html>
       </div>
     </a>
 
-    <!-- Navigation Pills -->
+    <!-- Nav Pills -->
     <nav class="nav-pills">
       <button class="nav-pill-btn active" id="tabBtn-roles" onclick="switchMainTab('roles')">
         <i data-lucide="users" style="width: 16px; height: 16px;"></i> أدوار الفريق
@@ -531,7 +1100,7 @@ html_content = f"""<!DOCTYPE html>
 
   </main>
 
-  <script src="shared_ui.js" defer></script>
+  <script src="shared_ui.js?v=2.6.0"></script>
   <script>
     const coursesData = {courses_json};
     const rolesData = {roles_json};
@@ -548,8 +1117,12 @@ html_content = f"""<!DOCTYPE html>
     }});
 
     function refreshLucide() {{
-      if (window.lucide && typeof lucide.createIcons === 'function') {{
-        lucide.createIcons();
+      try {{
+        if (window.lucide && typeof lucide.createIcons === 'function') {{
+          lucide.createIcons();
+        }}
+      }} catch (e) {{
+        console.warn("Lucide render error:", e);
       }}
     }}
 
@@ -564,7 +1137,7 @@ html_content = f"""<!DOCTYPE html>
       if (btn) btn.classList.add("active");
 
       window.scrollTo({{ top: 0, behavior: "smooth" }});
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
     }}
 
     function renderRolesGrid() {{
@@ -657,7 +1230,7 @@ html_content = f"""<!DOCTYPE html>
           </div>
         </div>
       `;
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
     }}
 
     function renderClientsGrid() {{
@@ -682,7 +1255,7 @@ html_content = f"""<!DOCTYPE html>
         `;
       }});
       container.innerHTML = html;
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
     }}
 
     function renderCoursesList(list) {{
@@ -751,13 +1324,13 @@ html_content = f"""<!DOCTYPE html>
         `;
       }});
       container.innerHTML = html;
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
     }}
 
     function toggleCourseDetails(id) {{
       const d = document.getElementById("details_" + id);
       if (d) d.style.display = (d.style.display === "none") ? "block" : "none";
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
     }}
 
     function toggleCourseDone(id) {{
@@ -854,12 +1427,12 @@ html_content = f"""<!DOCTYPE html>
         </div>
       `;
       wrap.scrollIntoView({{ behavior: "smooth" }});
-      refreshLucide();
+      setTimeout(refreshLucide, 20);
       showToast("👑 تم إصدار شهادة الاعتماد الملكية بنجاح!");
     }}
 
-    // INITIALIZATION
-    window.addEventListener("DOMContentLoaded", () => {{
+    // Initial Execution
+    document.addEventListener("DOMContentLoaded", () => {{
       renderRolesGrid();
       renderClientsGrid();
       renderCoursesList(coursesData);
@@ -867,13 +1440,12 @@ html_content = f"""<!DOCTYPE html>
       refreshLucide();
     }});
 
-    // Polling safety check for Lucide deferred script
-    const checkLucideInterval = setInterval(() => {{
-      if (window.lucide && typeof lucide.createIcons === 'function') {{
-        lucide.createIcons();
-        clearInterval(checkLucideInterval);
-      }}
-    }}, 100);
+    // Instant Execution
+    renderRolesGrid();
+    renderClientsGrid();
+    renderCoursesList(coursesData);
+    updateLivePrompt();
+    refreshLucide();
   </script>
 </body>
 </html>
@@ -882,7 +1454,7 @@ html_content = f"""<!DOCTYPE html>
 with open(os.path.join(BASE_DIR, "index.html"), "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("Applied Lucide Icons to index.html!")
+print("Applied Bundled Lucide & Three.js to index.html!")
 
 # Sync to Downloads
 if os.path.exists(DOWNLOADS_DIR):
